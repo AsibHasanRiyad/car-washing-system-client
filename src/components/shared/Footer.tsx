@@ -119,7 +119,6 @@ const Footer = () => {
         </div>
         <div className="flex flex-col">
           <div className="flex flex-row justify-between mt-16 mb-6">
-            <div className=""></div>
             <a className="hidden uppercase cursor-pointer text-neutral-400 md:block hover:text-white">
               About
             </a>

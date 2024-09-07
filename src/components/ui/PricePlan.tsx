@@ -5,7 +5,7 @@ const PricePlan = () => {
         <div className="xl:items-center xl:-mx-8 xl:flex">
           <div className="flex flex-col items-center xl:items-start xl:mx-8">
             <h1 className="text-2xl font-medium text-white capitalize lg:text-3xl ">
-              Our Pricing Plan
+              Our Pricing <span className=" text-primary">Plan</span>
             </h1>
 
             <div className="mt-4">

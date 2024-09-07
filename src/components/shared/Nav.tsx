@@ -23,7 +23,7 @@ export function MenubarDemo() {
   return (
     <div>
       {/* Desktop Menubar */}
-      <Menubar className="justify-between hidden px-10 py-7 bg-[#171717]  border-b   text-white rounded-none border-gray-400 lg:flex">
+      <Menubar className="justify-between hidden px-10 py-7 bg-[#171717]  border-none   text-white rounded-none border-gray-400 lg:flex">
         {/* left part */}
         <div className="text-2xl font-medium ">
           <span className=" text-[#ff0]">Clean</span>CarCo
@@ -32,7 +32,7 @@ export function MenubarDemo() {
         <div className="flex">
           <MenubarMenu>
             <MenubarTrigger className="text-lg ">Services</MenubarTrigger>
-            <MenubarContent>
+            <MenubarContent className="mt-1 bg-primary">
               <MenubarItem>
                 Get All Services
                 <MenubarShortcut>
@@ -50,7 +50,7 @@ export function MenubarDemo() {
           </MenubarMenu>
           <MenubarMenu>
             <MenubarTrigger className="text-lg ">Bookings</MenubarTrigger>
-            <MenubarContent>
+            <MenubarContent className="mt-1 bg-primary">
               <MenubarItem>
                 Get All Bookings
                 <MenubarShortcut>
@@ -68,7 +68,7 @@ export function MenubarDemo() {
           </MenubarMenu>
           <MenubarMenu>
             <MenubarTrigger className="text-lg ">Slots</MenubarTrigger>
-            <MenubarContent>
+            <MenubarContent className="mt-1 bg-primary ">
               <MenubarItem>
                 Get All Slots
                 <MenubarShortcut>

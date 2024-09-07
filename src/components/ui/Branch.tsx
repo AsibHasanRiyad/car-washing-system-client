@@ -5,6 +5,11 @@ const Branch = () => {
         <h1 className="text-2xl font-semibold text-center text-white capitalize lg:text-3xl ">
           Our <span className=" text-primary">Branches</span>
         </h1>
+        <div className="flex justify-center mt-4">
+          <span className="inline-block w-40 h-1 bg-[#ff0] rounded-full"></span>
+          <span className="inline-block w-3 h-1 mx-1 bg-[#ff0] rounded-full"></span>
+          <span className="inline-block w-1 h-1 bg-[#ff0] rounded-full"></span>
+        </div>
 
         <p className="max-w-2xl mx-auto my-6 text-center text-neutral-400 dark:text-gray-300">
           We have multiple branches across the city to serve you better. Visit
