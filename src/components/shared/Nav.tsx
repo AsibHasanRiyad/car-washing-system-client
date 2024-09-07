@@ -23,13 +23,15 @@ export function MenubarDemo() {
   return (
     <div>
       {/* Desktop Menubar */}
-      <Menubar className="justify-between hidden px-10 py-6 bg-[#212529] border-none text-[#f8f9fa] rounded-none lg:flex">
+      <Menubar className="justify-between hidden px-10 py-7 bg-[#171717]  border-b   text-white rounded-none border-gray-400 lg:flex">
         {/* left part */}
-        <div>Logo and Name</div>
+        <div className="text-2xl font-medium ">
+          <span className=" text-[#ff0]">Clean</span>CarCo
+        </div>
         {/* middle part */}
         <div className="flex">
           <MenubarMenu>
-            <MenubarTrigger>Services</MenubarTrigger>
+            <MenubarTrigger className="text-lg ">Services</MenubarTrigger>
             <MenubarContent>
               <MenubarItem>
                 Get All Services
@@ -47,7 +49,7 @@ export function MenubarDemo() {
             </MenubarContent>
           </MenubarMenu>
           <MenubarMenu>
-            <MenubarTrigger>Bookings</MenubarTrigger>
+            <MenubarTrigger className="text-lg ">Bookings</MenubarTrigger>
             <MenubarContent>
               <MenubarItem>
                 Get All Bookings
@@ -65,7 +67,7 @@ export function MenubarDemo() {
             </MenubarContent>
           </MenubarMenu>
           <MenubarMenu>
-            <MenubarTrigger>Slots</MenubarTrigger>
+            <MenubarTrigger className="text-lg ">Slots</MenubarTrigger>
             <MenubarContent>
               <MenubarItem>
                 Get All Slots
@@ -85,14 +87,14 @@ export function MenubarDemo() {
         </div>
         {/* last part */}
         <div>
-          <Button className="bg-transparent  hover:text-white hover:bg-black">
+          <Button className="bg-[#ff0] text-black transform transition-colors duration-500  hover:text-white hover:bg-black">
             Logout
           </Button>
         </div>
       </Menubar>
 
       {/* Mobile Menubar */}
-      <Menubar className="flex items-center justify-between px-10 text-white bg-red-500 border-none rounded-none py-7 lg:hidden">
+      <Menubar className="flex items-center justify-between px-10 text-white bg-[#171717] border-none rounded-none py-7 lg:hidden">
         {/* left part */}
         <div>Logo and Name</div>
         {/* menu button */}
@@ -105,7 +107,7 @@ export function MenubarDemo() {
 
         {/* Sidebar Menu */}
         <div
-          className={`fixed inset-y-0 -left-2 top-[55px] w-2/3 space-y-4 h-full bg-black pl-8 pt-8 z-50 transition-transform duration-500 ease-in-out transform ${
+          className={`fixed inset-y-0 -left-2 drop-shadow-xl  w-2/3 space-y-4 h-full bg-[#171717] pl-8 pt-8 z-50 transition-transform duration-500 ease-in-out transform ${
             isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
