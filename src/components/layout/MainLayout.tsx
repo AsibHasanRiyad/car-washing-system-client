@@ -1,3 +1,4 @@
+import Footer from "../shared/Footer";
 import { MenubarDemo } from "../shared/Nav";
 // import Navbar from "../shared/Navbar";
 import Container from "../ui/Container";
@@ -9,6 +10,7 @@ const MainLayout = () => {
       {/* <Navbar /> */}
       <MenubarDemo />
       <Outlet />
+      <Footer />
     </Container>
   );
 };

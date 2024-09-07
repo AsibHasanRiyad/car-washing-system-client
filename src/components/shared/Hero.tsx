@@ -1,7 +1,7 @@
 const Hero = () => {
   return (
     <div>
-      <div className="bg-neutral-900 ">
+      <div className="bg-neutral-900 h-[70vh]">
         <div className="max-w-5xl px-4 pt-24 mx-auto pb-28 xl:px-0 lg:pt-40">
           <h1 className="text-5xl font-semibold text-white md:text-6xl">
             <span className="text-[#ff0] ">Clean</span>CarCo, Your Car Deserves
