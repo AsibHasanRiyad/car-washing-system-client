@@ -12,6 +12,7 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export function MenubarDemo() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -29,9 +30,11 @@ export function MenubarDemo() {
           <span className=" text-[#ff0]">Clean</span>CarCo
         </div>
         {/* middle part */}
-        <div className="flex">
+        <div className="flex items-center">
           <MenubarMenu>
-            <MenubarTrigger className="text-lg ">Services</MenubarTrigger>
+            <MenubarTrigger className="text-lg transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105 ">
+              Services
+            </MenubarTrigger>
             <MenubarContent className="mt-1 bg-primary">
               <MenubarItem>
                 Get All Services
@@ -49,7 +52,9 @@ export function MenubarDemo() {
             </MenubarContent>
           </MenubarMenu>
           <MenubarMenu>
-            <MenubarTrigger className="text-lg ">Bookings</MenubarTrigger>
+            <MenubarTrigger className="text-lg transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105 ">
+              Bookings
+            </MenubarTrigger>
             <MenubarContent className="mt-1 bg-primary">
               <MenubarItem>
                 Get All Bookings
@@ -67,7 +72,9 @@ export function MenubarDemo() {
             </MenubarContent>
           </MenubarMenu>
           <MenubarMenu>
-            <MenubarTrigger className="text-lg ">Slots</MenubarTrigger>
+            <MenubarTrigger className="text-lg transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
+              Slots
+            </MenubarTrigger>
             <MenubarContent className="mt-1 bg-primary ">
               <MenubarItem>
                 Get All Slots
@@ -84,12 +91,19 @@ export function MenubarDemo() {
               </MenubarItem>
             </MenubarContent>
           </MenubarMenu>
+          <MenubarMenu>
+            <h1 className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
+              About Us
+            </h1>
+          </MenubarMenu>
         </div>
         {/* last part */}
         <div>
-          <Button className="bg-[#ff0] text-black transform transition-colors duration-500  hover:text-white hover:bg-black">
-            Logout
-          </Button>
+          <Link to={"/signin"}>
+            <Button className="bg-[#ff0] text-black transform transition-colors duration-500  hover:text-white hover:bg-black">
+              SignIn
+            </Button>
+          </Link>
         </div>
       </Menubar>
 
