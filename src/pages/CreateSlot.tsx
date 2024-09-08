@@ -8,39 +8,68 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+import { DatePicker } from "@/components/ui/DatePicker";
 import { Label } from "@/components/ui/label";
 import { SelectItemComponent } from "@/components/ui/SelectItem";
+import { TimePickerDemo } from "@/components/ui/TimePicker";
 import { useGetAllServicesQuery } from "@/redux/features/serviceApi";
-import { useState } from "react";
+import { useCreateSlotMutation } from "@/redux/features/slotApi";
+import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "sonner";
 
-export type TService = {
-  name: string;
-  description: string;
-  price: number;
-  duration: number;
-  isDeleted: boolean;
+export type TSlot = {
+  serviceId: string;
+  date: string;
+  startTime: string;
+  endTime: string;
+  isBooked: "available" | "booked" | "canceled";
   _id?: string;
 };
 
 export function CreateSlot() {
   const { data, isLoading, isFetching } = useGetAllServicesQuery(undefined);
   const [selectedService, setSelectedService] = useState<string | undefined>();
+  const [date, setDate] = React.useState<Date | undefined>();
+  const [startTime, setStartTime] = React.useState<Date | undefined>();
+  const [endTime, setEndTime] = React.useState<Date | undefined>();
+  const [createSlot, { error, isLoading: slotLoading }] =
+    useCreateSlotMutation();
 
-  console.log(selectedService);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<TService>();
+  const { handleSubmit } = useForm<TSlot>();
 
-  const onSubmit: SubmitHandler<TService> = async (data) => {
-    console.log(data);
+  const formatTime = (date: Date | undefined): string => {
+    if (!date) return "00:00";
+    const hours = date.getHours().toString().padStart(2, "0");
+    const minutes = date.getMinutes().toString().padStart(2, "0");
+    return `${hours}:${minutes}`;
   };
+  console.log(error);
+  const onSubmit: SubmitHandler<TSlot> = async (formData) => {
+    const slotData = {
+      ...formData,
+      date: date ? date.toISOString() : undefined,
+      startTime: formatTime(startTime),
+      endTime: formatTime(endTime),
+      serviceId: selectedService,
+      isBooked: "available",
+    };
+    console.log(slotData);
+    try {
+      const res = await createSlot(slotData).unwrap();
+      console.log(res, "res");
+      if (res.success) {
+        toast.success(res.message);
+      }
+    } catch (err) {
+      toast.error(err?.data?.message || "Something went wrong");
+    }
+  };
+
   if (isFetching || isLoading) {
     return <Loader />;
   }
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-secondary ">
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -68,68 +97,29 @@ export function CreateSlot() {
               </div>
               <div className="flex flex-col space-y-4">
                 <Label className="text-white" htmlFor="description">
-                  Description :
+                  Select A Date :
                 </Label>
-                <Input
-                  type="text"
-                  {...register("description", {
-                    required: "Description is required",
-                  })}
-                  id="description"
-                  placeholder="Description"
-                  className={`${errors.description ? "border-red-500" : ""}`}
-                />
-                {errors.description && (
-                  <span className="text-sm text-red-500">
-                    {errors.description.message}
-                  </span>
-                )}
+                <DatePicker setDate={setDate} />
               </div>
-              <div className="flex flex-col space-y-4">
-                <Label className="text-white" htmlFor="price">
-                  Price
-                </Label>
-                <Input
-                  {...register("price", {
-                    required: "Price is required",
-                    valueAsNumber: true,
-                  })}
-                  type="number"
-                  id="price"
-                  placeholder="Price"
-                  className={`${errors.price ? "border-red-500" : ""}`}
-                />
-                {errors.price && (
-                  <span className="text-sm text-red-500">
-                    {errors.price.message}
-                  </span>
-                )}
-              </div>
-              <div className="flex flex-col space-y-4">
-                <Label className="text-white" htmlFor="duration">
-                  Duration (minutes)
-                </Label>
-                <Input
-                  type="number"
-                  {...register("duration", {
-                    required: "Duration is required",
-                    valueAsNumber: true,
-                  })}
-                  id="duration"
-                  placeholder="Duration"
-                  className={`${errors.duration ? "border-red-500" : ""}`}
-                />
-                {errors.duration && (
-                  <span className="text-sm text-red-500">
-                    {errors.duration.message}
-                  </span>
-                )}
+              <div className="flex justify-between">
+                <div className="flex flex-col">
+                  <Label className="text-white" htmlFor="startTime">
+                    Start Time:
+                  </Label>
+                  <TimePickerDemo date={startTime} setDate={setStartTime} />
+                </div>
+                <div className="flex flex-col ">
+                  <Label className="text-white" htmlFor="endTime">
+                    End Time:
+                  </Label>
+                  <TimePickerDemo date={endTime} setDate={setEndTime} />
+                </div>
               </div>
             </div>
           </CardContent>
           <CardFooter className="flex justify-end w-full">
             <Button className=" bg-primary text-secondary hover:bg-white">
-              {/* {isLoading ? (
+              {isLoading ? (
                 <span className="flex items-center gap-2 ">
                   <p>Creating</p>
                   <p
@@ -139,7 +129,7 @@ export function CreateSlot() {
                 </span>
               ) : (
                 "Create"
-              )} */}
+              )}
             </Button>
           </CardFooter>
         </Card>
