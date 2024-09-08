@@ -46,14 +46,14 @@ export function MenubarDemo() {
             </MenubarTrigger>
             <MenubarContent className="mt-1 bg-primary">
               <MenubarItem>
-                Get All Services
+                <Link to={"/all-services"}>All Services</Link>
                 <MenubarShortcut>
                   <MdKeyboardArrowRight className="text-[#171717] text-xl" />
                 </MenubarShortcut>
               </MenubarItem>
               <MenubarSeparator />
               <MenubarItem>
-                Create Services
+                <Link to={"/create-service"}>Create Services</Link>
                 <MenubarShortcut>
                   <MdKeyboardArrowRight className="text-[#171717] text-xl" />
                 </MenubarShortcut>

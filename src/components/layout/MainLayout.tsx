@@ -6,14 +6,14 @@ import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
   return (
-    <Container>
-      {/* <Navbar /> */}
-      <div>
-        <MenubarDemo />
-      </div>
-      <Outlet />
+    <div>
+      <MenubarDemo />
+
+      <Container>
+        <Outlet />
+      </Container>
       <Footer />
-    </Container>
+    </div>
   );
 };
 
