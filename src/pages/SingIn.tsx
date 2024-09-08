@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Link } from "react-router-dom";
 import video from "../assets/video/signIn.mp4";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
@@ -5,6 +6,7 @@ import { MdOutlineMailOutline } from "react-icons/md";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useLoginMutation } from "@/redux/features/authApi";
+import { toast } from "sonner";
 type TInput = {
   email: string;
   password: string;
@@ -12,13 +14,16 @@ type TInput = {
 const SingIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   //   data fetch
-  const [login, { data: loginData, isLoading, error, isSuccess }] =
-    useLoginMutation();
-  console.log(loginData, error);
+  const [login, { isLoading, error }] = useLoginMutation();
+  console.log(error);
   const { register, handleSubmit } = useForm<TInput>();
-  const onSubmit: SubmitHandler<TInput> = (data) => {
-    console.log(data, "data");
-    login(data);
+  const onSubmit: SubmitHandler<TInput> = async (data) => {
+    const res = await login(data);
+    if (res?.data?.success) {
+      toast.success(res?.data?.message);
+    } else {
+      toast.error(res?.error?.data?.message || "Something went wrong");
+    }
   };
 
   return (
@@ -103,7 +108,17 @@ const SingIn = () => {
                 type="submit"
                 className="px-6 py-3 text-sm font-semibold text-gray-800 rounded-md shadow-xl bg-primary w-max focus:outline-none"
               >
-                Sign In
+                {isLoading ? (
+                  <span className="flex items-center gap-2 ">
+                    <p>Loading...</p>
+                    <p
+                      className="inline-block h-4 w-4 animate-spin rounded-full border-4 text-gray-700 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] "
+                      role="status"
+                    ></p>
+                  </span>
+                ) : (
+                  "Sign In"
+                )}
               </button>
               <p className="mt-8 text-sm text-white">
                 Doesn't have an account?{" "}
