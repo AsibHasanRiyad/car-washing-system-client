@@ -1,8 +1,26 @@
 import { Link } from "react-router-dom";
 import video from "../assets/video/signIn.mp4";
-import { IoMdEye } from "react-icons/io";
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { MdOutlineMailOutline } from "react-icons/md";
+import { useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { useLoginMutation } from "@/redux/features/authApi";
+type TInput = {
+  email: string;
+  password: string;
+};
 const SingIn = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  //   data fetch
+  const [login, { data: loginData, isLoading, error, isSuccess }] =
+    useLoginMutation();
+  console.log(loginData, error);
+  const { register, handleSubmit } = useForm<TInput>();
+  const onSubmit: SubmitHandler<TInput> = (data) => {
+    console.log(data, "data");
+    login(data);
+  };
+
   return (
     <div className="bg-white md:h-screen">
       <div className="grid items-center h-full md:grid-cols-2">
@@ -30,9 +48,11 @@ const SingIn = () => {
           </div>
         </div>
 
-        {/* Second Div: Same as Before */}
         <div className="flex items-center bg-[#0C172C] h-full w-full">
-          <form className="w-full max-w-lg mx-auto">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="w-full max-w-lg mx-auto"
+          >
             <div className="mb-12">
               <h3 className="text-3xl font-bold text-primary">Sign In</h3>
             </div>
@@ -41,7 +61,7 @@ const SingIn = () => {
               <label className="block mb-2 text-xs text-white">Email</label>
               <div className="relative flex items-center">
                 <input
-                  name="email"
+                  {...register("email")}
                   type="text"
                   required
                   className="w-full px-2 py-3 text-sm text-white bg-transparent border-b border-gray-300 outline-none focus:border-yellow-400"
@@ -54,34 +74,33 @@ const SingIn = () => {
               <label className="block mb-2 text-xs text-white">Password</label>
               <div className="relative flex items-center">
                 <input
-                  name="password"
-                  type="password"
+                  {...register("password")}
+                  type={showPassword ? "text" : "password"}
                   required
                   className="w-full px-2 py-3 text-sm text-white bg-transparent border-b border-gray-300 outline-none focus:border-yellow-400"
                   placeholder="Enter password"
                 />
-                <IoMdEye className="relative -left-6 text-[#A6A8AA] text-2xl" />
+                {showPassword ? (
+                  <IoMdEye
+                    className={`relative -left-6 text-[#A6A8AA] text-2xl cursor-pointer ${
+                      showPassword ? "text-yellow-400" : ""
+                    }`}
+                    onClick={() => setShowPassword((prev) => !prev)}
+                  />
+                ) : (
+                  <IoMdEyeOff
+                    className={`relative -left-6 text-[#A6A8AA] text-2xl cursor-pointer ${
+                      showPassword ? "text-yellow-400" : ""
+                    }`}
+                    onClick={() => setShowPassword((prev) => !prev)}
+                  />
+                )}
               </div>
-            </div>
-
-            <div className="flex items-center mt-8">
-              <input
-                id="remember-me"
-                name="remember-me"
-                type="checkbox"
-                className="w-4 h-4 rounded shrink-0"
-              />
-              <label className="block ml-3 text-sm text-white">
-                I accept the{" "}
-                <p className="ml-1 font-semibold text-yellow-500 hover:underline">
-                  Terms and Conditions
-                </p>
-              </label>
             </div>
 
             <div className="mt-12">
               <button
-                type="button"
+                type="submit"
                 className="px-6 py-3 text-sm font-semibold text-gray-800 rounded-md shadow-xl bg-primary w-max focus:outline-none"
               >
                 Sign In

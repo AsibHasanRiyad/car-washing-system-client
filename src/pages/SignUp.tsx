@@ -143,21 +143,6 @@ const SignUp = () => {
               </div>
             </div>
 
-            <div className="flex items-center mt-8">
-              <input
-                id="remember-me"
-                name="remember-me"
-                type="checkbox"
-                className="w-4 h-4 rounded shrink-0"
-              />
-              <label className="block ml-3 text-sm text-white">
-                I accept the{" "}
-                <p className="ml-1 font-semibold text-primary hover:underline">
-                  Terms and Conditions
-                </p>
-              </label>
-            </div>
-
             <div className="mt-12">
               <button
                 type="submit"
