@@ -13,12 +13,18 @@ import { RxHamburgerMenu } from "react-icons/rx";
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { logout, useCurrentToken } from "@/redux/features/authSlice";
 
 export function MenubarDemo() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  const dispatch = useAppDispatch();
+  const token = useAppSelector(useCurrentToken);
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
+  };
+  const handelLogout = () => {
+    dispatch(logout());
   };
 
   return (
@@ -27,7 +33,10 @@ export function MenubarDemo() {
       <Menubar className="justify-between hidden px-10 py-7 bg-[#171717]  border-none   text-white rounded-none border-gray-400 lg:flex">
         {/* left part */}
         <div className="text-2xl font-medium ">
-          <span className=" text-[#ff0]">Clean</span>CarCo
+          <Link to={"/"}>
+            {" "}
+            <span className=" text-[#ff0]">Clean</span>CarCo
+          </Link>
         </div>
         {/* middle part */}
         <div className="flex items-center">
@@ -92,18 +101,29 @@ export function MenubarDemo() {
             </MenubarContent>
           </MenubarMenu>
           <MenubarMenu>
-            <h1 className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
-              About Us
-            </h1>
+            <Link to={"/about-us"}>
+              <h1 className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
+                About Us
+              </h1>
+            </Link>
           </MenubarMenu>
         </div>
         {/* last part */}
         <div>
-          <Link to={"/signin"}>
-            <Button className="bg-[#ff0] text-black transform transition-colors duration-500  hover:text-white hover:bg-black">
-              SignIn
+          {token ? (
+            <Button
+              onClick={() => handelLogout()}
+              className="bg-[#ff0] text-black transform transition-colors duration-500  hover:text-white hover:bg-black"
+            >
+              Logout
             </Button>
-          </Link>
+          ) : (
+            <Link to={"/signin"}>
+              <Button className="bg-[#ff0] text-black transform transition-colors duration-500  hover:text-white hover:bg-black">
+                SignIn
+              </Button>
+            </Link>
+          )}
         </div>
       </Menubar>
 

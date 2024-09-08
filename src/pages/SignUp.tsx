@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import video from "../assets/video/signIn.mp4";
 import { IoPersonCircle } from "react-icons/io5";
 import { MdOutlineMailOutline } from "react-icons/md";
@@ -8,20 +8,36 @@ import { IoLocation } from "react-icons/io5";
 import { IoMdEye } from "react-icons/io";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useState } from "react";
+import { useSignUpMutation } from "@/redux/features/authApi";
+import { toast } from "sonner";
 
 type TInput = {
   name: string;
   email: string;
   password: string;
   phone: string;
-
+  role: string;
   address: string;
 };
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [signUp, { isLoading, error }] = useSignUpMutation();
+  const navigate = useNavigate();
+  console.log(error);
   const { register, handleSubmit } = useForm<TInput>();
-  const onSubmit: SubmitHandler<TInput> = (data) => {
-    console.log(data, "data");
+  const onSubmit: SubmitHandler<TInput> = async (data) => {
+    try {
+      data.role = "user";
+      const res = await signUp(data).unwrap();
+
+      if (res.success) {
+        toast.success(res.message);
+        navigate("/signin");
+      }
+    } catch (err) {
+      console.error("Error occurred:", err);
+      toast.error(err?.data?.message || "Something went wrong");
+    }
   };
 
   return (
@@ -148,7 +164,17 @@ const SignUp = () => {
                 type="submit"
                 className="px-6 py-3 text-sm font-semibold text-gray-800 rounded-md shadow-xl w-max bg-primary focus:outline-none"
               >
-                Register
+                {isLoading ? (
+                  <span className="flex items-center gap-2 ">
+                    <p>Loading...</p>
+                    <p
+                      className="inline-block h-4 w-4 animate-spin rounded-full border-4 text-gray-700 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] "
+                      role="status"
+                    ></p>
+                  </span>
+                ) : (
+                  "Register"
+                )}
               </button>
               <p className="mt-8 text-sm text-white">
                 Already have an account?{" "}

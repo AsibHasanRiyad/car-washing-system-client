@@ -8,7 +8,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { useLoginMutation } from "@/redux/features/authApi";
 import { toast } from "sonner";
 import { useDispatch } from "react-redux";
-import { setUser } from "@/redux/features/authSlice";
+import { setUser, TUser } from "@/redux/features/authSlice";
 import { verifyToken } from "@/utils/verifyToken";
 type TInput = {
   email: string;
@@ -27,7 +27,7 @@ const SingIn = () => {
     console.log(res, "res");
     if (res?.data?.success) {
       toast.success(res?.data?.message);
-      const user = verifyToken(res.data.data.token);
+      const user = verifyToken(res.data.data.token) as TUser;
       console.log(user);
       dispatch(setUser({ user: user, token: res.data.data.token }));
       navigate("/");

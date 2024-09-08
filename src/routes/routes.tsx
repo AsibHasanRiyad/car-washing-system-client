@@ -1,4 +1,6 @@
 import App from "@/App";
+import ProtectedRoute from "@/components/layout/ProtectedRoute";
+import AboutUs from "@/pages/AboutUs";
 import Home from "@/pages/Home";
 import SignUp from "@/pages/SignUp";
 import SingIn from "@/pages/SingIn";
@@ -13,6 +15,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/about-us",
+        element: (
+          <ProtectedRoute>
+            <AboutUs />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/signin",
