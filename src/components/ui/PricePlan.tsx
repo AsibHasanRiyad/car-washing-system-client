@@ -55,11 +55,7 @@ const PricePlan = () => {
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
-                        <path
-                          fillRole="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clip-rule="evenodd"
-                        />
+                        <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
                       </svg>
 
                       <span className="mx-4 text-neutral-400 dark:text-gray-300">
@@ -74,11 +70,7 @@ const PricePlan = () => {
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
-                        <path
-                          fillRole="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clip-rule="evenodd"
-                        />
+                        <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
                       </svg>
 
                       <span className="mx-4 text-neutral-400 dark:text-gray-300">
@@ -92,11 +84,7 @@ const PricePlan = () => {
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
-                        <path
-                          fillRole="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clip-rule="evenodd"
-                        />
+                        <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
                       </svg>
 
                       <span className="mx-4 text-neutral-400 dark:text-gray-300">
@@ -110,11 +98,7 @@ const PricePlan = () => {
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
-                        <path
-                          fillRole="evenodd"
-                          d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z"
-                          clip-rule="evenodd"
-                        />
+                        <path d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z" />
                       </svg>
 
                       <span className="mx-4 text-neutral-400 dark:text-gray-300">
@@ -129,11 +113,7 @@ const PricePlan = () => {
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
-                        <path
-                          fillRole="evenodd"
-                          d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z"
-                          clip-rule="evenodd"
-                        />
+                        <path d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z" />
                       </svg>
 
                       <span className="mx-4 text-neutral-400 dark:text-gray-300">
@@ -179,11 +159,7 @@ const PricePlan = () => {
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
-                        <path
-                          fillRole="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clip-rule="evenodd"
-                        />
+                        <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
                       </svg>
 
                       <span className="mx-4 text-neutral-400 dark:text-gray-300">
@@ -198,11 +174,7 @@ const PricePlan = () => {
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
-                        <path
-                          fillRole="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clip-rule="evenodd"
-                        />
+                        <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
                       </svg>
 
                       <span className="mx-4 text-neutral-400 dark:text-gray-300">
@@ -217,11 +189,7 @@ const PricePlan = () => {
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
-                        <path
-                          fillRole="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clip-rule="evenodd"
-                        />
+                        <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
                       </svg>
 
                       <span className="mx-4 text-neutral-400 dark:text-gray-300">
@@ -236,11 +204,7 @@ const PricePlan = () => {
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
-                        <path
-                          fillRole="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clip-rule="evenodd"
-                        />
+                        <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
                       </svg>
 
                       <span className="mx-4 text-neutral-400 dark:text-gray-300">
@@ -255,11 +219,7 @@ const PricePlan = () => {
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
-                        <path
-                          fillRole="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clip-rule="evenodd"
-                        />
+                        <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
                       </svg>
 
                       <span className="mx-4 text-neutral-400 dark:text-gray-300">

@@ -4,6 +4,7 @@ export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://car-washing-system-server-cyan.vercel.app/api",
+    credentials: "include",
   }),
   endpoints: () => ({}),
 });

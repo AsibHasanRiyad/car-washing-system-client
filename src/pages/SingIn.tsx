@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import video from "../assets/video/signIn.mp4";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { MdOutlineMailOutline } from "react-icons/md";
@@ -7,20 +7,30 @@ import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useLoginMutation } from "@/redux/features/authApi";
 import { toast } from "sonner";
+import { useDispatch } from "react-redux";
+import { setUser } from "@/redux/features/authSlice";
+import { verifyToken } from "@/utils/verifyToken";
 type TInput = {
   email: string;
   password: string;
 };
 const SingIn = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   //   data fetch
   const [login, { isLoading, error }] = useLoginMutation();
   console.log(error);
   const { register, handleSubmit } = useForm<TInput>();
   const onSubmit: SubmitHandler<TInput> = async (data) => {
     const res = await login(data);
+    console.log(res, "res");
     if (res?.data?.success) {
       toast.success(res?.data?.message);
+      const user = verifyToken(res.data.data.token);
+      console.log(user);
+      dispatch(setUser({ user: user, token: res.data.data.token }));
+      navigate("/");
     } else {
       toast.error(res?.error?.data?.message || "Something went wrong");
     }
