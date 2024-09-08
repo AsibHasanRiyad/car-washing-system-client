@@ -95,7 +95,7 @@ export function MenubarDemo() {
               </MenubarItem>
               <MenubarSeparator />
               <MenubarItem>
-                Create Slot
+                <Link to="/create-slot"> Create Slot </Link>
                 <MenubarShortcut>
                   <MdKeyboardArrowRight className="text-[#171717] text-xl" />
                 </MenubarShortcut>
@@ -208,7 +208,7 @@ export function MenubarDemo() {
               </MenubarItem>
               <MenubarSeparator />
               <MenubarItem>
-                Create Slot
+                <Link to="/create-slot"> Create Slot </Link>
                 <MenubarShortcut>
                   <MdKeyboardArrowRight className="text-[#171717] text-xl" />
                 </MenubarShortcut>

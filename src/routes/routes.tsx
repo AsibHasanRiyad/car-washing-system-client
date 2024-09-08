@@ -2,6 +2,7 @@ import App from "@/App";
 import ProtectedRoute from "@/components/layout/ProtectedRoute";
 import AboutUs from "@/pages/AboutUs";
 import { CreateService } from "@/pages/CreateService";
+import { CreateSlot } from "@/pages/CreateSlot";
 import GetAllServices from "@/pages/GetAllServices";
 
 import Home from "@/pages/Home";
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/create-service",
         element: <CreateService />,
+      },
+      {
+        path: "/create-slot",
+        element: <CreateSlot />,
       },
       {
         path: "/all-services",
