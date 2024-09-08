@@ -2,7 +2,7 @@ import { Button } from "../ui/button";
 
 const Footer = () => {
   return (
-    <div className="relative w-full p-10 bg-[#171717]">
+    <div className="relative w-fit overflow-hidden border-t pt-10 p-10 bg-[#171717]">
       {/* SVG Background */}
       <svg
         className="absolute -bottom-20 start-1/2 w-[1900px] transform -translate-x-1/2"

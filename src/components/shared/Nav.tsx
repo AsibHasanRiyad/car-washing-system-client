@@ -7,9 +7,11 @@ import {
   MenubarShortcut,
   MenubarTrigger,
 } from "@/components/ui/menubar";
+import { FaArrowRightLong } from "react-icons/fa6";
 import { Button } from "../ui/button";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { RxCross1 } from "react-icons/rx";
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -30,7 +32,7 @@ export function MenubarDemo() {
   return (
     <div>
       {/* Desktop Menubar */}
-      <Menubar className="justify-between hidden px-10 py-7 bg-[#171717]  border-none   text-white rounded-none border-gray-400 lg:flex">
+      <Menubar className="justify-between hidden px-10 py-7 bg-[#171717]  text-white rounded-none border-gray-400 lg:flex">
         {/* left part */}
         <div className="text-2xl font-medium ">
           <Link to={"/"}>
@@ -119,7 +121,12 @@ export function MenubarDemo() {
             </Button>
           ) : (
             <Link to={"/signin"}>
-              <Button className="bg-[#ff0] text-black transform transition-colors duration-500  hover:text-white hover:bg-black">
+              <Button
+                variant="expandIcon"
+                Icon={FaArrowRightLong}
+                iconPlacement="right"
+                className="text-black "
+              >
                 SignIn
               </Button>
             </Link>
@@ -130,18 +137,27 @@ export function MenubarDemo() {
       {/* Mobile Menubar */}
       <Menubar className="flex items-center justify-between px-10 text-white bg-[#171717] border-none rounded-none py-7 lg:hidden">
         {/* left part */}
-        <div>Logo and Name</div>
+        <div className="text-2xl font-medium ">
+          <Link to={"/"}>
+            {" "}
+            <span className=" text-[#ff0]">Clean</span>CarCo
+          </Link>
+        </div>
         {/* menu button */}
         <div className="absolute right-2">
-          <Button className="bg-transparent " onClick={toggleMobileMenu}>
+          <Button className="bg-primary " onClick={toggleMobileMenu}>
             {" "}
-            <RxHamburgerMenu className="text-xl " />{" "}
+            {isMobileMenuOpen ? (
+              <RxCross1 className="text-xl text-black " />
+            ) : (
+              <RxHamburgerMenu className="text-xl text-black " />
+            )}
           </Button>
         </div>
 
         {/* Sidebar Menu */}
         <div
-          className={`fixed inset-y-0 -left-2 drop-shadow-xl  w-2/3 space-y-4 h-full bg-[#171717] pl-8 pt-8 z-50 transition-transform duration-500 ease-in-out transform ${
+          className={`fixed inset-y-0 -left-2 drop-shadow-xl  w-2/3 md:w-2/5 space-y-4 h-full bg-[#171717] pl-8 pt-8 z-50 transition-transform duration-500 ease-in-out transform ${
             isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
@@ -149,14 +165,14 @@ export function MenubarDemo() {
             <MenubarTrigger className="text-lg ">Services</MenubarTrigger>
             <MenubarContent>
               <MenubarItem>
-                Get All Services
+                <Link to={"/all-services"}>All Services</Link>
                 <MenubarShortcut>
                   <MdKeyboardArrowRight className="text-[#171717] text-xl" />
                 </MenubarShortcut>
               </MenubarItem>
               <MenubarSeparator />
               <MenubarItem>
-                Create Services
+                <Link to={"/create-service"}>Create Services</Link>
                 <MenubarShortcut>
                   <MdKeyboardArrowRight className="text-[#171717] text-xl" />
                 </MenubarShortcut>
@@ -198,6 +214,27 @@ export function MenubarDemo() {
                 </MenubarShortcut>
               </MenubarItem>
             </MenubarContent>
+            <div className="ml-2.5">
+              {token ? (
+                <Button
+                  onClick={() => handelLogout()}
+                  className="bg-[#ff0] text-black transform transition-colors duration-500  hover:text-white hover:bg-black"
+                >
+                  Logout
+                </Button>
+              ) : (
+                <Link to={"/signin"}>
+                  <Button
+                    variant="expandIcon"
+                    Icon={FaArrowRightLong}
+                    iconPlacement="right"
+                    className="text-black "
+                  >
+                    SignIn
+                  </Button>
+                </Link>
+              )}
+            </div>
           </MenubarMenu>
         </div>
       </Menubar>

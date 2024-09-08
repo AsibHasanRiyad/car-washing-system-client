@@ -13,6 +13,15 @@ export default {
         primary: "#ff0",
         secondary: "#171717",
       },
+      keyframes: {
+        shine: {
+          from: { backgroundPosition: "200% 0" },
+          to: { backgroundPosition: "-200% 0" },
+        },
+      },
+      animation: {
+        shine: "shine 8s ease-in-out infinite",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

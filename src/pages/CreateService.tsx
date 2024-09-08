@@ -9,16 +9,20 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { logout } from "@/redux/features/authSlice";
 import { useCreateServiceMutation } from "@/redux/features/serviceApi";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
-export type TInput = {
+export type TService = {
   name: string;
   description: string;
   price: number;
   duration: number;
   isDeleted: boolean;
+  _id?: string;
 };
 
 export function CreateService() {
@@ -26,13 +30,19 @@ export function CreateService() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<TInput>();
+  } = useForm<TService>();
   const [createService, { error, isLoading }] = useCreateServiceMutation();
-  const onSubmit: SubmitHandler<TInput> = async (data) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  if (error?.data?.message === "jwt expired") {
+    dispatch(logout());
+    navigate("/signin");
+  }
+  const onSubmit: SubmitHandler<TService> = async (data) => {
     try {
       data.isDeleted = false;
       const res = await createService(data).unwrap();
-
+      console.log(res, "res");
       if (res.success) {
         toast.success(res.message);
       }
@@ -44,7 +54,7 @@ export function CreateService() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-secondary ">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Card className="w-[550px] bg-black bg-opacity-10 backdrop-blur-lg shadow-xl border border-white border-opacity-30">
+        <Card className=" w-[350px] md:w-[550px] bg-black bg-opacity-10 backdrop-blur-lg shadow-xl border border-white border-opacity-30">
           <CardHeader>
             <CardTitle className="my-3 text-center text-primary">
               Create a Service
