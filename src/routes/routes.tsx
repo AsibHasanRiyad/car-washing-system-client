@@ -5,6 +5,7 @@ import AllBookings from "@/pages/AllBookings";
 import AllSlot from "@/pages/AllSlot";
 import { CreateService } from "@/pages/CreateService";
 import { CreateSlot } from "@/pages/CreateSlot";
+import ErrorPage from "@/pages/ErrorPage";
 import GetAllServices from "@/pages/GetAllServices";
 
 import Home from "@/pages/Home";
@@ -25,15 +26,28 @@ const router = createBrowserRouter([
       },
       {
         path: "/create-service",
-        element: <CreateService />,
+        element: (
+          <ProtectedRoute allowedRoles={["admin"]}>
+            {" "}
+            <CreateService />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/create-slot",
-        element: <CreateSlot />,
+        element: (
+          <ProtectedRoute allowedRoles={["admin"]}>
+            <CreateSlot />,
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/available-slot",
-        element: <AllSlot />,
+        element: (
+          <ProtectedRoute allowedRoles={["admin"]}>
+            <AllSlot />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/all-services",
@@ -41,19 +55,23 @@ const router = createBrowserRouter([
       },
       {
         path: "/all-bookings",
-        element: <AllBookings />,
+        element: (
+          <ProtectedRoute allowedRoles={["admin"]}>
+            <AllBookings />,
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/my-bookings",
-        element: <MyBookings />,
+        element: (
+          <ProtectedRoute allowedRoles={["user"]}>
+            <MyBookings />,
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/about-us",
-        element: (
-          <ProtectedRoute>
-            <AboutUs />
-          </ProtectedRoute>
-        ),
+        element: <AboutUs />,
       },
       {
         path: "/signin",
@@ -62,6 +80,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp />,
+      },
+      {
+        path: "/error",
+        element: <ErrorPage />,
       },
     ],
   },

@@ -38,12 +38,12 @@ export function ProfileDropdown({ currentUser }: { currentUser: TUser }) {
           <DropdownMenuItem>
             <User className="w-4 h-4 mr-2" />
             <span className="">{userName}</span>
-            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+            <DropdownMenuShortcut>⇧⌘</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <Mail className="w-4 h-4 mr-2" />
             <span className="">{currentUser?.email}</span>
-            <DropdownMenuShortcut>⇧⌘E</DropdownMenuShortcut>
+            <DropdownMenuShortcut>⇧⌘</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <CreditCard className="w-4 h-4 mr-2" />
