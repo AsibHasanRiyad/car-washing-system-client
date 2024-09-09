@@ -26,7 +26,7 @@ import { TSlotData } from "@/pages/AllSlot";
 import { ScrollArea } from "../ui/scroll-area";
 
 import { useAppSelector } from "@/redux/hook";
-import { useCurrentUserId } from "@/redux/features/authSlice";
+import { useCurrentUser, useCurrentUserId } from "@/redux/features/authSlice";
 import { useCreateBookingMutation } from "@/redux/features/bookingApi";
 import { toast } from "sonner";
 import { SelectItemComponent } from "../ui/SelectItem";
@@ -63,10 +63,10 @@ export function SlotCard({
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [createBooking, { isLoading, error }] = useCreateBookingMutation();
+  const [createBooking] = useCreateBookingMutation();
 
   const [selectedService, setSelectedService] = useState<string | undefined>();
-  console.log(selectedService);
+  // console.log(selectedService);
 
   const duration = slotData?.serviceId?.duration;
   const durationInHours = duration / 60;
@@ -76,6 +76,7 @@ export function SlotCard({
   };
   const formattedDate = formatDate(date);
   const userId = useAppSelector(useCurrentUserId);
+  const userRole = useAppSelector(useCurrentUser)?.role;
 
   const onSubmit = async (data: formData) => {
     const payload = {
@@ -103,7 +104,7 @@ export function SlotCard({
 
   return (
     <div>
-      <Card className="bg-white text-text drop-shadow-xl">
+      <Card className="bg-white text-secondary drop-shadow-xl">
         <CardHeader>
           <CardTitle className="text-primary ">
             {slotData?.serviceId?.name}
@@ -149,16 +150,18 @@ export function SlotCard({
         </CardContent>
         <CardFooter>
           <Dialog>
-            <DialogTrigger className="w-full" asChild>
-              <Button
-                variant="expandIcon"
-                Icon={FaArrowRightLong}
-                iconPlacement="right"
-                className="px-16 py-5 text-white bg-black rounded-lg hover:bg-gray-900"
-              >
-                Book Slot
-              </Button>
-            </DialogTrigger>
+            {userRole === "user" && (
+              <DialogTrigger className="w-full" asChild>
+                <Button
+                  variant="expandIcon"
+                  Icon={FaArrowRightLong}
+                  iconPlacement="right"
+                  className="px-16 py-5 text-white bg-black rounded-lg hover:bg-gray-900"
+                >
+                  Book Slot
+                </Button>
+              </DialogTrigger>
+            )}
             <DialogContent className="sm:max-w-[625px]">
               <DialogHeader>
                 <DialogTitle>Book this slot</DialogTitle>
