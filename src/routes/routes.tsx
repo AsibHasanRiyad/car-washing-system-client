@@ -1,6 +1,7 @@
 import App from "@/App";
 import ProtectedRoute from "@/components/layout/ProtectedRoute";
 import AboutUs from "@/pages/AboutUs";
+import AllSlot from "@/pages/AllSlot";
 import { CreateService } from "@/pages/CreateService";
 import { CreateSlot } from "@/pages/CreateSlot";
 import GetAllServices from "@/pages/GetAllServices";
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/create-slot",
         element: <CreateSlot />,
+      },
+      {
+        path: "/available-slot",
+        element: <AllSlot />,
       },
       {
         path: "/all-services",

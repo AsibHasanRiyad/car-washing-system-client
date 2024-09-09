@@ -11,10 +11,10 @@ const slotApi = baseApi.injectEndpoints({
         };
       },
     }),
-    getAllServices: builder.query({
+    getAllAvailableSlots: builder.query({
       query: () => {
         return {
-          url: "/services",
+          url: "/slots/availability",
           method: "GET",
         };
       },
@@ -22,4 +22,4 @@ const slotApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useCreateSlotMutation, useGetAllServicesQuery } = slotApi;
+export const { useCreateSlotMutation, useGetAllAvailableSlotsQuery } = slotApi;

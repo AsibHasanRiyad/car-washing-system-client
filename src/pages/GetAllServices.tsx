@@ -19,7 +19,7 @@ const GetAllServices = () => {
           description="Students will develop a secure blockchain-based voting system that ensures the integrity and transparency of elections. They will need to implement blockchain technology to record votes securely and allow voters to verify their choices. This project will also explore cryptographic concepts and smart contracts."
         />
       </div>
-      <div className="grid justify-between grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4 ">
+      <div className="grid justify-between grid-cols-1 gap-10 px-4 md:grid-cols-2 lg:grid-cols-4 md:px-10 2xl:px-20 ">
         {data?.data?.map((item: TService) => (
           <ServiceCard service={item} key={item._id} />
         ))}

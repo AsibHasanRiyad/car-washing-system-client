@@ -88,7 +88,7 @@ export function MenubarDemo() {
             </MenubarTrigger>
             <MenubarContent className="mt-1 bg-primary ">
               <MenubarItem>
-                Get All Slots
+                <Link to={"/available-slot"}> Available Slots</Link>
                 <MenubarShortcut>
                   <MdKeyboardArrowRight className="text-[#171717] text-xl" />
                 </MenubarShortcut>

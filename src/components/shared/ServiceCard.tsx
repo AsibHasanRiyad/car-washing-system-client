@@ -7,6 +7,7 @@ import {
   HoverCardContent,
 } from "@/components/ui/hover-card";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const MAX_WORD_COUNT = 20;
 
@@ -122,7 +123,7 @@ const ServiceCard = ({ service }: { service: TService }) => {
             iconPlacement="right"
             className="px-16 py-5 text-white bg-black rounded-full hover:bg-gray-900"
           >
-            Create Slot
+            <Link to={"/create-slot"}> Create Slot</Link>
           </Button>
         </div>
       </div>
