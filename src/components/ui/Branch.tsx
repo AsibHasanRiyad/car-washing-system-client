@@ -6,9 +6,9 @@ const Branch = () => {
           Our <span className=" text-primary">Branches</span>
         </h1>
         <div className="flex justify-center mt-4">
-          <span className="inline-block w-40 h-1 bg-[#ff0] rounded-full"></span>
-          <span className="inline-block w-3 h-1 mx-1 bg-[#ff0] rounded-full"></span>
-          <span className="inline-block w-1 h-1 bg-[#ff0] rounded-full"></span>
+          <span className="inline-block w-40 h-1 rounded-full bg-primary"></span>
+          <span className="inline-block w-3 h-1 mx-1 rounded-full bg-primary"></span>
+          <span className="inline-block w-1 h-1 rounded-full bg-primary"></span>
         </div>
 
         <p className="max-w-2xl mx-auto my-6 text-center text-neutral-400 dark:text-gray-300">
@@ -18,9 +18,9 @@ const Branch = () => {
         </p>
 
         <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-2">
-          <div className="px-12 py-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group :border-gray-700 dark:hover:border-transparent">
+          <div className="px-12 py-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group :border-gray-700 ">
             <div className="mt-4">
-              <h1 className="text-xl font-semibold text-gray-700 capitalize md:text-2xl dark:text-white group-hover:text-white">
+              <h1 className="text-xl font-semibold capitalize text-primary md:text-2xl dark:text-white group-hover:text-white">
                 Downtown Branch
               </h1>
               <p className="mt-2 text-neutral-400 dark:text-gray-300 group-hover:text-gray-300">
@@ -40,7 +40,7 @@ const Branch = () => {
 
           <div className="px-12 py-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group :border-gray-700 dark:hover:border-transparent">
             <div className="mt-4">
-              <h1 className="text-xl font-semibold text-gray-700 capitalize md:text-2xl dark:text-white group-hover:text-white">
+              <h1 className="text-xl font-semibold capitalize text-primary md:text-2xl dark:text-white group-hover:text-white">
                 Uptown Branch
               </h1>
               <p className="mt-2 text-neutral-400 dark:text-gray-300 group-hover:text-gray-300">
@@ -59,7 +59,7 @@ const Branch = () => {
 
           <div className="px-12 py-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group :border-gray-700 dark:hover:border-transparent">
             <div className="mt-4">
-              <h1 className="text-xl font-semibold text-gray-700 capitalize md:text-2xl dark:text-white group-hover:text-white">
+              <h1 className="text-xl font-semibold capitalize text-primary md:text-2xl dark:text-white group-hover:text-white">
                 Eastside Branch
               </h1>
               <p className="mt-2 text-neutral-400 dark:text-gray-300 group-hover:text-gray-300">
@@ -78,7 +78,7 @@ const Branch = () => {
 
           <div className="px-12 py-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group :border-gray-700 dark:hover:border-transparent">
             <div className="mt-4">
-              <h1 className="text-xl font-semibold text-gray-700 capitalize md:text-2xl dark:text-white group-hover:text-white">
+              <h1 className="text-xl font-semibold capitalize text-primary md:text-2xl dark:text-white group-hover:text-white">
                 West End Branch
               </h1>
               <p className="mt-2 text-neutral-400 dark:text-gray-300 group-hover:text-gray-300">

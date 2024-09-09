@@ -117,14 +117,16 @@ const ServiceCard = ({ service }: { service: TService }) => {
         </div>
 
         <div className="flex justify-center pt-4">
-          <Button
-            variant="expandIcon"
-            Icon={FaArrowRightLong}
-            iconPlacement="right"
-            className="px-16 py-5 text-white bg-black rounded-full hover:bg-gray-900"
-          >
-            <Link to={"/create-slot"}> Create Slot</Link>
-          </Button>
+          <Link to={"/create-slot"}>
+            <Button
+              variant="expandIcon"
+              Icon={FaArrowRightLong}
+              iconPlacement="right"
+              className="px-16 py-5 text-white bg-black rounded-full hover:bg-gray-900"
+            >
+              Create Slot
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

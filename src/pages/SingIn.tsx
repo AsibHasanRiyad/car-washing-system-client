@@ -57,8 +57,8 @@ const SingIn = () => {
           </video>
           <div className="relative z-10 flex flex-col items-center justify-center h-full p-8 text-center text-white bg-black bg-opacity-50">
             <h1 className="relative z-10 text-5xl font-semibold text-white md:text-6xl">
-              <span className="text-[#ff0]">Clean</span>CarCo, Your Car Deserves
-              the Best Shine
+              <span className="text-primary">Clean</span>CarCo, Your Car
+              Deserves the Best Shine
             </h1>
             <p className="relative z-10 mt-5 text-lg text-neutral-400">
               At CleanCarCo, we believe that a clean car is more than just a

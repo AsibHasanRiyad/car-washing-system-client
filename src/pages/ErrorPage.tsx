@@ -1,3 +1,7 @@
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { FaArrowLeftLong } from "react-icons/fa6";
+
 const ErrorPage = () => {
   return (
     <section>
@@ -264,15 +268,17 @@ const ErrorPage = () => {
                 </defs>
               </svg>
             </div>
-            <p className="p-2 mb-4 text-sm text-yellow-300 md:text-base">
-              The stuff you were looking for doesn't exist
-            </p>
-            <a
-              href="/"
-              className="px-4 py-2 text-yellow-300 bg-transparent border border-yellow-300 rounded shadow hover:bg-yellow-300 hover:text-white hover:shadow-lg hover:border-transparent"
-            >
-              Retry
-            </a>
+
+            <Link to={"/"}>
+              <Button
+                variant="expandIcon"
+                Icon={FaArrowLeftLong}
+                iconPlacement="left"
+                className="px-10 py-5 mt-5 text-white"
+              >
+                Go Home
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

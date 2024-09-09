@@ -14,12 +14,12 @@ const Title = ({
       </h1>
 
       <div className="mt-4">
-        <span className="inline-block w-40 h-1 bg-[#ff0] rounded-full"></span>
-        <span className="inline-block w-3 h-1 mx-1 bg-[#ff0] rounded-full"></span>
-        <span className="inline-block w-1 h-1 bg-[#ff0] rounded-full"></span>
+        <span className="inline-block w-40 h-1 rounded-full bg-primary"></span>
+        <span className="inline-block w-3 h-1 mx-1 rounded-full bg-primary"></span>
+        <span className="inline-block w-1 h-1 rounded-full bg-primary"></span>
       </div>
 
-      <p className="max-w-4xl mt-4 font-medium clear-start text-neutral-400 dark:text-gray-300">
+      <p className="max-w-4xl mt-4 font-medium clear-start text-text">
         {description}
       </p>
     </div>

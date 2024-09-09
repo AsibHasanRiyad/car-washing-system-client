@@ -8,7 +8,6 @@ const MainLayout = () => {
   return (
     <div className=" bg-secondary">
       <MenubarDemo />
-
       <Container>
         <Outlet />
       </Container>

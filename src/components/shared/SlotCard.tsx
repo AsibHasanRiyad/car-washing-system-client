@@ -103,9 +103,9 @@ export function SlotCard({
 
   return (
     <div>
-      <Card className="bg-white text-secondary drop-shadow-xl">
+      <Card className="bg-white text-text drop-shadow-xl">
         <CardHeader>
-          <CardTitle className="text-black ">
+          <CardTitle className="text-primary ">
             {slotData?.serviceId?.name}
           </CardTitle>
           <CardDescription>

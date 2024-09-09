@@ -32,7 +32,7 @@ const AllBookings = () => {
     return <Loader />;
   }
   return (
-    <div className="p-10 pb-24 ">
+    <div className="px-10 pb-24 ">
       <div className="flex items-center justify-center w-full pt-10">
         <Title
           title1="All "

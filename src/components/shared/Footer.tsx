@@ -2,7 +2,7 @@ import { Button } from "../ui/button";
 
 const Footer = () => {
   return (
-    <div className="relative w-fit overflow-hidden border-t pt-10 p-10 bg-[#171717]">
+    <div className="relative p-10 pt-10 overflow-hidden w-fit bg-secondary">
       {/* SVG Background */}
       <svg
         className="absolute -bottom-20 start-1/2 w-[1900px] transform -translate-x-1/2"
@@ -97,7 +97,7 @@ const Footer = () => {
       <div className="relative flex flex-col w-full px-4 text-white ">
         <div className="w-full font-bold">
           <h1 className="mb-2 text-5xl ">
-            <span className=" text-[#ff0]">Clean</span>CarCo
+            <span className=" text-primary">Clean</span>CarCo
           </h1>
           <h1 className="w-full text-2xl md:w-2/3">
             Your Car Deserves the Best Shine
@@ -112,7 +112,7 @@ const Footer = () => {
             convenience, and eco-friendly practices.
           </p>
           <div className="pt-6 w-44 md:pt-0">
-            <Button className="bg-[#ff0] px-10 text-black transform transition-colors duration-500 hover:text-white hover:bg-black">
+            <Button className="px-10 text-white transition-colors duration-500 transform bg-primary hover:text-white hover:bg-black">
               Contact Us
             </Button>
           </div>

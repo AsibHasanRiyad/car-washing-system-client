@@ -1,6 +1,8 @@
+import Header from "../shared/Header";
+
 const PricePlan = () => {
   return (
-    <div className=" bg-[#171717] py-10">
+    <div className="py-10 bg-secondary">
       <div className="container px-6 py-8 mx-auto">
         <div className="xl:items-center xl:-mx-8 xl:flex">
           <div className="flex flex-col items-center xl:items-start xl:mx-8">
@@ -9,9 +11,9 @@ const PricePlan = () => {
             </h1>
 
             <div className="mt-4">
-              <span className="inline-block w-40 h-1 bg-[#ff0] rounded-full"></span>
-              <span className="inline-block w-3 h-1 mx-1 bg-[#ff0] rounded-full"></span>
-              <span className="inline-block w-1 h-1 bg-[#ff0] rounded-full"></span>
+              <span className="inline-block w-40 h-1 rounded-full bg-primary"></span>
+              <span className="inline-block w-3 h-1 mx-1 rounded-full bg-primary"></span>
+              <span className="inline-block w-1 h-1 rounded-full bg-primary"></span>
             </div>
 
             <p className="mt-4 font-medium text-neutral-400 dark:text-gray-300">
@@ -23,9 +25,7 @@ const PricePlan = () => {
             <div className="mt-8 space-y-8 md:-mx-4 md:flex md:items-center md:justify-center md:space-y-0 xl:mt-0">
               <div className="max-w-sm mx-auto border rounded-lg md:mx-4 dark:border-gray-700">
                 <div className="p-6">
-                  <h1 className="text-xl font-medium capitalize text-neutral-400 lg:text-2xl dark:text-white">
-                    Essential Wash
-                  </h1>
+                  <Header title="Essential Wash" size="text-2xl" />
 
                   <p className="mt-4 text-neutral-400 dark:text-gray-300">
                     Basic car wash package for a quick and effective clean.
@@ -43,15 +43,13 @@ const PricePlan = () => {
                 <hr className="border-gray-200 dark:border-gray-700" />
 
                 <div className="p-6">
-                  <h1 className="text-lg font-medium capitalize text-neutral-400 lg:text-xl dark:text-white">
-                    What’s included:
-                  </h1>
+                  <Header title="What’s included:" size="text-xl" />
 
                   <div className="mt-8 space-y-4">
                     <div className="flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-5 h-5 text-[#ff0]"
+                        className="w-5 h-5 text-primary"
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
@@ -66,7 +64,7 @@ const PricePlan = () => {
                     <div className="flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-5 h-5 text-[#ff0]"
+                        className="w-5 h-5 text-primary"
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
@@ -80,7 +78,7 @@ const PricePlan = () => {
                     <div className="flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-5 h-5 text-[#ff0]"
+                        className="w-5 h-5 text-primary"
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
@@ -126,9 +124,7 @@ const PricePlan = () => {
 
               <div className="max-w-sm mx-auto border rounded-lg md:mx-4 dark:border-gray-700">
                 <div className="p-6">
-                  <h1 className="text-xl font-medium capitalize text-neutral-400 lg:text-2xl dark:text-white">
-                    Premium Wash
-                  </h1>
+                  <Header title="Premium Wash" size="text-2xl" />
 
                   <p className="mt-4 text-neutral-400 dark:text-gray-300">
                     Comprehensive car wash and detailing package for a showroom
@@ -147,15 +143,13 @@ const PricePlan = () => {
                 <hr className="border-gray-200 dark:border-gray-700" />
 
                 <div className="p-6">
-                  <h1 className="text-lg font-medium capitalize text-neutral-400 lg:text-xl dark:text-white">
-                    What’s included:
-                  </h1>
+                  <Header title="What’s included:" size="text-xl" />
 
                   <div className="mt-8 space-y-4">
                     <div className="flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-5 h-5 text-[#ff0]"
+                        className="w-5 h-5 text-primary"
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
@@ -170,7 +164,7 @@ const PricePlan = () => {
                     <div className="flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-5 h-5 text-[#ff0]"
+                        className="w-5 h-5 text-primary"
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
@@ -185,7 +179,7 @@ const PricePlan = () => {
                     <div className="flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-5 h-5 text-[#ff0]"
+                        className="w-5 h-5 text-primary"
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
@@ -200,7 +194,7 @@ const PricePlan = () => {
                     <div className="flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-5 h-5 text-[#ff0]"
+                        className="w-5 h-5 text-primary"
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >
@@ -215,7 +209,7 @@ const PricePlan = () => {
                     <div className="flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-5 h-5 text-[#ff0]"
+                        className="w-5 h-5 text-primary"
                         viewBox="0 0 20 20"
                         fill="currentColor"
                       >

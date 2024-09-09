@@ -49,7 +49,7 @@ const Navbar = () => {
             <ul
               className={`absolute md:absolute md:group-hover:block ${
                 submenuOpen ? "block" : "hidden"
-              } bg-gray-700 md:bg-white text-white md:text-black rounded-lg shadow-lg p-4 top-full left-0 w-40 md:w-48`}
+              } bg-gray-700 md:bg-white text-white md:text-white rounded-lg shadow-lg p-4 top-full left-0 w-40 md:w-48`}
             >
               <li className="hover:text-gray-400">
                 <a href="#">Slot 1</a>

@@ -1,4 +1,5 @@
 import brandingVideo from "../../assets/video/wash.mp4";
+import Header from "../shared/Header";
 export default function BrandingSection() {
   return (
     <div>
@@ -11,10 +12,8 @@ export default function BrandingSection() {
                 <p className="text-base font-semibold leading-7 text-primary">
                   Superior Service, Every Time
                 </p>
-                <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-200 sm:text-4xl">
-                  Excellence in Every Detail
-                </h1>
-                <p className="mt-6 text-xl leading-8 text-justify text-neutral-500">
+                <Header size=" text-4xl" title="Excellence in Every Detail" />
+                <p className="mt-6 text-lg leading-normal tracking-wide text-justify bg-transparent text-text">
                   We believe in delivering an exceptional car care experience
                   that goes beyond just cleaning. Every vehicle we handle
                   receives the best treatment, combining innovation, care, and

@@ -118,7 +118,7 @@ export function CreateSlot() {
             </div>
           </CardContent>
           <CardFooter className="flex justify-end w-full">
-            <Button className=" bg-primary text-secondary hover:bg-white">
+            <Button className=" bg-primary text-text hover:bg-white">
               {isLoading ? (
                 <span className="flex items-center gap-2 ">
                   <p>Creating</p>

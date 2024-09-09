@@ -10,8 +10,10 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
-        primary: "#ff0",
-        secondary: "#171717",
+        primary: "#703BF7",
+        secondary: "#141414",
+        third: "#1A1A1A",
+        text: "#999999",
       },
       keyframes: {
         shine: {
