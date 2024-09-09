@@ -1,12 +1,14 @@
 import App from "@/App";
 import ProtectedRoute from "@/components/layout/ProtectedRoute";
 import AboutUs from "@/pages/AboutUs";
+import AllBookings from "@/pages/AllBookings";
 import AllSlot from "@/pages/AllSlot";
 import { CreateService } from "@/pages/CreateService";
 import { CreateSlot } from "@/pages/CreateSlot";
 import GetAllServices from "@/pages/GetAllServices";
 
 import Home from "@/pages/Home";
+import MyBookings from "@/pages/MyBookings";
 import SignUp from "@/pages/SignUp";
 import SingIn from "@/pages/SingIn";
 
@@ -36,6 +38,14 @@ const router = createBrowserRouter([
       {
         path: "/all-services",
         element: <GetAllServices />,
+      },
+      {
+        path: "/all-bookings",
+        element: <AllBookings />,
+      },
+      {
+        path: "/my-bookings",
+        element: <MyBookings />,
       },
       {
         path: "/about-us",

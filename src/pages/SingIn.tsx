@@ -34,6 +34,7 @@ const SingIn = () => {
           user: user,
           token: res.data.data.token,
           userId: res.data.data.user._id,
+          userName: res.data.data.user.name,
         })
       );
       navigate("/");
