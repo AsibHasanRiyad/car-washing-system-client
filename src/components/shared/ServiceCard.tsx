@@ -8,11 +8,13 @@ import {
 } from "@/components/ui/hover-card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useAppSelector } from "@/redux/hook";
+import { useCurrentUser } from "@/redux/features/authSlice";
 
 const MAX_WORD_COUNT = 20;
 
 const ServiceCard = ({ service }: { service: TService }) => {
-  // Helper function to count words and truncate description
+  const user = useAppSelector(useCurrentUser)?.role;
   const truncateDescription = (description: string) => {
     const words = description.split(" ");
     if (words.length > MAX_WORD_COUNT) {
@@ -117,16 +119,18 @@ const ServiceCard = ({ service }: { service: TService }) => {
         </div>
 
         <div className="flex justify-center pt-4">
-          <Link to={"/create-slot"}>
-            <Button
-              variant="expandIcon"
-              Icon={FaArrowRightLong}
-              iconPlacement="right"
-              className="px-16 py-5 text-white bg-black rounded-full hover:bg-gray-900"
-            >
-              Create Slot
-            </Button>
-          </Link>
+          {user === "admin" && (
+            <Link to={"/create-slot"}>
+              <Button
+                variant="expandIcon"
+                Icon={FaArrowRightLong}
+                iconPlacement="right"
+                className="px-16 py-5 text-white bg-black rounded-full hover:bg-gray-900"
+              >
+                Create Slot
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
     </div>

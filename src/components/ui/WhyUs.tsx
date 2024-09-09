@@ -1,4 +1,4 @@
-import { Settings } from "lucide-react";
+import { FastForward, Settings, TreeDeciduous } from "lucide-react";
 import Header from "../shared/Header";
 
 const WhyUs = () => {
@@ -33,7 +33,7 @@ const WhyUs = () => {
                 borderColor: "rgb(112, 59, 247)",
               }}
             >
-              <Settings />
+              <TreeDeciduous />
             </div>
             <h3 className="mt-6 text-gray-400">Eco-Friendly Products</h3>
             <p className="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">
@@ -51,7 +51,7 @@ const WhyUs = () => {
                 borderColor: "rgb(112, 59, 247)",
               }}
             >
-              <Settings />
+              <FastForward />
             </div>
             <h3 className="mt-6 text-gray-400">Fast and Efficient</h3>
             <p className="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">
