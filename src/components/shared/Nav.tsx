@@ -43,6 +43,13 @@ export function MenubarDemo() {
         {/* middle part */}
         <div className="flex items-center">
           <MenubarMenu>
+            <Link to={"/"}>
+              <MenubarTrigger className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
+                Home
+              </MenubarTrigger>
+            </Link>
+          </MenubarMenu>
+          <MenubarMenu>
             <MenubarTrigger className="text-lg transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105 ">
               Services
             </MenubarTrigger>
@@ -102,11 +109,12 @@ export function MenubarDemo() {
               </MenubarItem>
             </MenubarContent>
           </MenubarMenu>
+
           <MenubarMenu>
             <Link to={"/about-us"}>
-              <h1 className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
+              <MenubarTrigger className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
                 About Us
-              </h1>
+              </MenubarTrigger>
             </Link>
           </MenubarMenu>
         </div>

@@ -51,14 +51,20 @@ const vehicleTypes = [
   { _id: "bicycle", name: "Bicycle" },
   { _id: "tractor", name: "Tractor" },
 ];
-export function SlotCard({ slotData }: { slotData: TSlotData }) {
+export function SlotCard({
+  slotData,
+  refetch,
+}: {
+  slotData: TSlotData;
+  refetch: () => void;
+}) {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const [createBooking, { isLoading, error }] = useCreateBookingMutation();
-  console.log(error);
+
   const [selectedService, setSelectedService] = useState<string | undefined>();
   console.log(selectedService);
 
@@ -88,6 +94,7 @@ export function SlotCard({ slotData }: { slotData: TSlotData }) {
       console.log(res, "res");
       if (res.success) {
         toast.success(res.message);
+        refetch();
       }
     } catch (err) {
       toast.error(err?.data?.message || "Something went wrong");
