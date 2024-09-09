@@ -11,7 +11,7 @@ export function BookingCard({ booking }: { booking: TBookings }) {
   const formattedDate = formatDate(date);
   return (
     <div>
-      <Card className="h-full bg-white text-secondary drop-shadow-xl">
+      <Card className="h-full bg-white shadow-2xl shadow-gray-600 text-secondary drop-shadow-xl">
         <CardHeader>
           <CardTitle className="text-black ">
             {booking?.service?.name}
@@ -52,7 +52,7 @@ export function BookingCard({ booking }: { booking: TBookings }) {
             </div>
           </div>
           <div className="grid grid-cols-2 mt-3 ">
-            <div>
+            <div className="space-y-1 ">
               <h1>
                 <span className="font-semibold text-black">Date: </span>
                 <span className="text-muted-foreground">{formattedDate}</span>
@@ -82,7 +82,7 @@ export function BookingCard({ booking }: { booking: TBookings }) {
                 </span>
               </h1>
             </div>
-            <div>
+            <div className="space-y-1">
               <h1>
                 <span className="font-semibold text-black">Vehicle Type: </span>
                 <span className="text-muted-foreground">
