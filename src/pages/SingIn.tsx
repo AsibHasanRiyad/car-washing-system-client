@@ -29,7 +29,13 @@ const SingIn = () => {
       toast.success(res?.data?.message);
       const user = verifyToken(res.data.data.token) as TUser;
       console.log(user);
-      dispatch(setUser({ user: user, token: res.data.data.token }));
+      dispatch(
+        setUser({
+          user: user,
+          token: res.data.data.token,
+          userId: res.data.data.user._id,
+        })
+      );
       navigate("/");
     } else {
       toast.error(res?.error?.data?.message || "Something went wrong");
