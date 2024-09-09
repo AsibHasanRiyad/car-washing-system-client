@@ -11,7 +11,7 @@ export function BookingCard({ booking }: { booking: TBookings }) {
   const formattedDate = formatDate(date);
   return (
     <div>
-      <Card className="h-full bg-white shadow-2xl shadow-gray-600 text-secondary drop-shadow-xl">
+      <Card className="bg-white shadow-2xl  shadow-gray-600 text-secondary drop-shadow-xl">
         <CardHeader>
           <CardTitle className="text-black ">
             {booking?.service?.name}

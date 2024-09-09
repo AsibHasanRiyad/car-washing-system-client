@@ -13,12 +13,15 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { logout, TUser, useCurrentUserName } from "@/redux/features/authSlice";
+import { useNavigate } from "react-router-dom";
 
 export function ProfileDropdown({ currentUser }: { currentUser: TUser }) {
-  console.log(currentUser);
+  // console.log(currentUser);
+  const navigate = useNavigate();
   const userName = useAppSelector(useCurrentUserName);
   const handelLogout = () => {
     dispatch(logout());
+    navigate("/");
   };
   const dispatch = useAppDispatch();
   return (
