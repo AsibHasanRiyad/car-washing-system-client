@@ -21,7 +21,7 @@ const ServiceManagement = () => {
     return <Loader />;
   }
   return (
-    <div className="overflow-scroll hide-scrollbar">
+    <div className="overflow-scroll max-w-[100vw] hide-scrollbar">
       <div className="mt-5 ">
         <Title title1="Service" title2="Management" description="" />
       </div>
