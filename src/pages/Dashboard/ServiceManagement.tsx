@@ -12,6 +12,7 @@ import ServiceTable from "@/components/Dashboard/ServiceTable";
 import Title from "@/components/shared/Title";
 import { Button } from "@/components/ui/button";
 import { BadgePlus } from "lucide-react";
+import { CreateService } from "@/components/Dashboard/CreateService";
 
 const ServiceManagement = () => {
   const { data, isLoading, isFetching } = useGetAllServicesQuery(undefined);
@@ -25,12 +26,7 @@ const ServiceManagement = () => {
         <Title title1="Service" title2="Management" description="" />
       </div>
       <div className="flex justify-end mb-5 mr-14 ">
-        <Button className="flex items-center gap-2 text-white hover:bg-primary">
-          <span>
-            <BadgePlus />
-          </span>
-          Create New Service
-        </Button>
+        <CreateService />
       </div>
       <Table className="text-base text-gray-100 ">
         <TableHeader>
