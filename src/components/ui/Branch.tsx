@@ -1,7 +1,7 @@
 const Branch = () => {
   return (
-    <section className="py-10 bg-secondary">
-      <div className="container px-6 py-10 mx-auto">
+    <section className="py-5 lg:py-10 bg-secondary">
+      <div className="container px-6 mx-auto">
         <h1 className="text-2xl font-semibold text-center text-white capitalize lg:text-3xl ">
           Our <span className=" text-primary">Branches</span>
         </h1>

@@ -2,7 +2,7 @@ import Header from "../shared/Header";
 
 const PricePlan = () => {
   return (
-    <div className="py-10 bg-secondary">
+    <div className="py-5  lg:py-10 bg-secondary">
       <div className="container px-6 py-8 mx-auto">
         <div className="xl:items-center xl:-mx-8 xl:flex">
           <div className="flex flex-col items-center xl:items-start xl:mx-8">

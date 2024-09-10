@@ -118,12 +118,12 @@ export function CreateSlot() {
             </div>
           </CardContent>
           <CardFooter className="flex justify-end w-full">
-            <Button className=" bg-primary text-text hover:bg-white">
-              {isLoading ? (
+            <Button className="text-gray-100 bg-primary">
+              {slotLoading ? (
                 <span className="flex items-center gap-2 ">
                   <p>Creating</p>
                   <p
-                    className="inline-block h-4 w-4 animate-spin rounded-full border-4 text-gray-700 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] "
+                    className="inline-block h-4 w-4 animate-spin rounded-full border-4 text-gray-100 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] "
                     role="status"
                   ></p>
                 </span>

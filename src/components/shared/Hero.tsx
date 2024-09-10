@@ -22,15 +22,14 @@ const Hero = () => {
       {/* Full Content overlay */}
       <div className="relative flex flex-col justify-between min-h-[90vh] bg-neutral-900 bg-opacity-60">
         <div className="max-w-5xl px-4 pt-24 mx-auto xl:px-0 lg:pt-40">
-          <h1 className="relative z-10 text-6xl font-semibold text-white md:text-5xl">
-            <span className="pl-2 text-white rounded-md  bg-primary">
-              Clean
-            </span>
-            CarCo Your Car Deserves the Best Shine
+          <h1 className="relative z-10 text-5xl font-semibold leading-relaxed text-white md:leading-relaxed md:text-5xl">
+            <span className="pl-2 text-white rounded-md bg-primary">Clean</span>
+            CarCo <br className="block lg:hidden" /> Your Car Deserves the Best
+            Shine
           </h1>
 
           <div className="max-w-4xl">
-            <p className="relative z-10 mt-5 text-lg text-neutral-400">
+            <p className="relative z-10 mt-5 text-lg text-justify text-neutral-400">
               At CleanCarCo, we believe that a clean car is more than just a
               vehicle—it’s a reflection of your style, your personality, and
               your pride. Located in the heart of the community, we’re committed

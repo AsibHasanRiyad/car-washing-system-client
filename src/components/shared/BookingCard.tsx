@@ -49,7 +49,8 @@ export function BookingCard({ booking }: { booking: TBookings }) {
           </div>
           <div className="grid grid-cols-2 mt-3 ">
             <div className="space-y-2 ">
-              <Header title=" Booking Details" size=" text-lg"></Header>
+              <Header title=" Booking Details " size=" text-lg "></Header>
+
               <h1>
                 <span className="font-semibold text-white">Date: </span>
                 <span className="text-text">{formattedDate}</span>
