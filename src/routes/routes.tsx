@@ -29,7 +29,11 @@ const router = createBrowserRouter([
       },
       {
         path: "dashboard",
-        element: <AdminDashboard />,
+        element: (
+          <ProtectedRoute allowedRoles={["admin"]}>
+            <AdminDashboard />
+          </ProtectedRoute>
+        ),
         children: [
           {
             path: "dashboard",
