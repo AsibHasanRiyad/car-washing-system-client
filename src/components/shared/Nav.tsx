@@ -14,7 +14,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross1 } from "react-icons/rx";
 
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useAppSelector } from "@/redux/hook";
 import {
   TUser,
@@ -22,9 +22,20 @@ import {
   useCurrentUser,
 } from "@/redux/features/authSlice";
 import { ProfileDropdown } from "./Profile";
+import { Menu } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  currentDashboardStatus,
+  toggleDashboardStatus,
+} from "@/redux/features/DashboardSlice";
 
 export function MenubarDemo() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const dispatch = useDispatch();
+  const location = useLocation(); // Get the current route
+
+  // Check if the current route is /dashboard or any of its children
+  const isDashboardRoute = location.pathname.startsWith("/dashboard");
 
   const token = useAppSelector(useCurrentToken);
   const currentUser = useAppSelector(useCurrentUser);
@@ -64,10 +75,20 @@ export function MenubarDemo() {
     <div>
       {/* Desktop Menubar */}
       <Menubar
-        className={`Menubar justify-between hidden px-10 py-7 ${menubarBackground} text-white   border-none  lg:flex`}
+        className={`Menubar justify-between hidden px-10 py-8 ${menubarBackground} text-white   border-none  lg:flex`}
       >
         {/* left part */}
-        <div className="text-2xl font-medium ">
+        <div className="flex items-center text-2xl font-medium ">
+          {isDashboardRoute && (
+            <div>
+              <button
+                onClick={() => dispatch(toggleDashboardStatus())}
+                className="p-2 m-4 text-sm text-gray-100 -ml-7 hover:bg-black/60 hover:rounded-full "
+              >
+                <Menu className="w-8 h-8" />
+              </button>
+            </div>
+          )}
           <Link to={"/"}>
             {" "}
             <span
@@ -118,6 +139,15 @@ export function MenubarDemo() {
               <Link to={"/all-services"}>
                 <MenubarTrigger className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
                   Services
+                </MenubarTrigger>
+              </Link>
+            </MenubarMenu>
+          )}
+          {(userRole === "user" || userRole === "admin") && (
+            <MenubarMenu>
+              <Link to={"/dashboard"}>
+                <MenubarTrigger className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
+                  Dashboard
                 </MenubarTrigger>
               </Link>
             </MenubarMenu>
@@ -202,8 +232,15 @@ export function MenubarDemo() {
       {/* Mobile Menubar */}
       <Menubar className="flex items-center justify-between px-10 text-white bg-[#171717] border-none rounded-none py-7 lg:hidden">
         {/* left part */}
-        <div className="text-2xl font-medium ">
-          <Link to={"/"}>
+        <div className="flex items-center text-2xl font-medium ">
+          <button
+            onClick={() => dispatch(toggleDashboardStatus())}
+            className="p-2 m-4 text-sm text-gray-100 -ml-7 hover:bg-black/60 hover:rounded-full "
+          >
+            <Menu className="w-6 h-6" />
+          </button>
+
+          <Link className="-ml-2 " to={"/"}>
             {" "}
             <span className="text-primary">Clean</span>CarCo
           </Link>

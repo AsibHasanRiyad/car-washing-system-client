@@ -1,10 +1,12 @@
 import App from "@/App";
+import AdminDashboard from "@/components/layout/AdminDashboard";
 import ProtectedRoute from "@/components/layout/ProtectedRoute";
 import AboutUs from "@/pages/AboutUs";
 import AllBookings from "@/pages/AllBookings";
 import AllSlot from "@/pages/AllSlot";
 import { CreateService } from "@/pages/CreateService";
 import { CreateSlot } from "@/pages/CreateSlot";
+import ServiceManagement from "@/pages/Dashboard/ServiceManagement";
 import ErrorPage from "@/pages/ErrorPage";
 import GetAllServices from "@/pages/GetAllServices";
 
@@ -23,6 +25,28 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "dashboard",
+        element: <AdminDashboard />,
+        children: [
+          {
+            path: "dashboard",
+            element: <h1>Dashboard Home</h1>,
+          },
+          {
+            path: "service-management",
+            element: <ServiceManagement />,
+          },
+          {
+            path: "slot-management",
+            element: <h1>Dashboard slot</h1>,
+          },
+          {
+            path: "user-management",
+            element: <h1>Dashboard user</h1>,
+          },
+        ],
       },
       {
         path: "/create-service",
@@ -73,6 +97,7 @@ const router = createBrowserRouter([
         path: "/about-us",
         element: <AboutUs />,
       },
+
       {
         path: "/signin",
         element: <SingIn />,

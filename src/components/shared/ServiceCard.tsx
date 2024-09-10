@@ -10,24 +10,10 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "@/redux/hook";
 import { useCurrentUser } from "@/redux/features/authSlice";
-
-const MAX_WORD_COUNT = 20;
+import { truncateDescription } from "@/utils/TruncateDescripion";
 
 const ServiceCard = ({ service }: { service: TService }) => {
   const user = useAppSelector(useCurrentUser)?.role;
-  const truncateDescription = (description: string) => {
-    const words = description.split(" ");
-    if (words.length > MAX_WORD_COUNT) {
-      return {
-        shortDescription: words.slice(0, MAX_WORD_COUNT).join(" ") + "...",
-        isTruncated: true,
-      };
-    }
-    return {
-      shortDescription: description,
-      isTruncated: false,
-    };
-  };
 
   const { shortDescription, isTruncated } = truncateDescription(
     service?.description || ""
