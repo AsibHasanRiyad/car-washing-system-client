@@ -66,7 +66,7 @@ export function CreateService({ refetch }: { refetch: () => void }) {
           Create Service
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[625px] bg-secondary   border border-white border-opacity-30">
+      <DialogContent className=" max-w-[350px] md:max-w-[550px]  lg:max-w-[625px] bg-secondary   border border-white border-opacity-30">
         <DialogHeader>
           <DialogTitle className="text-2xl font-medium text-primary">
             Create a Service
