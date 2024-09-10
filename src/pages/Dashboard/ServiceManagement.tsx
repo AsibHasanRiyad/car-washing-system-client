@@ -10,27 +10,27 @@ import {
 } from "@/components/ui/table";
 import ServiceTable from "@/components/Dashboard/ServiceTable";
 import Title from "@/components/shared/Title";
-import { Button } from "@/components/ui/button";
-import { BadgePlus } from "lucide-react";
+
 import { CreateService } from "@/components/Dashboard/CreateService";
 
 const ServiceManagement = () => {
-  const { data, isLoading, isFetching } = useGetAllServicesQuery(undefined);
+  const { data, isLoading, isFetching, refetch } =
+    useGetAllServicesQuery(undefined);
 
   if (isLoading || isFetching) {
     return <Loader />;
   }
   return (
-    <div className="w-screen overflow-scroll hide-scrollbar">
+    <div className="overflow-scroll hide-scrollbar">
       <div className="mt-5 ">
         <Title title1="Service" title2="Management" description="" />
       </div>
       <div className="flex justify-end mb-5 mr-14 ">
-        <CreateService />
+        <CreateService refetch={refetch} />
       </div>
       <Table className="text-base text-gray-100 ">
         <TableHeader>
-          <TableRow>
+          <TableRow className=" hover:bg-transparent">
             <TableHead>Service Name</TableHead>
             <TableHead>Details</TableHead>
             <TableHead>Duration</TableHead>

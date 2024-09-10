@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { logout } from "@/redux/features/authSlice";
 import { useCreateServiceMutation } from "@/redux/features/serviceApi";
+import { PlusCircleIcon } from "lucide-react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -26,7 +27,7 @@ export type TService = {
   _id?: string;
 };
 
-export function CreateService() {
+export function CreateService({ refetch }: { refetch: () => void }) {
   const {
     register,
     handleSubmit,
@@ -47,6 +48,7 @@ export function CreateService() {
       const res = await createService(data).unwrap();
       if (res.success) {
         toast.success(res.message);
+        refetch();
       }
     } catch (err) {
       toast.error(err?.data?.message || "Something went wrong");
@@ -56,7 +58,13 @@ export function CreateService() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="text-white bg-primary">Create Service</Button>
+        <Button className="flex items-center gap-2 text-white bg-primary">
+          {" "}
+          <span>
+            <PlusCircleIcon />
+          </span>{" "}
+          Create Service
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[625px] bg-secondary   border border-white border-opacity-30">
         <DialogHeader>

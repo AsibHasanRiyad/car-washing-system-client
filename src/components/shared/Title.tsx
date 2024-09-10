@@ -8,7 +8,7 @@ const Title = ({
   description: string;
 }) => {
   return (
-    <div className="flex flex-col items-center justify-center pb-16 text-center xl:mx-8">
+    <div className="flex flex-col items-center justify-center text-center xl:mx-8">
       <h1 className="text-2xl font-medium text-white capitalize lg:text-3xl ">
         {title1} <span className=" text-primary">{title2}</span>
       </h1>

@@ -33,7 +33,7 @@ const ServiceTable = ({ service }: { service: TService }) => {
               <HoverCardTrigger asChild>
                 <Button
                   variant="link"
-                  className="text-blue-500 hover:underline"
+                  className="px-0 text-blue-500 hover:underline"
                 >
                   See More
                 </Button>
