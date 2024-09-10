@@ -5,7 +5,7 @@ import {
   HoverCardContent,
 } from "@/components/ui/hover-card";
 
-import { Edit, Settings } from "lucide-react";
+import { Settings } from "lucide-react";
 // import "../Dashboard/";
 
 import { Button } from "@/components/ui/button";
@@ -13,8 +13,9 @@ import { truncateDescription } from "@/utils/TruncateDescripion";
 import { TService } from "@/pages/CreateService";
 import Loader from "../shared/Loader";
 import "../../pages/Dashboard/dashboard.css";
-import { useDeleteServiceMutation } from "@/redux/features/serviceApi";
+
 import { DeleteService } from "./DeleteServiceModal";
+import { UpdateService } from "./UpdateService";
 
 const ServiceTable = ({
   service,
@@ -26,7 +27,7 @@ const ServiceTable = ({
   const { shortDescription, isTruncated } = truncateDescription(
     service?.description || ""
   );
-  const [deleteService, { isLoading }] = useDeleteServiceMutation();
+
   if (!service) {
     return <Loader />;
   }
@@ -60,23 +61,11 @@ const ServiceTable = ({
         </TableCell>
         <TableCell className=" whitespace-nowrap">$ {service.price}</TableCell>
         <TableCell>
-          {" "}
-          <div className="flex items-center gap-2 ">
-            {" "}
-            <Edit className="cursor-pointer " />
-            Edit
-          </div>
+          <UpdateService refetch={refetch} service={service as TService} />
         </TableCell>
         <TableCell>
           {" "}
-          {service._id && (
-            <DeleteService
-              deleteService={deleteService}
-              loading={isLoading}
-              id={service._id}
-              refetch={refetch}
-            />
-          )}
+          <DeleteService id={service._id as string} refetch={refetch} />
         </TableCell>
         <TableCell>
           {" "}

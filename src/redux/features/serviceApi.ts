@@ -28,6 +28,17 @@ const serviceApi = baseApi.injectEndpoints({
         };
       },
     }),
+    updateService: builder.mutation({
+      query: (payload) => {
+        const { _id, ...data } = payload;
+        console.log(_id);
+        return {
+          url: `/services/${_id}`,
+          method: "PATCH",
+          body: data,
+        };
+      },
+    }),
   }),
 });
 
@@ -35,4 +46,5 @@ export const {
   useCreateServiceMutation,
   useGetAllServicesQuery,
   useDeleteServiceMutation,
+  useUpdateServiceMutation,
 } = serviceApi;

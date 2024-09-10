@@ -8,25 +8,20 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { useDeleteServiceMutation } from "@/redux/features/serviceApi";
 import { Trash } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
 export interface DeleteServiceProps {
-  deleteService: (id: string) => Promise<any>;
-  loading: boolean;
   id: string;
   refetch: () => void;
 }
 
-export function DeleteService({
-  deleteService,
-  loading,
-  id,
-  refetch,
-}: DeleteServiceProps) {
+export function DeleteService({ id, refetch }: DeleteServiceProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [open, setOpen] = useState(false); // State to control modal visibility
+  const [open, setOpen] = useState(false);
+  const [deleteService, { isLoading }] = useDeleteServiceMutation();
 
   const handleDelete = async (serviceId: string) => {
     try {
@@ -51,7 +46,7 @@ export function DeleteService({
       <DialogTrigger asChild>
         <div
           className="flex items-center gap-2 cursor-pointer hover:text-primary "
-          onClick={() => setOpen(true)} // Open the modal when the trigger is clicked
+          onClick={() => setOpen(true)}
         >
           <Trash />
           Delete
@@ -68,7 +63,7 @@ export function DeleteService({
         <DialogFooter>
           <Button
             onClick={() => handleDelete(id)}
-            disabled={loading || isSubmitting} // Disable button while loading
+            disabled={isLoading || isSubmitting}
             type="submit"
             className="text-white "
           >
