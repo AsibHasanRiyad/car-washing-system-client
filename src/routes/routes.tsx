@@ -7,6 +7,7 @@ import AllSlot from "@/pages/AllSlot";
 import { CreateService } from "@/pages/CreateService";
 import { CreateSlot } from "@/pages/CreateSlot";
 import ServiceManagement from "@/pages/Dashboard/ServiceManagement";
+import SlotManagement from "@/pages/Dashboard/SlotManagement";
 import ErrorPage from "@/pages/ErrorPage";
 import GetAllServices from "@/pages/GetAllServices";
 
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
           },
           {
             path: "slot-management",
-            element: <h1>Dashboard slot</h1>,
+            element: <SlotManagement />,
           },
           {
             path: "user-management",

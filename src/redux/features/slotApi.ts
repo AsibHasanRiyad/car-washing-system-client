@@ -19,7 +19,23 @@ const slotApi = baseApi.injectEndpoints({
         };
       },
     }),
+    updateSlot: builder.mutation({
+      query: (payload) => {
+        const { _id, ...newStatus } = payload;
+        console.log(payload, "slot payload");
+        console.log(_id);
+        return {
+          url: `/slots/${_id}`,
+          method: "PATCH",
+          body: newStatus,
+        };
+      },
+    }),
   }),
 });
 
-export const { useCreateSlotMutation, useGetAllAvailableSlotsQuery } = slotApi;
+export const {
+  useCreateSlotMutation,
+  useGetAllAvailableSlotsQuery,
+  useUpdateSlotMutation,
+} = slotApi;

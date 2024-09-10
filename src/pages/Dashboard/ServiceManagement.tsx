@@ -37,7 +37,6 @@ const ServiceManagement = () => {
             <TableHead>Price</TableHead>
             <TableHead>Edit</TableHead>
             <TableHead>Delete</TableHead>
-            <TableHead>Create Slot</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>

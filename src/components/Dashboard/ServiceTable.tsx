@@ -5,7 +5,6 @@ import {
   HoverCardContent,
 } from "@/components/ui/hover-card";
 
-import { Settings } from "lucide-react";
 // import "../Dashboard/";
 
 import { Button } from "@/components/ui/button";
@@ -66,12 +65,6 @@ const ServiceTable = ({
         <TableCell>
           {" "}
           <DeleteService id={service._id as string} refetch={refetch} />
-        </TableCell>
-        <TableCell>
-          {" "}
-          <div className="flex items-center gap-2 ">
-            <Settings /> Create
-          </div>
         </TableCell>
       </TableRow>
     </>

@@ -44,6 +44,7 @@ export function DatePicker({
           mode="single"
           selected={date}
           onSelect={handleDateSelect}
+          disabled={(date) => date < new Date()}
           initialFocus
         />
       </PopoverContent>
