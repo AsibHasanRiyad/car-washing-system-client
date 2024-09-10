@@ -26,7 +26,7 @@ const SlotManagement = () => {
       <div className="mt-5 ">
         <Title title1="Slot" title2="Management" description="" />
       </div>
-      <div className="flex justify-end mb-5 mr-14 ">
+      <div className="flex justify-end mb-5 lg:mr-14 ">
         <CreateSlot refetch={refetch} />
       </div>
       <Table className="text-base text-gray-100 ">

@@ -84,7 +84,7 @@ const AdminDashboard = () => {
       </aside>
 
       {/* Main Content */}
-      <div className="p-4 overflow-hidden">
+      <div className="flex-1 p-4 overflow-hidden">
         <Outlet />
       </div>
     </div>

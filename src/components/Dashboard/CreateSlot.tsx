@@ -18,7 +18,7 @@ import { useCreateSlotMutation } from "@/redux/features/slotApi";
 import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
-import Loader from "@/components/shared/Loader";
+
 import { PlusCircle } from "lucide-react";
 
 export type TSlot = {
@@ -31,7 +31,7 @@ export type TSlot = {
 };
 
 export function CreateSlot({ refetch }: { refetch: () => void }) {
-  const { data, isLoading, isFetching } = useGetAllServicesQuery(undefined);
+  const { data } = useGetAllServicesQuery(undefined);
   const [selectedService, setSelectedService] = useState<string | undefined>();
   const [date, setDate] = React.useState<Date | undefined>();
   const [startTime, setStartTime] = React.useState<Date | undefined>();
@@ -45,10 +45,6 @@ export function CreateSlot({ refetch }: { refetch: () => void }) {
     const minutes = date.getMinutes().toString().padStart(2, "0");
     return `${hours}:${minutes}`;
   };
-
-  if (isFetching || isLoading) {
-    return <Loader />;
-  }
 
   const onSubmit: SubmitHandler<TSlot> = async (formData) => {
     const slotData = {
