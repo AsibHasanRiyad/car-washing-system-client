@@ -5,6 +5,9 @@ import { useGetMyBookingsQuery } from "@/redux/features/bookingApi";
 import { TService } from "./CreateService";
 import { TSlot } from "./CreateSlot";
 import Title from "@/components/shared/Title";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { FaArrowRightLong } from "react-icons/fa6";
 export interface Customer {
   _id: string;
   name: string;
@@ -37,7 +40,7 @@ const MyBookings = () => {
         <Title
           title1="My "
           title2="Bookings"
-          description="Students will develop a secure blockchain-based voting system that ensures the integrity and transparency of elections. They will need to implement blockchain technology to record votes securely and allow voters to verify their choices. This project will also explore cryptographic concepts and smart contracts."
+          description="Our premium car wash service offers thorough exterior cleaning, interior vacuuming, waxing, and tire shining. We use eco-friendly products and provide express service for busy schedules. Enjoy spotless results with packages tailored to your vehicle's needs, ensuring satisfaction."
         />
       </div>
       {data?.data.length > 0 ? (
@@ -47,8 +50,18 @@ const MyBookings = () => {
           )) || []}
         </div>
       ) : (
-        <div className="flex items-center justify-center min-h-[70vh] text-4xl text-green-500">
-          No Data Available
+        <div className="flex flex-col gap-5 items-center justify-center min-h-[50vh] text-4xl text-primary">
+          <h1>No Data Available</h1>
+          <Link to={"/available-slot"}>
+            <Button
+              variant="expandIcon"
+              Icon={FaArrowRightLong}
+              iconPlacement="right"
+              className="text-white "
+            >
+              Book a Slot
+            </Button>
+          </Link>
         </div>
       )}
     </div>

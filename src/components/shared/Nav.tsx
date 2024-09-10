@@ -13,7 +13,7 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross1 } from "react-icons/rx";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "@/redux/hook";
 import {
@@ -37,15 +37,47 @@ export function MenubarDemo() {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // nav style for scroll
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  // Handle scroll event
+  useEffect(() => {
+    const handleScroll = () => {
+      const position = window.scrollY;
+      setScrollPosition(position);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Change background based on scroll position
+  const menubarBackground =
+    scrollPosition > 50
+      ? " transition-all transform duration-500 bg-[#6B37ED] shadow-sm shadow-violet-200 rounded-md"
+      : "bg-[#171717] rounded-none";
+
   return (
     <div>
       {/* Desktop Menubar */}
-      <Menubar className="justify-between hidden px-10 py-7 bg-[#171717]  text-white rounded-none border-gray-400 lg:flex">
+      <Menubar
+        className={`Menubar justify-between hidden px-10 py-7 ${menubarBackground} text-white   border-none  lg:flex`}
+      >
         {/* left part */}
         <div className="text-2xl font-medium ">
           <Link to={"/"}>
             {" "}
-            <span className=" text-primary">Clean</span>CarCo
+            <span
+              className={`${
+                scrollPosition > 50 ? "text-black" : "text-primary "
+              }`}
+            >
+              Clean
+            </span>
+            CarCo
           </Link>
         </div>
         {/* middle part */}

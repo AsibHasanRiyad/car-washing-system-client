@@ -84,8 +84,8 @@ export function CreateSlot() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="grid items-center w-full gap-4">
-              <div className="flex flex-col space-y-4">
+            <div className="grid items-center gap-4">
+              <div className="flex flex-col space-y-4 w-[300px] md:w-full">
                 <Label className="text-white" htmlFor="name">
                   Service Name :
                 </Label>
@@ -101,14 +101,14 @@ export function CreateSlot() {
                 </Label>
                 <DatePicker setDate={setDate} />
               </div>
-              <div className="flex justify-between">
-                <div className="flex flex-col">
+              <div className="flex flex-col justify-between gap-5 md:flex-row">
+                <div className="flex flex-col gap-2 md:gap-0">
                   <Label className="text-white" htmlFor="startTime">
                     Start Time:
                   </Label>
                   <TimePickerDemo date={startTime} setDate={setStartTime} />
                 </div>
-                <div className="flex flex-col ">
+                <div className="flex flex-col gap-2 md:gap-0 ">
                   <Label className="text-white" htmlFor="endTime">
                     End Time:
                   </Label>

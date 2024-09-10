@@ -162,13 +162,13 @@ const SignUp = () => {
             <div className="mt-12">
               <button
                 type="submit"
-                className="px-6 py-3 text-sm font-semibold text-gray-800 rounded-md shadow-xl w-max bg-primary focus:outline-none"
+                className="px-6 py-3 text-sm font-semibold text-gray-100 rounded-md shadow-xl w-max bg-primary focus:outline-none"
               >
                 {isLoading ? (
                   <span className="flex items-center gap-2 ">
                     <p>Loading...</p>
                     <p
-                      className="inline-block h-4 w-4 animate-spin rounded-full border-4 text-gray-700 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] "
+                      className="inline-block h-4 w-4 animate-spin rounded-full border-4 text-gray-100 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] "
                       role="status"
                     ></p>
                   </span>

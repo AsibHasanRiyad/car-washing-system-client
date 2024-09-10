@@ -7,7 +7,9 @@ import { Outlet } from "react-router-dom";
 const MainLayout = () => {
   return (
     <div className=" bg-secondary">
-      <MenubarDemo />
+      <div className="sticky top-0 z-40 ">
+        <MenubarDemo />
+      </div>
       <Container>
         <Outlet />
       </Container>

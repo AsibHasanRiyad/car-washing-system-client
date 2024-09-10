@@ -16,14 +16,20 @@ const GetAllServices = () => {
         <Title
           title1="All"
           title2="Services"
-          description="Students will develop a secure blockchain-based voting system that ensures the integrity and transparency of elections. They will need to implement blockchain technology to record votes securely and allow voters to verify their choices. This project will also explore cryptographic concepts and smart contracts."
+          description="Our premium car wash service offers thorough exterior cleaning, interior vacuuming, waxing, and tire shining. We use eco-friendly products and provide express service for busy schedules. Enjoy spotless results with packages tailored to your vehicle's needs, ensuring satisfaction."
         />
       </div>
-      <div className="grid justify-between grid-cols-1 gap-10 px-4 md:grid-cols-2 lg:grid-cols-4 md:px-10 2xl:px-20 ">
-        {data?.data?.map((item: TService) => (
-          <ServiceCard service={item} key={item._id} />
-        ))}
-      </div>
+      {data?.data.length > 0 ? (
+        <div className="grid justify-between grid-cols-1 gap-10 px-4 md:grid-cols-2 lg:grid-cols-4 md:px-10 2xl:px-20 ">
+          {data?.data.map((item: TService) => (
+            <ServiceCard service={item} key={item._id} />
+          ))}
+        </div>
+      ) : (
+        <div className="flex items-center justify-center min-h-[60vh] text-4xl text-primary">
+          No Data Available
+        </div>
+      )}
     </div>
   );
 };

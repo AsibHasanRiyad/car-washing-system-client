@@ -31,7 +31,7 @@ export function SelectItemComponent({
         <SelectGroup>
           <SelectLabel>Available Services</SelectLabel>
           {items?.map((item: selectOption) => (
-            <SelectItem className="w-full " key={item._id} value={item?._id}>
+            <SelectItem key={item._id} value={item?._id}>
               {item?.name}
             </SelectItem>
           ))}
