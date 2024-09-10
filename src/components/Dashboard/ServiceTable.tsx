@@ -5,7 +5,7 @@ import {
   HoverCardContent,
 } from "@/components/ui/hover-card";
 
-import { Edit, Settings, Trash } from "lucide-react";
+import { Edit, Settings } from "lucide-react";
 // import "../Dashboard/";
 
 import { Button } from "@/components/ui/button";
@@ -13,11 +13,20 @@ import { truncateDescription } from "@/utils/TruncateDescripion";
 import { TService } from "@/pages/CreateService";
 import Loader from "../shared/Loader";
 import "../../pages/Dashboard/dashboard.css";
+import { useDeleteServiceMutation } from "@/redux/features/serviceApi";
+import { DeleteService } from "./DeleteServiceModal";
 
-const ServiceTable = ({ service }: { service: TService }) => {
+const ServiceTable = ({
+  service,
+  refetch,
+}: {
+  service: TService;
+  refetch: () => void;
+}) => {
   const { shortDescription, isTruncated } = truncateDescription(
     service?.description || ""
   );
+  const [deleteService, { isLoading }] = useDeleteServiceMutation();
   if (!service) {
     return <Loader />;
   }
@@ -60,10 +69,14 @@ const ServiceTable = ({ service }: { service: TService }) => {
         </TableCell>
         <TableCell>
           {" "}
-          <div className="flex items-center gap-2 ">
-            <Trash />
-            Delete
-          </div>
+          {service._id && (
+            <DeleteService
+              deleteService={deleteService}
+              loading={isLoading}
+              id={service._id}
+              refetch={refetch}
+            />
+          )}
         </TableCell>
         <TableCell>
           {" "}

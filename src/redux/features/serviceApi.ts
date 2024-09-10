@@ -19,7 +19,20 @@ const serviceApi = baseApi.injectEndpoints({
         };
       },
     }),
+    deleteService: builder.mutation({
+      query: (id) => {
+        console.log(id);
+        return {
+          url: `/services/${id}`,
+          method: "DELETE",
+        };
+      },
+    }),
   }),
 });
 
-export const { useCreateServiceMutation, useGetAllServicesQuery } = serviceApi;
+export const {
+  useCreateServiceMutation,
+  useGetAllServicesQuery,
+  useDeleteServiceMutation,
+} = serviceApi;

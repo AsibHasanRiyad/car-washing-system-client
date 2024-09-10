@@ -42,7 +42,11 @@ const ServiceManagement = () => {
         </TableHeader>
         <TableBody>
           {data?.data?.map((service: TService) => (
-            <ServiceTable service={service} key={service._id} />
+            <ServiceTable
+              refetch={refetch}
+              service={service}
+              key={service._id}
+            />
           ))}
         </TableBody>
       </Table>
