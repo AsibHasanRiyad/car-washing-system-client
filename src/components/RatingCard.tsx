@@ -8,7 +8,8 @@ const RatingCard = ({ rating }: { rating: TRating }) => {
       <div className="space-y-1">
         <p className="flex gap-2 ">
           {" "}
-          <MessageSquare /> {rating.feedback}
+          <MessageSquare className="text-justify  min-w-7 min-h-7" />{" "}
+          {rating.feedback}
         </p>
         <Rating style={{ maxWidth: 150 }} isDisabled value={rating.rating} />
       </div>

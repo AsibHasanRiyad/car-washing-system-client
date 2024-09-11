@@ -3,10 +3,12 @@ import AdminDashboard from "@/components/layout/AdminDashboard";
 import ProtectedRoute from "@/components/layout/ProtectedRoute";
 import AboutUs from "@/pages/AboutUs";
 import AllBookings from "@/pages/AllBookings";
+import AllReviews from "@/pages/AllReviews";
 import AllSlot from "@/pages/AllSlot";
 import { CreateService } from "@/pages/CreateService";
 import { CreateSlot } from "@/pages/CreateSlot";
 import { AllUser } from "@/pages/Dashboard/AllUser";
+import DashboardHome from "@/pages/Dashboard/DashboardHome";
 
 import ServiceManagement from "@/pages/Dashboard/ServiceManagement";
 import SlotManagement from "@/pages/Dashboard/SlotManagement";
@@ -40,8 +42,8 @@ const router = createBrowserRouter([
         ),
         children: [
           {
-            path: "dashboard",
-            element: <h1>Dashboard Home</h1>,
+            path: "",
+            element: <DashboardHome />,
           },
           {
             path: "service-management",
@@ -112,7 +114,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/all-reviews",
-        element: <AboutUs />,
+        element: <AllReviews />,
       },
 
       {

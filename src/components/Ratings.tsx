@@ -56,7 +56,10 @@ const Ratings = () => {
               })}
             </div>
             <div className="flex items-center justify-center lg:justify-start">
-              <Button className="text-white w-fit">See all reviews</Button>
+              <Link to={"/all-reviews"}>
+                {" "}
+                <Button className="text-white w-fit">See all reviews</Button>
+              </Link>
             </div>
           </div>
 
