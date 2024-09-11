@@ -76,16 +76,16 @@ export function MenubarDemo() {
       >
         {/* left part */}
         <div className="flex items-center text-2xl font-medium ">
-          {/* {isDashboardRoute && ( */}
-          <div>
-            <button
-              onClick={() => dispatch(toggleDashboardStatus())}
-              className="p-2 m-4 text-sm text-gray-100 -ml-7 hover:bg-black/60 hover:rounded-full "
-            >
-              <Menu className="w-8 h-8" />
-            </button>
-          </div>
-          {/* )} */}
+          {isDashboardRoute && (
+            <div>
+              <button
+                onClick={() => dispatch(toggleDashboardStatus())}
+                className="p-2 m-4 text-sm text-gray-100 -ml-7 hover:bg-black/60 hover:rounded-full "
+              >
+                <Menu className="w-8 h-8" />
+              </button>
+            </div>
+          )}
           <Link to={"/"}>
             {" "}
             <span

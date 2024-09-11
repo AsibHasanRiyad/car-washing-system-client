@@ -110,6 +110,10 @@ const router = createBrowserRouter([
         path: "/about-us",
         element: <AboutUs />,
       },
+      {
+        path: "/all-reviews",
+        element: <AboutUs />,
+      },
 
       {
         path: "/signin",

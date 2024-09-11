@@ -41,7 +41,7 @@ export function RatingForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-2/3 space-y-6">
+    <form onSubmit={handleSubmit} className="w-full space-y-6  lg:w-2/3">
       <div className="flex flex-col items-center justify-center">
         <Rating style={{ maxWidth: 250 }} value={rating} onChange={setRating} />
         {error.rating && (
