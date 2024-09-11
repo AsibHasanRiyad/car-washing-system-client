@@ -35,6 +35,13 @@ const SingIn = () => {
           token: res.data.data.token,
           userId: res.data.data.user._id,
           userName: res.data.data.user.name,
+          userDetails: {
+            userName: res.data.data.user.name,
+            email: res.data.data.user.email,
+            address: res.data.data.user.address,
+            phone: res.data.data.user.phone,
+            role: res.data.data.user.role,
+          },
         })
       );
       navigate("/");
