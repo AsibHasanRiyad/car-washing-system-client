@@ -1,4 +1,6 @@
 import CtaComponents from "@/components/CtaComponents";
+import FeaturedServices from "@/components/FeaturedServices";
+
 import Hero from "@/components/shared/Hero";
 import Branch from "@/components/ui/Branch";
 
@@ -11,6 +13,7 @@ const Home = () => {
       <Hero />
       <CtaComponents />
       <PricePlan />
+      <FeaturedServices />
       <Branch />
       <WhyUs />
     </div>

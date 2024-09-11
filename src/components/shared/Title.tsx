@@ -19,7 +19,7 @@ const Title = ({
         <span className="inline-block w-1 h-1 rounded-full bg-primary"></span>
       </div>
 
-      <p className="max-w-4xl mt-4 font-medium clear-start text-text">
+      <p className="max-w-4xl mt-4 text-lg font-medium clear-start text-text">
         {description}
       </p>
     </div>

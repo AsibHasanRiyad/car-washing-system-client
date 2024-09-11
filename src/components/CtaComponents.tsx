@@ -19,13 +19,12 @@ const CtaComponents = () => {
                   </span>
 
                   <h1 className="text-xl font-semibold capitalize text-primary ">
-                    New Components
+                    Advanced Cleaning Technology
                   </h1>
 
-                  <p className="text-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Provident ab nulla quod dignissimos vel non corrupti
-                    doloribus voluptatum eveniet
+                  <p className="text-lg text-text">
+                    At CleanCarCo, we use cutting-edge cleaning tools and
+                    eco-friendly solutions
                   </p>
                 </div>
 
@@ -35,13 +34,12 @@ const CtaComponents = () => {
                   </span>
 
                   <h1 className="text-xl font-semibold capitalize text-primary ">
-                    elegant Dark Mode
+                    Premium Care for Every Vehicle
                   </h1>
 
-                  <p className="text-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Provident ab nulla quod dignissimos vel non corrupti
-                    doloribus voluptatum eveniet
+                  <p className="text-lg text-text">
+                    We treat every vehicle with the utmost care, ensuring a
+                    thorough wash that brings
                   </p>
                 </div>
 
@@ -51,13 +49,12 @@ const CtaComponents = () => {
                   </span>
 
                   <h1 className="text-xl font-semibold capitalize text-primary ">
-                    Easy to customiztions
+                    Tailored Wash Packages
                   </h1>
 
-                  <p className="text-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Provident ab nulla quod dignissimos vel non corrupti
-                    doloribus voluptatum eveniet
+                  <p className="text-lg text-text">
+                    Choose from our wide range of customizable wash packages to
+                    find the perfect solution for your car's needs
                   </p>
                 </div>
 
@@ -67,13 +64,13 @@ const CtaComponents = () => {
                   </span>
 
                   <h1 className="text-xl font-semibold capitalize text-primary ">
-                    Simple & clean designs
+                    Clean & Professional Finish
                   </h1>
 
-                  <p className="text-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Provident ab nulla quod dignissimos vel non corrupti
-                    doloribus voluptatum eveniet
+                  <p className="text-lg text-text">
+                    Our simple and efficient cleaning process ensures your car
+                    gets a spotless, streak-free finish, ready to hit the road
+                    looking its best.
                   </p>
                 </div>
               </div>
@@ -105,14 +102,14 @@ const CtaComponents = () => {
             <hr className="my-6 text-base border-gray-200 md:my-8 " />
 
             {/* Service Description */}
-            <p className="mb-6 text-justify ">
+            <p className="mb-6 text-lg text-justify ">
               Enjoy a full-service car wash with CleanCarCo, providing premium
               exterior and interior cleaning, waxing, and polishing. Our
               state-of-the-art equipment and environmentally friendly products
               ensure your car looks pristine.
             </p>
 
-            <p className="text-justify ">
+            <p className="text-lg text-justify ">
               Get your car looking brand new with services like undercarriage
               wash, tire dressing, vacuuming, and interior detailing. We also
               offer a range of add-ons for extra care, including waxing, clay
