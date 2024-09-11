@@ -19,7 +19,7 @@ export function UserBookings() {
   }
   return (
     <div className="mt-5 ">
-      <Title title1="Slot" title2="Management" description="" />
+      <Title title1="User" title2="Management" description="" />
       <Table className="text-lg text-white ">
         <TableHeader>
           <TableRow>

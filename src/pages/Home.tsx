@@ -1,3 +1,4 @@
+import CtaComponents from "@/components/CtaComponents";
 import Hero from "@/components/shared/Hero";
 import Branch from "@/components/ui/Branch";
 
@@ -8,7 +9,7 @@ const Home = () => {
   return (
     <div>
       <Hero />
-
+      <CtaComponents />
       <PricePlan />
       <Branch />
       <WhyUs />
