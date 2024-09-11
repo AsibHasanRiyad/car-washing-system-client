@@ -6,8 +6,12 @@ import AllBookings from "@/pages/AllBookings";
 import AllSlot from "@/pages/AllSlot";
 import { CreateService } from "@/pages/CreateService";
 import { CreateSlot } from "@/pages/CreateSlot";
+import { AllUser } from "@/pages/Dashboard/AllUser";
+
 import ServiceManagement from "@/pages/Dashboard/ServiceManagement";
 import SlotManagement from "@/pages/Dashboard/SlotManagement";
+import { UserBookings } from "@/pages/Dashboard/UserBookings";
+
 import ErrorPage from "@/pages/ErrorPage";
 import GetAllServices from "@/pages/GetAllServices";
 
@@ -48,8 +52,12 @@ const router = createBrowserRouter([
             element: <SlotManagement />,
           },
           {
-            path: "user-management",
-            element: <h1>Dashboard user</h1>,
+            path: "user-bookings",
+            element: <UserBookings />,
+          },
+          {
+            path: "all-users",
+            element: <AllUser />,
           },
         ],
       },

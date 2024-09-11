@@ -18,38 +18,39 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useUpdateSlotMutation } from "@/redux/features/slotApi";
-import { TStatus } from "./SlotTable";
+
 import { toast } from "sonner";
+import { useUpdateUserRoleMutation } from "@/redux/features/authApi";
 
 // Example status array with id and value
-const statusOptions = [
-  { id: "1", value: "available" },
-  { id: "2", value: "canceled" },
+const roleOptions = [
+  { id: "1", value: "user" },
+  { id: "2", value: "admin" },
 ];
 
-export function SelectSlotStatus({
-  slotId,
-  status,
+export function SelectUserRole({
+  userId,
+  role,
   refetch,
 }: {
-  slotId: string;
-  status: TStatus;
+  userId: string;
+  role: "user" | "admin";
   refetch: () => void;
 }) {
-  const [selectedStatus, setSelectedStatus] = useState<string>(status);
-  const [updateSlot, { isLoading }] = useUpdateSlotMutation();
+  const [selectedRole, setSelectedRole] = useState<string>(role);
+  const [updateRole, { isLoading }] = useUpdateUserRoleMutation();
 
   const handleStatusChange = async () => {
-    if (!selectedStatus) return;
+    if (!selectedRole) return;
 
     const updatedData = {
-      _id: slotId,
-      newStatus: selectedStatus,
+      id: userId,
+      selectedRole,
     };
+    console.log(updatedData);
 
     try {
-      const res = await updateSlot(updatedData).unwrap();
+      const res = await updateRole(updatedData).unwrap();
       console.log(res);
       if (res.success) {
         toast.success(res.message);
@@ -64,30 +65,19 @@ export function SelectSlotStatus({
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button
-          className={`text-white min-w-28  ${
-            status === "booked"
-              ? "bg-green-500 cursor-not-allowed"
-              : "bg-primary"
-          }
-          ${status === "canceled" && "bg-red-500"} 
-          ${isLoading ? "opacity-50" : ""}`}
-          disabled={status === "booked"}
-        >
-          {status.charAt(0).toUpperCase() + status.slice(1)}
-        </Button>
+        <Button className="mt-2.5  w-28">{role}</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Edit Slot Status</DialogTitle>
+          <DialogTitle>Edit User Role</DialogTitle>
           <DialogDescription>
-            Select the new status for the slot from the options below.
+            Select the new Role for the user from the options below.
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <Select
-            value={selectedStatus}
-            onValueChange={(value) => setSelectedStatus(value)}
+            value={selectedRole}
+            onValueChange={(value) => setSelectedRole(value)}
           >
             <SelectTrigger className="w-full">
               <SelectValue placeholder="Change slot status" />
@@ -95,10 +85,9 @@ export function SelectSlotStatus({
             <SelectContent>
               <SelectGroup>
                 <SelectLabel>Status Options</SelectLabel>
-                {statusOptions.map((statusOption) => (
-                  <SelectItem key={statusOption.id} value={statusOption.value}>
-                    {statusOption.value.charAt(0).toUpperCase() +
-                      statusOption.value.slice(1)}
+                {roleOptions.map((role) => (
+                  <SelectItem key={role.id} value={role.value}>
+                    {role.value.charAt(0).toUpperCase() + role.value.slice(1)}
                   </SelectItem>
                 ))}
               </SelectGroup>
@@ -111,7 +100,7 @@ export function SelectSlotStatus({
             className="text-white bg-primary"
             disabled={isLoading}
           >
-            {isLoading ? "Saving..." : "Save changes"}
+            {isLoading ? "Updating..." : "Update"}
           </Button>
         </DialogFooter>
       </DialogContent>

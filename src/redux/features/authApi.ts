@@ -20,7 +20,33 @@ const authApi = baseApi.injectEndpoints({
         };
       },
     }),
+    getAllUsers: builder.query({
+      query: () => {
+        return {
+          url: "/auth/users",
+          method: "GET",
+        };
+      },
+    }),
+    updateUserRole: builder.mutation({
+      query: (payload) => {
+        const { selectedRole, id } = payload;
+
+        return {
+          url: `/auth/users/${id}`,
+          method: "PATCH",
+          body: {
+            role: selectedRole,
+          },
+        };
+      },
+    }),
   }),
 });
 
-export const { useLoginMutation, useSignUpMutation } = authApi;
+export const {
+  useLoginMutation,
+  useSignUpMutation,
+  useGetAllUsersQuery,
+  useUpdateUserRoleMutation,
+} = authApi;

@@ -1,10 +1,26 @@
-import { Home, User, Settings, CalendarDays } from "lucide-react"; // Importing Lucide icons
+import {
+  Home,
+  Settings,
+  CalendarDays,
+  ChevronsUpDown,
+  UserCog,
+  UserSearch,
+  BookmarkPlus,
+} from "lucide-react"; // Importing Lucide icons
 import { useAppSelector } from "@/redux/hook";
 import { currentDashboardStatus } from "@/redux/features/DashboardSlice";
 import { Link, Outlet } from "react-router-dom";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "../ui/collapsible";
+import { Button } from "../ui/button";
+import React from "react";
 
 const AdminDashboard = () => {
   const isNavbarVisible = useAppSelector(currentDashboardStatus);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <div className="flex min-h-screen ">
@@ -64,21 +80,59 @@ const AdminDashboard = () => {
                 )}
               </Link>
             </li>
-            <li>
-              <Link
-                to={"user-management"}
-                className="flex items-center p-2 text-white transition-all duration-300 rounded-lg dark:text-white hover:bg-secondary dark:hover:bg-gray-700 group"
+            {/* user management */}
+            <Collapsible
+              open={isOpen}
+              onOpenChange={setIsOpen}
+              className="space-y-2 "
+            >
+              <div
+                className={`flex items-center justify-between ${
+                  isNavbarVisible && "pl-2.5"
+                } text-white cursor-pointer space-x-4`}
               >
-                {isNavbarVisible ? (
-                  <p className="flex items-center whitespace-nowrap">
-                    <User className="w-6 h-6" />
-                    <span className="ml-3">User Management</span>
-                  </p>
-                ) : (
-                  <User className="w-6 h-6 mx-auto" />
-                )}
-              </Link>
-            </li>
+                <CollapsibleTrigger asChild>
+                  {isNavbarVisible ? (
+                    <p className="flex items-center whitespace-nowrap">
+                      <UserCog className="w-6 h-6" />
+                      <span className="ml-3">User Management </span>{" "}
+                      <ChevronsUpDown />
+                    </p>
+                  ) : (
+                    <UserCog className="w-6 h-6 mx-auto" />
+                  )}
+                </CollapsibleTrigger>
+              </div>
+
+              <CollapsibleContent>
+                <Link
+                  to={"user-bookings"}
+                  className="flex items-center p-2 text-white transition-all duration-300 rounded-lg hover:bg-secondary group"
+                >
+                  {isNavbarVisible ? (
+                    <p className="flex items-center whitespace-nowrap">
+                      <BookmarkPlus className="w-6 h-6" />
+                      <span className="ml-3">User Bookings</span>
+                    </p>
+                  ) : (
+                    <BookmarkPlus className="w-6 h-6 mx-auto" />
+                  )}
+                </Link>
+                <Link
+                  to={"all-users"}
+                  className="flex items-center p-2 text-white transition-all duration-300 rounded-lg hover:bg-secondary group"
+                >
+                  {isNavbarVisible ? (
+                    <p className="flex items-center whitespace-nowrap">
+                      <UserSearch className="w-6 h-6" />
+                      <span className="ml-3">All User</span>
+                    </p>
+                  ) : (
+                    <UserSearch className="w-6 h-6 mx-auto" />
+                  )}
+                </Link>
+              </CollapsibleContent>
+            </Collapsible>
           </ul>
         </div>
       </aside>
