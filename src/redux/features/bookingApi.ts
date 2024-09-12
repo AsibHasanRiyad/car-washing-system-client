@@ -10,6 +10,7 @@ const bookingApi = baseApi.injectEndpoints({
           body: bookingInfo,
         };
       },
+      invalidatesTags: ["MyBookings"],
     }),
     getAllBookings: builder.query({
       query: () => {
@@ -18,6 +19,7 @@ const bookingApi = baseApi.injectEndpoints({
           method: "GET",
         };
       },
+      providesTags: ["AllBookings"],
     }),
     getMyBookings: builder.query({
       query: () => {
@@ -26,6 +28,7 @@ const bookingApi = baseApi.injectEndpoints({
           method: "GET",
         };
       },
+      providesTags: ["MyBookings"],
     }),
   }),
 });

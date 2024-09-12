@@ -25,13 +25,12 @@ import { ProfileDropdown } from "./Profile";
 import { Menu } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { toggleDashboardStatus } from "@/redux/features/DashboardSlice";
+import NavCountDown from "./NavCountDown";
 
 export function MenubarDemo() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const dispatch = useDispatch();
-  const location = useLocation(); // Get the current route
-
-  // Check if the current route is /dashboard or any of its children
+  const location = useLocation();
   const isDashboardRoute = location.pathname.startsWith("/dashboard");
 
   const token = useAppSelector(useCurrentToken);
@@ -75,7 +74,7 @@ export function MenubarDemo() {
         className={`Menubar justify-between hidden px-10 py-8 ${menubarBackground} text-white   border-none  lg:flex`}
       >
         {/* left part */}
-        <div className="flex items-center text-2xl font-medium ">
+        <div className="flex items-center gap-5 text-2xl font-medium ">
           {isDashboardRoute && (
             <div>
               <button
@@ -97,127 +96,127 @@ export function MenubarDemo() {
             </span>
             CarCo
           </Link>
-        </div>
-        {/* middle part */}
-        <div className="flex items-center">
-          {/* home */}
-          <MenubarMenu>
-            <Link to={"/"}>
-              <MenubarTrigger className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
-                Home
-              </MenubarTrigger>
-            </Link>
-          </MenubarMenu>
-          {/* services */}
-          {userRole === "admin" && (
+          {/* Route part */}
+          <div className="flex items-center">
+            {/* home */}
             <MenubarMenu>
-              <MenubarTrigger className="text-lg text-white transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105 ">
-                Services
-              </MenubarTrigger>
-              <MenubarContent className="mt-1 text-white border-none bg-primary">
-                <MenubarItem>
-                  <Link to={"/all-services"}>All Services</Link>
-                  <MenubarShortcut>
-                    <MdKeyboardArrowRight className="text-xl text-white" />
-                  </MenubarShortcut>
-                </MenubarItem>
-                <MenubarSeparator />
-                <MenubarItem>
-                  <Link to={"/create-service"}>Create Services</Link>
-                  <MenubarShortcut>
-                    <MdKeyboardArrowRight className="text-xl text-white" />
-                  </MenubarShortcut>
-                </MenubarItem>
-              </MenubarContent>
-            </MenubarMenu>
-          )}
-          {(userRole === "user" || userRole === null) && (
-            <MenubarMenu>
-              <Link to={"/all-services"}>
+              <Link to={"/"}>
                 <MenubarTrigger className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
+                  Home
+                </MenubarTrigger>
+              </Link>
+            </MenubarMenu>
+            {/* services */}
+            {/* {userRole === "admin" && (
+              <MenubarMenu>
+                <MenubarTrigger className="text-lg text-white transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105 ">
                   Services
                 </MenubarTrigger>
-              </Link>
-            </MenubarMenu>
-          )}
-          {(userRole === "user" || userRole === "admin") && (
-            <MenubarMenu>
-              <Link to={"/dashboard"}>
-                <MenubarTrigger className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
-                  Dashboard
-                </MenubarTrigger>
-              </Link>
-            </MenubarMenu>
-          )}
-          {/* Bookings */}
-          {userRole === "admin" && (
-            <MenubarMenu>
-              <Link to={"/all-bookings"}>
-                <MenubarTrigger className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
-                  All Bookings
-                </MenubarTrigger>
-              </Link>
-            </MenubarMenu>
-          )}
-          {userRole === "user" && (
-            <MenubarMenu>
-              <Link to={"/my-bookings"}>
-                <MenubarTrigger className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
-                  My Bookings
-                </MenubarTrigger>
-              </Link>
-            </MenubarMenu>
-          )}
-          {/* slots */}
-          {userRole === "admin" && (
-            <MenubarMenu>
-              <MenubarTrigger className="text-lg transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
-                Slots
-              </MenubarTrigger>
-              <MenubarContent className="mt-1 text-white border-none bg-primary ">
-                <Link to={"/available-slot"}>
+                <MenubarContent className="mt-1 text-white border-none bg-primary">
                   <MenubarItem>
-                    Available Slots
+                    <Link to={"/all-services"}>All Services</Link>
                     <MenubarShortcut>
                       <MdKeyboardArrowRight className="text-xl text-white" />
                     </MenubarShortcut>
                   </MenubarItem>
-                </Link>
-                <MenubarSeparator />
-                <Link to="/create-slot">
+                  <MenubarSeparator />
                   <MenubarItem>
-                    Create Slot
+                    <Link to={"/create-service"}>Create Services</Link>
                     <MenubarShortcut>
                       <MdKeyboardArrowRight className="text-xl text-white" />
                     </MenubarShortcut>
                   </MenubarItem>
+                </MenubarContent>
+              </MenubarMenu>
+            )} */}
+            {(userRole === "user" || userRole === null) && (
+              <MenubarMenu>
+                <Link to={"/all-services"}>
+                  <MenubarTrigger className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
+                    Services
+                  </MenubarTrigger>
                 </Link>
-              </MenubarContent>
-            </MenubarMenu>
-          )}
-          {userRole === "user" && (
-            <MenubarMenu>
-              <Link to={"/available-slot"}>
-                <MenubarTrigger className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
-                  Available Slots
-                </MenubarTrigger>
-              </Link>
-            </MenubarMenu>
-          )}
+              </MenubarMenu>
+            )}
+            {(userRole === "user" || userRole === "admin") && (
+              <MenubarMenu>
+                <Link to={"/dashboard"}>
+                  <MenubarTrigger className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
+                    Dashboard
+                  </MenubarTrigger>
+                </Link>
+              </MenubarMenu>
+            )}
+            {/* Bookings */}
+            {/* {userRole === "admin" && (
+              <MenubarMenu>
+                <Link to={"/all-bookings"}>
+                  <MenubarTrigger className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
+                    All Bookings
+                  </MenubarTrigger>
+                </Link>
+              </MenubarMenu>
+            )} */}
 
-          <MenubarMenu>
-            <Link to={"/about-us"}>
-              <MenubarTrigger className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
-                About Us
-              </MenubarTrigger>
-            </Link>
-          </MenubarMenu>
+            {/* slots */}
+            {/* {userRole === "admin" && (
+              <MenubarMenu>
+                <MenubarTrigger className="text-lg transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
+                  Slots
+                </MenubarTrigger>
+                <MenubarContent className="mt-1 text-white border-none bg-primary ">
+                  <Link to={"/available-slot"}>
+                    <MenubarItem>
+                      Available Slots
+                      <MenubarShortcut>
+                        <MdKeyboardArrowRight className="text-xl text-white" />
+                      </MenubarShortcut>
+                    </MenubarItem>
+                  </Link>
+                  <MenubarSeparator />
+                  <Link to="/create-slot">
+                    <MenubarItem>
+                      Create Slot
+                      <MenubarShortcut>
+                        <MdKeyboardArrowRight className="text-xl text-white" />
+                      </MenubarShortcut>
+                    </MenubarItem>
+                  </Link>
+                </MenubarContent>
+              </MenubarMenu>
+            )} */}
+            {userRole === "user" && (
+              <MenubarMenu>
+                <Link to={"/available-slot"}>
+                  <MenubarTrigger className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
+                    Available Slots
+                  </MenubarTrigger>
+                </Link>
+              </MenubarMenu>
+            )}
+
+            <MenubarMenu>
+              <Link to={"/about-us"}>
+                <MenubarTrigger className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
+                  About Us
+                </MenubarTrigger>
+              </Link>
+            </MenubarMenu>
+          </div>
         </div>
+
         {/* last part */}
 
         <div>
           {token ? (
-            <ProfileDropdown currentUser={currentUser as TUser} />
+            <div className="flex items-center ">
+              {userRole === "user" && (
+                <div>
+                  <NavCountDown />
+                </div>
+              )}
+              <ProfileDropdown currentUser={currentUser as TUser} />
+            </div>
           ) : (
             <Link to={"/signin"}>
               <Button className="text-white ">SignIn</Button>

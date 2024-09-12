@@ -4,7 +4,7 @@ import { dateFormatter } from "@/utils/dateFormatter";
 import { Calendar, CircleDollarSign, Hourglass, TimerIcon } from "lucide-react";
 import Countdown from "react-countdown";
 import Header from "../shared/Header";
-type TRenderProps = {
+export type TRenderProps = {
   days: number;
   hours: number;
   minutes: number;

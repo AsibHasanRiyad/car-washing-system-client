@@ -19,7 +19,10 @@ const FeaturedServices = () => {
 
         <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
           {data?.data?.slice(0, 6)?.map((service: TService) => (
-            <div className="p-8 space-y-3 border cursor-pointer border-neutral-800 hover:shadow-lg hover:shadow-black bg-neutral-900/50 rounded-xl">
+            <div
+              key={service._id}
+              className="p-8 space-y-3 border cursor-pointer border-neutral-800 hover:shadow-lg hover:shadow-black bg-neutral-900/50 rounded-xl"
+            >
               <h1 className="text-xl font-semibold capitalize text-primary">
                 {service.name}
               </h1>
