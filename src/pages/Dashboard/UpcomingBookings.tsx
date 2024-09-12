@@ -16,7 +16,6 @@ const UpcomingBookings = () => {
   const nowDateOnly = nowISO.split("T")[0];
 
   const upcomingBookings = data?.data?.filter((booking: TBookings) => {
-    console.log(booking, "inside booking");
     const bookingDateISO = new Date(booking.slot.date).toISOString();
     const bookingDateOnly = bookingDateISO.split("T")[0];
     return bookingDateOnly >= nowDateOnly;

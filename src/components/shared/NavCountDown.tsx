@@ -12,12 +12,11 @@ const NavCountDown = () => {
   const nowDateOnly = nowISO.split("T")[0];
   let lastBooking;
   const upcomingBookings = data?.data?.filter((booking: TBookings) => {
-    console.log(booking, "inside booking");
     const bookingDateISO = new Date(booking.slot.date).toISOString();
     const bookingDateOnly = bookingDateISO.split("T")[0];
     return bookingDateOnly >= nowDateOnly;
   });
-  console.log(upcomingBookings, "upcomingBookings");
+
   if (!upcomingBookings) {
     return (
       <div className="w-8 h-8 animate-[spin_1s_linear_infinite] rounded-full border-4 border-r-transparent border-l-transparent border-primary"></div>
