@@ -10,7 +10,7 @@ import {
 import { useGetMyBookingsQuery } from "@/redux/features/bookingApi";
 import { TBookings } from "../AllBookings";
 import Title from "@/components/shared/Title";
-import dayjs from "dayjs";
+import { dateFormatter } from "@/utils/dateFormatter";
 
 export function MyBookingsDashboard() {
   const { data, isFetching, isLoading } = useGetMyBookingsQuery(undefined);
@@ -18,9 +18,6 @@ export function MyBookingsDashboard() {
   if (isFetching || isLoading) {
     return <Loader />;
   }
-  const formatDate = (isoDate: string) => {
-    return dayjs(isoDate).format("DD-MM-YYYY");
-  };
 
   return (
     <div className="mt-5 ">
@@ -54,7 +51,7 @@ export function MyBookingsDashboard() {
                 $ {booking.service.price}
               </TableCell>
 
-              <TableCell>{formatDate(booking.slot.date)}</TableCell>
+              <TableCell>{dateFormatter(booking.slot.date)}</TableCell>
               <TableCell>{booking.slot.startTime}</TableCell>
               <TableCell>{booking.slot.endTime}</TableCell>
               <TableCell className="capitalize ">
