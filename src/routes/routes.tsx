@@ -23,6 +23,7 @@ import Home from "@/pages/Home";
 import MyBookings from "@/pages/MyBookings";
 import SignUp from "@/pages/SignUp";
 import SingIn from "@/pages/SingIn";
+import SingleServices from "@/pages/SingleServices";
 
 import { createBrowserRouter } from "react-router-dom";
 
@@ -104,6 +105,10 @@ const router = createBrowserRouter([
       {
         path: "/all-services",
         element: <GetAllServices />,
+      },
+      {
+        path: "/service-details/:id",
+        element: <SingleServices />,
       },
       {
         path: "/all-bookings",

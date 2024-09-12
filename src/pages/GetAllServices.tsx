@@ -16,11 +16,11 @@ const GetAllServices = () => {
         <Title
           title1="All"
           title2="Services"
-          description="Our premium car wash service offers thorough exterior cleaning, interior vacuuming, waxing, and tire shining. We use eco-friendly products and provide express service for busy schedules. Enjoy spotless results with packages tailored to your vehicle's needs, ensuring satisfaction."
+          description="Professional exterior cleaning with high-pressure jets and premium soaps, leaving your vehicle spotless and gleaming."
         />
       </div>
       {data?.data.length > 0 ? (
-        <div className="grid justify-between grid-cols-1 gap-10 px-4 md:grid-cols-2 lg:grid-cols-4 md:px-10 2xl:px-20 ">
+        <div className="grid justify-between grid-cols-1 gap-10 px-4 py-10 md:grid-cols-2 lg:grid-cols-4 md:px-10 2xl:px-20 ">
           {data?.data.map((item: TService) => (
             <ServiceCard service={item} key={item._id} />
           ))}
