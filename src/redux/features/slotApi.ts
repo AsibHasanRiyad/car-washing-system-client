@@ -19,6 +19,14 @@ const slotApi = baseApi.injectEndpoints({
         };
       },
     }),
+    getSingleSlot: builder.query({
+      query: (id) => {
+        return {
+          url: `/slots/${id}`,
+          method: "GET",
+        };
+      },
+    }),
     updateSlot: builder.mutation({
       query: (payload) => {
         const { _id, ...newStatus } = payload;
@@ -38,4 +46,5 @@ export const {
   useCreateSlotMutation,
   useGetAllAvailableSlotsQuery,
   useUpdateSlotMutation,
+  useGetSingleSlotQuery,
 } = slotApi;

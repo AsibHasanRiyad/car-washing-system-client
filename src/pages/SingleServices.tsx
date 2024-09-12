@@ -5,7 +5,7 @@ import Title from "@/components/shared/Title";
 import { useGetSingleServiceQuery } from "@/redux/features/serviceApi";
 import { useGetAllAvailableSlotsQuery } from "@/redux/features/slotApi";
 import { dateFormatter } from "@/utils/dateFormatter";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState } from "react"; // Import useState
 import { Button } from "@/components/ui/button";
 
@@ -59,11 +59,6 @@ const SingleServices = () => {
               </div>
 
               <div className="grid grid-cols-1 gap-1 p-3 even:bg-third sm:grid-cols-3 sm:gap-4">
-                <dt className="font-medium text-primary">Name</dt>
-                <dd className="text-text sm:col-span-2">John Frusciante</dd>
-              </div>
-
-              <div className="grid grid-cols-1 gap-1 p-3 even:bg-third sm:grid-cols-3 sm:gap-4">
                 <dt className="font-medium text-primary">Duration</dt>
                 <dd className="text-text sm:col-span-2">
                   {data?.data?.duration / 60} hour
@@ -114,7 +109,9 @@ const SingleServices = () => {
             ))}
           </div>
           <div className="flex items-end justify-end h-full">
-            {selectedSlotId && <Button>Book This Slot</Button>}
+            <Link to={`/bookings/${id}/${selectedSlotId}`}>
+              {selectedSlotId && <Button>Book This Slot</Button>}
+            </Link>
           </div>
         </div>
       </div>

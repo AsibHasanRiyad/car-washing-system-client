@@ -86,7 +86,7 @@ const SignUp = () => {
                   type="text"
                   required
                   {...register("name")}
-                  className="w-full px-2 py-3 text-sm text-white bg-transparent border-b border-gray-300 outline-none focus:border-yellow-400"
+                  className="w-full px-2 py-3 text-sm text-white bg-transparent border-b border-gray-300 outline-none focus:border-primary"
                   placeholder="Enter name"
                 />
                 <IoPersonCircle className="relative -left-6 text-[#A6A8AA] text-2xl" />
@@ -99,7 +99,7 @@ const SignUp = () => {
                   {...register("email")}
                   type="text"
                   required
-                  className="w-full px-2 py-3 text-sm text-white bg-transparent border-b border-gray-300 outline-none focus:border-yellow-400"
+                  className="w-full px-2 py-3 text-sm text-white bg-transparent border-b border-gray-300 outline-none focus:border-primary"
                   placeholder="Enter email"
                 />
                 <MdOutlineMailOutline className="relative -left-6 text-[#A6A8AA] text-2xl" />
@@ -112,7 +112,7 @@ const SignUp = () => {
                   {...register("address")}
                   type="text"
                   required
-                  className="w-full px-2 py-3 text-sm text-white bg-transparent border-b border-gray-300 outline-none focus:border-yellow-400"
+                  className="w-full px-2 py-3 text-sm text-white bg-transparent border-b border-gray-300 outline-none focus:border-primary"
                   placeholder="Enter address"
                 />
                 <MdPhoneIphone className="relative -left-6 text-[#A6A8AA] text-2xl" />
@@ -125,7 +125,7 @@ const SignUp = () => {
                   {...register("phone")}
                   type="text"
                   required
-                  className="w-full px-2 py-3 text-sm text-white bg-transparent border-b border-gray-300 outline-none focus:border-yellow-400"
+                  className="w-full px-2 py-3 text-sm text-white bg-transparent border-b border-gray-300 outline-none focus:border-primary"
                   placeholder="Enter Phone"
                 />
                 <IoLocation className="relative -left-6 text-[#A6A8AA] text-2xl" />
@@ -138,7 +138,7 @@ const SignUp = () => {
                   {...register("password")}
                   type={showPassword ? "text" : "password"}
                   required
-                  className="w-full px-2 py-3 text-sm text-white bg-transparent border-b border-gray-300 outline-none focus:border-yellow-400"
+                  className="w-full px-2 py-3 text-sm text-white bg-transparent border-b border-gray-300 outline-none focus:border-primary"
                   placeholder="Enter password"
                 />
                 {showPassword ? (

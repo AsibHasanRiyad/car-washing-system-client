@@ -5,6 +5,7 @@ import AboutUs from "@/pages/AboutUs";
 import AllBookings from "@/pages/AllBookings";
 import AllReviews from "@/pages/AllReviews";
 import AllSlot from "@/pages/AllSlot";
+import Bookings from "@/pages/Bookings";
 import { CreateService } from "@/pages/CreateService";
 import { CreateSlot } from "@/pages/CreateSlot";
 import { AllUser } from "@/pages/Dashboard/AllUser";
@@ -109,6 +110,10 @@ const router = createBrowserRouter([
       {
         path: "/service-details/:id",
         element: <SingleServices />,
+      },
+      {
+        path: "/bookings/:id/:slotId",
+        element: <Bookings />,
       },
       {
         path: "/all-bookings",
