@@ -10,6 +10,7 @@ const ratingApi = baseApi.injectEndpoints({
           body: payload,
         };
       },
+      invalidatesTags: ["allRatings"],
     }),
     getAllRatings: builder.query({
       query: () => {
@@ -18,6 +19,7 @@ const ratingApi = baseApi.injectEndpoints({
           method: "GET",
         };
       },
+      providesTags: ["allRatings"],
     }),
   }),
 });
