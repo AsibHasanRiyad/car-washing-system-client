@@ -91,10 +91,10 @@ export function BookingSlotModal({ slotData }: { slotData: TSlotData }) {
           </Button>
         </DialogTrigger>
 
-        <DialogContent className="sm:max-w-[625px]">
+        <DialogContent className="sm:max-w-[625px] text-text bg-third">
           <DialogHeader>
-            <DialogTitle>Book this slot</DialogTitle>
-            <DialogDescription>
+            <DialogTitle className="text-center ">Book this slot</DialogTitle>
+            <DialogDescription className="text-center">
               Do you want to book this slot? You can cancel it later, but we do
               recommend confirming as soon as possible to secure your spot.
             </DialogDescription>
@@ -102,7 +102,10 @@ export function BookingSlotModal({ slotData }: { slotData: TSlotData }) {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="grid gap-4 py-4">
               <div className="grid items-center grid-cols-4 gap-4">
-                <Label htmlFor="vehicleType" className="col-span-1 text-right">
+                <Label
+                  htmlFor="vehicleType"
+                  className="col-span-1 text-right text-primary"
+                >
                   Vehicle Type
                 </Label>
 
@@ -112,14 +115,17 @@ export function BookingSlotModal({ slotData }: { slotData: TSlotData }) {
                     items={vehicleTypes}
                   />
                   {errors.vehicleModel && (
-                    <p className="col-span-3 text-red-500">
+                    <p className="col-span-3 mt-2 text-red-500">
                       Vehicle model is required
                     </p>
                   )}
                 </div>
               </div>
               <div className="grid items-center grid-cols-4 gap-4">
-                <Label htmlFor="vehicleBrand" className="text-right">
+                <Label
+                  htmlFor="vehicleBrand"
+                  className="text-right text-primary"
+                >
                   Vehicle Brand
                 </Label>
                 <Input
@@ -129,13 +135,16 @@ export function BookingSlotModal({ slotData }: { slotData: TSlotData }) {
                   className="col-span-3"
                 />
                 {errors.vehicleBrand && (
-                  <p className="col-span-3 text-red-500">
+                  <p className="col-span-3 col-start-2 text-red-500 ">
                     Vehicle brand is required
                   </p>
                 )}
               </div>
               <div className="grid items-center grid-cols-4 gap-4">
-                <Label htmlFor="vehicleModel" className="text-right">
+                <Label
+                  htmlFor="vehicleModel"
+                  className="text-right text-primary"
+                >
                   Vehicle Model
                 </Label>
                 <Input
@@ -145,14 +154,17 @@ export function BookingSlotModal({ slotData }: { slotData: TSlotData }) {
                   className="col-span-3"
                 />
                 {errors.vehicleModel && (
-                  <p className="col-span-3 text-red-500">
+                  <p className="col-span-3 col-start-2 text-red-500">
                     Vehicle type is required
                   </p>
                 )}
               </div>
 
               <div className="grid items-center grid-cols-4 gap-4">
-                <Label htmlFor="manufacturingYear" className="text-right">
+                <Label
+                  htmlFor="manufacturingYear"
+                  className="text-right text-primary"
+                >
                   Manufacturing Year
                 </Label>
                 <Input
@@ -166,13 +178,16 @@ export function BookingSlotModal({ slotData }: { slotData: TSlotData }) {
                   className="col-span-3"
                 />
                 {errors.manufacturingYear && (
-                  <p className="col-span-3 text-red-500">
+                  <p className="col-span-3 col-start-2 text-red-500">
                     Manufacturing year is required
                   </p>
                 )}
               </div>
               <div className="grid items-center grid-cols-4 gap-4">
-                <Label htmlFor="registrationPlate" className="text-right">
+                <Label
+                  htmlFor="registrationPlate"
+                  className="text-right text-primary"
+                >
                   Registration Plate
                 </Label>
                 <Input
@@ -182,27 +197,24 @@ export function BookingSlotModal({ slotData }: { slotData: TSlotData }) {
                   className="col-span-3"
                 />
                 {errors.registrationPlate && (
-                  <p className="col-span-3 text-red-500">
+                  <p className="col-span-3 col-start-2 text-red-500">
                     Registration plate is required
                   </p>
                 )}
               </div>
             </div>
             <DialogFooter>
-              <Button
-                className="text-white bg-secondary hover:bg-black"
-                type="submit"
-              >
+              <Button className="text-white " type="submit">
                 {isLoading ? (
                   <span className="flex items-center gap-2">
-                    <p>Loading...</p>
+                    <p>Processing</p>
                     <p
                       className="inline-block h-4 w-4 animate-spin rounded-full border-4 text-gray-100 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] "
                       role="status"
                     ></p>
                   </span>
                 ) : (
-                  "Pay"
+                  "Continue"
                 )}
               </Button>
             </DialogFooter>

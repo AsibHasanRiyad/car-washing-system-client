@@ -39,7 +39,7 @@ const SingleServices = () => {
 
   const handleSelect = (slotId: string) => {
     setSelectedSlotId(slotId);
-    // console.log("Selected Slot ID:", slotId);
+    console.log("Selected Slot ID:", slotId);
   };
 
   if (isFetching || isLoading) {
@@ -84,7 +84,7 @@ const SingleServices = () => {
         <div className="border border-primary divider lg:divider-horizontal"></div>
 
         {/* slot */}
-        <div className="flex-1 text-white ">
+        <div className="flex-1 h-full text-white ">
           <Header title="Available Slots" size=" text-2xl text-center" />
           <div className="grid grid-cols-2 gap-5 mt-4">
             {targetedSlot?.map((slot: TSlot) => (
@@ -108,11 +108,14 @@ const SingleServices = () => {
               </button>
             ))}
           </div>
-          <div className="flex items-end justify-end h-full">
-            <Link to={`/bookings/${id}/${selectedSlotId}`}>
-              {selectedSlotId && <Button>Book This Slot</Button>}
-            </Link>
-          </div>
+
+          {selectedSlotId && (
+            <div className="flex items-end justify-end h-full mt-8">
+              <Link to={`/bookings/${id}/${selectedSlotId}`}>
+                <Button>Book This Slot</Button>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>
