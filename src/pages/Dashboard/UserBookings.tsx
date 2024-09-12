@@ -19,8 +19,8 @@ export function UserBookings() {
   }
   return (
     <div className="mt-5 ">
-      <Title title1="User" title2="Management" description="" />
-      <Table className="text-lg text-white ">
+      <Title title1="User" title2="Bookings" description="" />
+      <Table className="text-white 2xl:text-lg ">
         <TableHeader>
           <TableRow>
             <TableHead>Service Name</TableHead>
@@ -43,14 +43,18 @@ export function UserBookings() {
               <TableCell className="font-medium text-primary">
                 {booking.service.name}
               </TableCell>
-              <TableCell>{booking.service.duration} Hours</TableCell>
-              <TableCell>$ {booking.service.price}</TableCell>
+              <TableCell className=" whitespace-nowrap">
+                {booking.service.duration} Hours
+              </TableCell>
+              <TableCell className=" whitespace-nowrap">
+                $ {booking.service.price}
+              </TableCell>
               <TableCell>{booking.customer.name}</TableCell>
               <TableCell>{booking.customer.email}</TableCell>
               <TableCell>{booking.slot.date}</TableCell>
               <TableCell>{booking.slot.startTime}</TableCell>
               <TableCell>{booking.slot.endTime}</TableCell>
-              <TableCell className="uppercase ">
+              <TableCell className="capitalize ">
                 {booking.slot.isBooked}
               </TableCell>
             </TableRow>
