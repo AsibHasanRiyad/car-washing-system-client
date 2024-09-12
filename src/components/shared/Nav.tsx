@@ -1,15 +1,7 @@
-import {
-  Menubar,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarSeparator,
-  MenubarShortcut,
-  MenubarTrigger,
-} from "@/components/ui/menubar";
+import { Menubar, MenubarMenu, MenubarTrigger } from "@/components/ui/menubar";
 // import { FaArrowRightLong } from "react-icons/fa6";
 import { Button } from "../ui/button";
-import { MdKeyboardArrowRight } from "react-icons/md";
+
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RxCross1 } from "react-icons/rx";
 
@@ -75,7 +67,7 @@ export function MenubarDemo() {
       >
         {/* left part */}
         <div className="flex items-center gap-5 text-2xl font-medium ">
-          {isDashboardRoute && (
+          {isDashboardRoute && token && (
             <div>
               <button
                 onClick={() => dispatch(toggleDashboardStatus())}
@@ -99,13 +91,13 @@ export function MenubarDemo() {
           {/* Route part */}
           <div className="flex items-center">
             {/* home */}
-            <MenubarMenu>
+            {/* <MenubarMenu>
               <Link to={"/"}>
                 <MenubarTrigger className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
                   Home
                 </MenubarTrigger>
               </Link>
-            </MenubarMenu>
+            </MenubarMenu> */}
             {/* services */}
             {/* {userRole === "admin" && (
               <MenubarMenu>
@@ -138,7 +130,7 @@ export function MenubarDemo() {
                 </Link>
               </MenubarMenu>
             )}
-            {(userRole === "user" || userRole === "admin") && (
+            {token && (
               <MenubarMenu>
                 <Link to={"/dashboard"}>
                   <MenubarTrigger className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
@@ -226,27 +218,30 @@ export function MenubarDemo() {
       </Menubar>
 
       {/* Mobile Menubar */}
-      <Menubar className="flex items-center justify-between px-10 text-white bg-[#171717] border-none rounded-none py-7 lg:hidden">
+      <Menubar className="flex items-center space-y-14  justify-between px-10 text-white bg-[#171717] border-none rounded-none py-7  lg:hidden">
         {/* left part */}
-        <div className="flex items-center text-2xl font-medium ">
-          <button
-            onClick={() => dispatch(toggleDashboardStatus())}
-            className="p-2 m-4 text-sm text-gray-100 -ml-7 hover:bg-black/60 hover:rounded-full "
-          >
-            <Menu className="w-6 h-6" />
-          </button>
+        {isDashboardRoute && token && (
+          <div className="flex items-center text-2xl font-medium ">
+            <button
+              onClick={() => dispatch(toggleDashboardStatus())}
+              className="p-2 m-4 text-sm text-gray-100 -ml-7 hover:bg-black/60 hover:rounded-full "
+            >
+              <Menu className="w-6 h-6" />
+            </button>
 
-          <Link className="-ml-2 " to={"/"}>
-            {" "}
-            <span className="text-primary">Clean</span>CarCo
-          </Link>
-        </div>
+            <Link className="-ml-2 " to={"/"}>
+              {" "}
+              <span className="text-primary">Clean</span>CarCo
+            </Link>
+          </div>
+        )}
+
         {/* menu button */}
         <div className="flex items-center gap-10 ">
           <div className="absolute right-14 top-1">
             {token && <ProfileDropdown currentUser={currentUser as TUser} />}
           </div>
-          <div className="absolute right-2">
+          <div className="absolute top-2 right-2">
             <Button className="bg-primary " onClick={toggleMobileMenu}>
               {" "}
               {isMobileMenuOpen ? (
@@ -260,54 +255,61 @@ export function MenubarDemo() {
 
         {/* Sidebar Menu */}
         <div
-          className={`fixed inset-y-0 -left-2 drop-shadow-xl w-2/3 md:w-2/5  h-full bg-[#171717] pl-8 pt-8 z-50 space-y-4  transition-transform duration-500 ease-in-out transform ${
+          className={`fixed inset-y-0  -left-2 drop-shadow-xl w-2/3 md:w-2/5  h-full bg-[#171717] pl-8 pt-8 z-50 space-y-4  transition-transform duration-500 ease-in-out transform ${
             isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
           {/* Home */}
           <MenubarMenu>
             <Link to={"/"}>
-              <MenubarTrigger className="text-xl ">Home</MenubarTrigger>
+              <MenubarTrigger className="mb-2 text-xl ">Home</MenubarTrigger>
             </Link>
           </MenubarMenu>
+          {token && (
+            <MenubarMenu>
+              <Link to={"/dashboard"}>
+                <MenubarTrigger className="mb-2 text-xl ">
+                  Dashboard
+                </MenubarTrigger>
+              </Link>
+            </MenubarMenu>
+          )}
 
           {/* Services */}
-          <div>
-            {userRole === "admin" && (
-              <MenubarMenu>
-                <MenubarTrigger className="text-xl ">Services</MenubarTrigger>
-                <MenubarContent>
-                  <MenubarItem>
-                    <Link to={"/all-services"}>All Services</Link>
-                    <MenubarShortcut>
-                      <MdKeyboardArrowRight className="text-xl text-white" />
-                    </MenubarShortcut>
-                  </MenubarItem>
-                  <MenubarSeparator />
-                  <MenubarItem>
-                    <Link to={"/create-service"}>Create Services</Link>
-                    <MenubarShortcut>
-                      <MdKeyboardArrowRight className="text-xl text-white" />
-                    </MenubarShortcut>
-                  </MenubarItem>
-                </MenubarContent>
-              </MenubarMenu>
-            )}
-          </div>
-          <div>
-            {(userRole === "user" || userRole === null) && (
-              <MenubarMenu>
-                <Link to={"/all-services"}>
-                  <MenubarTrigger className="text-xl font-semibold ">
-                    Services
-                  </MenubarTrigger>
-                </Link>
-              </MenubarMenu>
-            )}
-          </div>
+
+          {/* {userRole === "admin" && (
+            <MenubarMenu>
+              <MenubarTrigger className="mb-2 text-xl ">Services</MenubarTrigger>
+              <MenubarContent>
+                <MenubarItem>
+                  <Link to={"/all-services"}>All Services</Link>
+                  <MenubarShortcut>
+                    <MdKeyboardArrowRight className="mb-2 text-xl text-white" />
+                  </MenubarShortcut>
+                </MenubarItem>
+                <MenubarSeparator />
+                <MenubarItem>
+                  <Link to={"/create-service"}>Create Services</Link>
+                  <MenubarShortcut>
+                    <MdKeyboardArrowRight className="text-xl text-white" />
+                  </MenubarShortcut>
+                </MenubarItem>
+              </MenubarContent>
+            </MenubarMenu>
+          )} */}
+
+          {(userRole === "user" || userRole === null) && (
+            <MenubarMenu>
+              <Link to={"/all-services"}>
+                <MenubarTrigger className="mb-2 text-xl font-semibold ">
+                  Services
+                </MenubarTrigger>
+              </Link>
+            </MenubarMenu>
+          )}
 
           {/* Bookings */}
-          <div>
+          {/* <div>
             {userRole === "admin" && (
               <MenubarMenu>
                 <Link to={"/all-bookings"}>
@@ -328,10 +330,10 @@ export function MenubarDemo() {
                 </Link>
               </MenubarMenu>
             )}
-          </div>
+          </div> */}
 
           {/* Slots */}
-          <div>
+          {/* <div>
             {userRole === "admin" && (
               <MenubarMenu>
                 <MenubarTrigger className="text-xl ">Slots</MenubarTrigger>
@@ -352,18 +354,17 @@ export function MenubarDemo() {
                 </MenubarContent>
               </MenubarMenu>
             )}
-          </div>
-          <div>
-            {userRole === "user" && (
-              <MenubarMenu>
-                <Link to={"/available-slot"}>
-                  <MenubarTrigger className="text-xl font-semibold ">
-                    Available Slots
-                  </MenubarTrigger>
-                </Link>
-              </MenubarMenu>
-            )}
-          </div>
+          </div> */}
+
+          {userRole === "user" && (
+            <MenubarMenu>
+              <Link to={"/available-slot"}>
+                <MenubarTrigger className="mb-2 text-xl font-semibold ">
+                  Available Slots
+                </MenubarTrigger>
+              </Link>
+            </MenubarMenu>
+          )}
 
           {/* About Us */}
           <MenubarMenu>

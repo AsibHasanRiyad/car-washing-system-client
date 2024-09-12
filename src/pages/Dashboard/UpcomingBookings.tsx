@@ -26,7 +26,7 @@ const UpcomingBookings = () => {
     <div>
       <Title title1="Upcoming" title2="Bookings" description="" />
 
-      <div className="grid grid-cols-2 gap-6 px-6 py-10">
+      <div className="grid grid-cols-1 gap-6 px-6 py-10 lg:grid-cols-2">
         {upcomingBookings?.length > 0 ? (
           upcomingBookings.map((booking: TBookings) => (
             <UpcomingBookingCard booking={booking} key={booking._id} />

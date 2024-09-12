@@ -6,7 +6,6 @@ import {
   UserCog,
   UserSearch,
   BookmarkPlus,
-  BookMarked,
   Clock10Icon,
 } from "lucide-react"; // Importing Lucide icons
 import { useAppSelector } from "@/redux/hook";

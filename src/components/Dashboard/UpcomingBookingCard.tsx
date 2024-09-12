@@ -22,19 +22,27 @@ const UpcomingBookingCard = ({ booking }: { booking: TBookings }) => {
     return (
       <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
         <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-          <span className="font-mono text-5xl countdown">{days}</span>
+          <span className="font-mono text-3xl md:text-5xl countdown">
+            {days}
+          </span>
           <span>days</span>
         </div>
         <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-          <span className="font-mono text-5xl countdown">{hours}</span>
+          <span className="font-mono text-3xl md:text-5xl countdown">
+            {hours}
+          </span>
           <span>hours</span>
         </div>
         <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-          <span className="font-mono text-5xl countdown">{minutes}</span>
+          <span className="font-mono text-3xl md:text-5xl countdown">
+            {minutes}
+          </span>
           <span>minutes</span>
         </div>
         <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-          <span className="font-mono text-5xl countdown">{seconds}</span>
+          <span className="font-mono text-3xl md:text-5xl countdown">
+            {seconds}
+          </span>
           <span>sec</span>
         </div>
       </div>
@@ -42,7 +50,7 @@ const UpcomingBookingCard = ({ booking }: { booking: TBookings }) => {
   };
 
   return (
-    <div className="px-12 py-8 border cursor-pointer border-neutral-600 text-text rounded-xl ">
+    <div className="px-4 py-8 border cursor-pointer lg:px-12 border-neutral-600 text-text rounded-xl">
       {/* Countdown component */}
       <div className="flex justify-center py-2">
         <Countdown date={finalISODate} renderer={renderer} />
@@ -56,7 +64,7 @@ const UpcomingBookingCard = ({ booking }: { booking: TBookings }) => {
           </p>
         </div>
 
-        <div className="flex items-center justify-between mt-6">
+        <div className="flex flex-col items-start justify-between gap-4 mt-6 md:items-center md:flex-row">
           <div className="space-y-4 ">
             <p className="flex items-center gap-2 ">
               <TimerIcon className=" text-primary" /> Start Time:{" "}
