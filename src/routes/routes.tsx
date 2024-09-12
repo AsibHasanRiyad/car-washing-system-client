@@ -9,9 +9,11 @@ import { CreateService } from "@/pages/CreateService";
 import { CreateSlot } from "@/pages/CreateSlot";
 import { AllUser } from "@/pages/Dashboard/AllUser";
 import DashboardHome from "@/pages/Dashboard/DashboardHome";
+import { MyBookingsDashboard } from "@/pages/Dashboard/MyBookings";
 
 import ServiceManagement from "@/pages/Dashboard/ServiceManagement";
 import SlotManagement from "@/pages/Dashboard/SlotManagement";
+import UpcomingBookings from "@/pages/Dashboard/UpcomingBookings";
 import { UserBookings } from "@/pages/Dashboard/UserBookings";
 
 import ErrorPage from "@/pages/ErrorPage";
@@ -33,6 +35,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
+      // dashboard
       {
         path: "dashboard",
         element: (
@@ -61,8 +64,18 @@ const router = createBrowserRouter([
             path: "all-users",
             element: <AllUser />,
           },
+          {
+            path: "my-bookings",
+            element: <MyBookingsDashboard />,
+          },
+          {
+            path: "upcoming-bookings",
+            element: <UpcomingBookings />,
+          },
         ],
       },
+
+      //
       {
         path: "/create-service",
         element: (

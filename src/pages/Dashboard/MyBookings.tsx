@@ -7,13 +7,13 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useGetAllBookingsQuery } from "@/redux/features/bookingApi";
+import { useGetMyBookingsQuery } from "@/redux/features/bookingApi";
 import { TBookings } from "../AllBookings";
 import Title from "@/components/shared/Title";
 import dayjs from "dayjs";
 
-export function UserBookings() {
-  const { data, isFetching, isLoading } = useGetAllBookingsQuery(undefined);
+export function MyBookingsDashboard() {
+  const { data, isFetching, isLoading } = useGetMyBookingsQuery(undefined);
   console.log(data?.data);
   if (isFetching || isLoading) {
     return <Loader />;
@@ -21,6 +21,7 @@ export function UserBookings() {
   const formatDate = (isoDate: string) => {
     return dayjs(isoDate).format("DD-MM-YYYY");
   };
+
   return (
     <div className="mt-5 ">
       <Title title1="User" title2="Bookings" description="" />
@@ -30,8 +31,7 @@ export function UserBookings() {
             <TableHead>Service Name</TableHead>
             <TableHead>Duration</TableHead>
             <TableHead>Price</TableHead>
-            <TableHead>Customer Name</TableHead>
-            <TableHead>Email</TableHead>
+
             <TableHead>Date</TableHead>
             <TableHead>Start Time</TableHead>
             <TableHead>End Time</TableHead>
@@ -53,8 +53,7 @@ export function UserBookings() {
               <TableCell className=" whitespace-nowrap">
                 $ {booking.service.price}
               </TableCell>
-              <TableCell>{booking.customer.name}</TableCell>
-              <TableCell>{booking.customer.email}</TableCell>
+
               <TableCell>{formatDate(booking.slot.date)}</TableCell>
               <TableCell>{booking.slot.startTime}</TableCell>
               <TableCell>{booking.slot.endTime}</TableCell>

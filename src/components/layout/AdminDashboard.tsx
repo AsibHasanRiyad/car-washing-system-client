@@ -6,6 +6,8 @@ import {
   UserCog,
   UserSearch,
   BookmarkPlus,
+  BookMarked,
+  Clock10Icon,
 } from "lucide-react"; // Importing Lucide icons
 import { useAppSelector } from "@/redux/hook";
 import { currentDashboardStatus } from "@/redux/features/DashboardSlice";
@@ -160,60 +162,36 @@ const AdminDashboard = () => {
                   )}
                 </Link>
               </li>
-
-              {/* user management */}
-              <Collapsible
-                open={isOpen}
-                onOpenChange={setIsOpen}
-                className="space-y-2 "
-              >
-                <div
-                  className={`flex items-center justify-between ${
-                    isNavbarVisible && "pl-2.5"
-                  } text-white cursor-pointer space-x-4`}
+              <li>
+                <Link
+                  to={"upcoming-bookings"}
+                  className="flex items-center p-2 text-white transition-all duration-300 rounded-lg dark:text-white hover:bg-secondary dark:hover:bg-gray-700 group"
                 >
-                  <CollapsibleTrigger asChild>
-                    {isNavbarVisible ? (
-                      <p className="flex items-center whitespace-nowrap">
-                        <UserCog className="w-6 h-6" />
-                        <span className="ml-3">User Management </span>{" "}
-                        <ChevronsUpDown />
-                      </p>
-                    ) : (
-                      <UserCog className="w-6 h-6 mx-auto" />
-                    )}
-                  </CollapsibleTrigger>
-                </div>
-
-                <CollapsibleContent>
-                  <Link
-                    to={"user-bookings"}
-                    className="flex items-center p-2 text-white transition-all duration-300 rounded-lg hover:bg-secondary group"
-                  >
-                    {isNavbarVisible ? (
-                      <p className="flex items-center whitespace-nowrap">
-                        <BookmarkPlus className="w-6 h-6" />
-                        <span className="ml-3">User Bookings</span>
-                      </p>
-                    ) : (
-                      <BookmarkPlus className="w-6 h-6 mx-auto" />
-                    )}
-                  </Link>
-                  <Link
-                    to={"all-users"}
-                    className="flex items-center p-2 text-white transition-all duration-300 rounded-lg hover:bg-secondary group"
-                  >
-                    {isNavbarVisible ? (
-                      <p className="flex items-center whitespace-nowrap">
-                        <UserSearch className="w-6 h-6" />
-                        <span className="ml-3">All User</span>
-                      </p>
-                    ) : (
-                      <UserSearch className="w-6 h-6 mx-auto" />
-                    )}
-                  </Link>
-                </CollapsibleContent>
-              </Collapsible>
+                  {isNavbarVisible ? (
+                    <p className="flex items-center whitespace-nowrap">
+                      <Clock10Icon className="w-6 h-6" />
+                      <span className="ml-3">Upcoming Bookings</span>
+                    </p>
+                  ) : (
+                    <Clock10Icon className="w-6 h-6 mx-auto" />
+                  )}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to={"my-bookings"}
+                  className="flex items-center p-2 text-white transition-all duration-300 rounded-lg dark:text-white hover:bg-secondary dark:hover:bg-gray-700 group"
+                >
+                  {isNavbarVisible ? (
+                    <p className="flex items-center whitespace-nowrap">
+                      <BookmarkPlus className="w-6 h-6" />
+                      <span className="ml-3">My Bookings</span>
+                    </p>
+                  ) : (
+                    <BookmarkPlus className="w-6 h-6 mx-auto" />
+                  )}
+                </Link>
+              </li>
             </ul>
           )}
         </div>
