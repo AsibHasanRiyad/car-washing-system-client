@@ -20,7 +20,7 @@ const Ratings = () => {
   // Assuming `user` is stored in Redux, and if `null` or `undefined`, user is not logged in.
   const user = useSelector(useCurrentUser);
   const isAuthenticated = !!user;
-  console.log(user);
+  // console.log(user);
 
   return (
     <section className="relative py-10 bg-secondary ">

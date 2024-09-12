@@ -47,18 +47,18 @@ export function SelectUserRole({
       id: userId,
       selectedRole,
     };
-    console.log(updatedData);
+    // console.log(updatedData);
 
     try {
       const res = await updateRole(updatedData).unwrap();
-      console.log(res);
+      // console.log(res);
       if (res.success) {
         toast.success(res.message);
         refetch();
       }
     } catch (error) {
       toast.error(error.data.message as string);
-      console.log(error);
+      // console.log(error);
     }
   };
 

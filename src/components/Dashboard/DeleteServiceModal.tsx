@@ -27,8 +27,8 @@ export function DeleteService({ id, refetch }: DeleteServiceProps) {
     try {
       setIsSubmitting(true);
       const res = await deleteService(serviceId);
-      console.log(res, "Service deleted");
-      console.log(res?.data?.success);
+      // console.log(res, "Service deleted");
+      // console.log(res?.data?.success);
       if (res?.data?.success) {
         toast.success(res?.data?.message);
         setOpen(false);

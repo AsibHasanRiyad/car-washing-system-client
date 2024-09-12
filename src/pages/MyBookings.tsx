@@ -30,7 +30,7 @@ export type TBookings = {
 
 const MyBookings = () => {
   const { data, isFetching, isLoading } = useGetMyBookingsQuery(undefined);
-  console.log(data);
+  // console.log(data);
   if (isFetching || isLoading) {
     return <Loader />;
   }

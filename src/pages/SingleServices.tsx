@@ -39,7 +39,7 @@ const SingleServices = () => {
 
   const handleSelect = (slotId: string) => {
     setSelectedSlotId(slotId);
-    console.log("Selected Slot ID:", slotId);
+    // console.log("Selected Slot ID:", slotId);
   };
 
   if (isFetching || isLoading) {

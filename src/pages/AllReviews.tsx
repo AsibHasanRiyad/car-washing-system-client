@@ -6,7 +6,7 @@ import { useGetAllRatingsQuery } from "@/redux/features/ratingApi";
 
 const AllReviews = () => {
   const { data, isFetching, isLoading } = useGetAllRatingsQuery(undefined);
-  console.log(data);
+  // console.log(data);
   if (isFetching || isLoading) {
     return <Loader />;
   }

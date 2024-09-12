@@ -14,7 +14,7 @@ import dayjs from "dayjs";
 
 export function UserBookings() {
   const { data, isFetching, isLoading } = useGetAllBookingsQuery(undefined);
-  console.log(data?.data);
+  // console.log(data?.data);
   if (isFetching || isLoading) {
     return <Loader />;
   }

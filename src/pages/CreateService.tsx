@@ -42,7 +42,7 @@ export function CreateService() {
     try {
       data.isDeleted = false;
       const res = await createService(data).unwrap();
-      console.log(res, "res");
+      // console.log(res, "res");
       if (res.success) {
         toast.success(res.message);
       }

@@ -19,16 +19,15 @@ const SingIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   //   data fetch
-  const [login, { isLoading, error }] = useLoginMutation();
-  console.log(error);
+  const [login, { isLoading }] = useLoginMutation();
   const { register, handleSubmit } = useForm<TInput>();
   const onSubmit: SubmitHandler<TInput> = async (data) => {
     const res = await login(data);
-    console.log(res, "res");
+    // console.log(res, "res");
     if (res?.data?.success) {
       toast.success(res?.data?.message);
       const user = verifyToken(res.data.data.token) as TUser;
-      console.log(user);
+      // console.log(user);
       dispatch(
         setUser({
           user: user,

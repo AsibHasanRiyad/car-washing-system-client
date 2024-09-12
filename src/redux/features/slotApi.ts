@@ -30,8 +30,8 @@ const slotApi = baseApi.injectEndpoints({
     updateSlot: builder.mutation({
       query: (payload) => {
         const { _id, ...newStatus } = payload;
-        console.log(payload, "slot payload");
-        console.log(_id);
+        // console.log(payload, "slot payload");
+        // console.log(_id);
         return {
           url: `/slots/${_id}`,
           method: "PATCH",

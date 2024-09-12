@@ -31,7 +31,7 @@ export function MenubarDemo() {
   if (token) {
     userRole = currentUser?.role as string;
   }
-  console.log(userRole);
+  // console.log(userRole);
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -90,37 +90,6 @@ export function MenubarDemo() {
           </Link>
           {/* Route part */}
           <div className="flex items-center">
-            {/* home */}
-            {/* <MenubarMenu>
-              <Link to={"/"}>
-                <MenubarTrigger className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
-                  Home
-                </MenubarTrigger>
-              </Link>
-            </MenubarMenu> */}
-            {/* services */}
-            {/* {userRole === "admin" && (
-              <MenubarMenu>
-                <MenubarTrigger className="text-lg text-white transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105 ">
-                  Services
-                </MenubarTrigger>
-                <MenubarContent className="mt-1 text-white border-none bg-primary">
-                  <MenubarItem>
-                    <Link to={"/all-services"}>All Services</Link>
-                    <MenubarShortcut>
-                      <MdKeyboardArrowRight className="text-xl text-white" />
-                    </MenubarShortcut>
-                  </MenubarItem>
-                  <MenubarSeparator />
-                  <MenubarItem>
-                    <Link to={"/create-service"}>Create Services</Link>
-                    <MenubarShortcut>
-                      <MdKeyboardArrowRight className="text-xl text-white" />
-                    </MenubarShortcut>
-                  </MenubarItem>
-                </MenubarContent>
-              </MenubarMenu>
-            )} */}
             {(userRole === "user" || userRole === null) && (
               <MenubarMenu>
                 <Link to={"/all-services"}>
@@ -139,44 +108,7 @@ export function MenubarDemo() {
                 </Link>
               </MenubarMenu>
             )}
-            {/* Bookings */}
-            {/* {userRole === "admin" && (
-              <MenubarMenu>
-                <Link to={"/all-bookings"}>
-                  <MenubarTrigger className="ml-1 text-lg font-semibold transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
-                    All Bookings
-                  </MenubarTrigger>
-                </Link>
-              </MenubarMenu>
-            )} */}
 
-            {/* slots */}
-            {/* {userRole === "admin" && (
-              <MenubarMenu>
-                <MenubarTrigger className="text-lg transition-all transform cursor-pointer duration-15000 hover:text-primary hover:scale-105">
-                  Slots
-                </MenubarTrigger>
-                <MenubarContent className="mt-1 text-white border-none bg-primary ">
-                  <Link to={"/available-slot"}>
-                    <MenubarItem>
-                      Available Slots
-                      <MenubarShortcut>
-                        <MdKeyboardArrowRight className="text-xl text-white" />
-                      </MenubarShortcut>
-                    </MenubarItem>
-                  </Link>
-                  <MenubarSeparator />
-                  <Link to="/create-slot">
-                    <MenubarItem>
-                      Create Slot
-                      <MenubarShortcut>
-                        <MdKeyboardArrowRight className="text-xl text-white" />
-                      </MenubarShortcut>
-                    </MenubarItem>
-                  </Link>
-                </MenubarContent>
-              </MenubarMenu>
-            )} */}
             {userRole === "user" && (
               <MenubarMenu>
                 <Link to={"/available-slot"}>
@@ -275,29 +207,6 @@ export function MenubarDemo() {
             </MenubarMenu>
           )}
 
-          {/* Services */}
-
-          {/* {userRole === "admin" && (
-            <MenubarMenu>
-              <MenubarTrigger className="mb-2 text-xl ">Services</MenubarTrigger>
-              <MenubarContent>
-                <MenubarItem>
-                  <Link to={"/all-services"}>All Services</Link>
-                  <MenubarShortcut>
-                    <MdKeyboardArrowRight className="mb-2 text-xl text-white" />
-                  </MenubarShortcut>
-                </MenubarItem>
-                <MenubarSeparator />
-                <MenubarItem>
-                  <Link to={"/create-service"}>Create Services</Link>
-                  <MenubarShortcut>
-                    <MdKeyboardArrowRight className="text-xl text-white" />
-                  </MenubarShortcut>
-                </MenubarItem>
-              </MenubarContent>
-            </MenubarMenu>
-          )} */}
-
           {(userRole === "user" || userRole === null) && (
             <MenubarMenu>
               <Link to={"/all-services"}>
@@ -307,54 +216,6 @@ export function MenubarDemo() {
               </Link>
             </MenubarMenu>
           )}
-
-          {/* Bookings */}
-          {/* <div>
-            {userRole === "admin" && (
-              <MenubarMenu>
-                <Link to={"/all-bookings"}>
-                  <MenubarTrigger className="text-xl font-semibold ">
-                    All Bookings
-                  </MenubarTrigger>
-                </Link>
-              </MenubarMenu>
-            )}
-          </div>
-          <div>
-            {userRole === "user" && (
-              <MenubarMenu>
-                <Link to={"/my-bookings"}>
-                  <MenubarTrigger className="text-xl font-semibold ">
-                    My Bookings
-                  </MenubarTrigger>
-                </Link>
-              </MenubarMenu>
-            )}
-          </div> */}
-
-          {/* Slots */}
-          {/* <div>
-            {userRole === "admin" && (
-              <MenubarMenu>
-                <MenubarTrigger className="text-xl ">Slots</MenubarTrigger>
-                <MenubarContent>
-                  <MenubarItem>
-                    <Link to={"/available-slot"}>Available Slots</Link>
-                    <MenubarShortcut>
-                      <MdKeyboardArrowRight className="text-xl text-white" />
-                    </MenubarShortcut>
-                  </MenubarItem>
-                  <MenubarSeparator />
-                  <MenubarItem>
-                    <Link to={"/create-slot"}>Create Slot</Link>
-                    <MenubarShortcut>
-                      <MdKeyboardArrowRight className="text-xl text-white" />
-                    </MenubarShortcut>
-                  </MenubarItem>
-                </MenubarContent>
-              </MenubarMenu>
-            )}
-          </div> */}
 
           {userRole === "user" && (
             <MenubarMenu>

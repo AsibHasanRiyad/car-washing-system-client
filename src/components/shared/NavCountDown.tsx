@@ -6,7 +6,7 @@ import Countdown from "react-countdown";
 import { TRenderProps } from "../Dashboard/UpcomingBookingCard";
 
 const NavCountDown = () => {
-  const { data } = useGetMyBookingsQuery(undefined);
+  const { data, isFetching, isLoading } = useGetMyBookingsQuery(undefined);
 
   const nowISO = new Date().toISOString();
   const nowDateOnly = nowISO.split("T")[0];
@@ -16,7 +16,14 @@ const NavCountDown = () => {
     const bookingDateOnly = bookingDateISO.split("T")[0];
     return bookingDateOnly >= nowDateOnly;
   });
-
+  if (isFetching || isLoading) {
+    return (
+      <div className="w-8 h-8 animate-[spin_1s_linear_infinite] rounded-full border-4 border-r-transparent border-l-transparent border-primary"></div>
+    );
+  }
+  if (data?.data?.length === 0) {
+    return null;
+  }
   if (!upcomingBookings) {
     return (
       <div className="w-8 h-8 animate-[spin_1s_linear_infinite] rounded-full border-4 border-r-transparent border-l-transparent border-primary"></div>
@@ -52,8 +59,8 @@ const NavCountDown = () => {
       <Countdown
         renderer={renderer}
         date={combineDateAndTime(
-          lastBooking.slot.date,
-          lastBooking.slot.startTime
+          lastBooking?.slot.date,
+          lastBooking?.slot.startTime
         )}
       />
     </div>

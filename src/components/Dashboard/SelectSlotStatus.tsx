@@ -50,7 +50,7 @@ export function SelectSlotStatus({
 
     try {
       const res = await updateSlot(updatedData).unwrap();
-      console.log(res);
+      // console.log(res);
       if (res.success) {
         toast.success(res.message);
         refetch();

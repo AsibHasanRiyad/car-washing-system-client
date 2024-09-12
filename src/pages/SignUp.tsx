@@ -21,9 +21,9 @@ type TInput = {
 };
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [signUp, { isLoading, error }] = useSignUpMutation();
+  const [signUp, { isLoading }] = useSignUpMutation();
   const navigate = useNavigate();
-  console.log(error);
+  // console.log(error);
   const { register, handleSubmit } = useForm<TInput>();
   const onSubmit: SubmitHandler<TInput> = async (data) => {
     try {

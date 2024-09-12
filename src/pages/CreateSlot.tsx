@@ -44,7 +44,7 @@ export function CreateSlot() {
     const minutes = date.getMinutes().toString().padStart(2, "0");
     return `${hours}:${minutes}`;
   };
-  console.log(error);
+  // console.log(error);
   const onSubmit: SubmitHandler<TSlot> = async (formData) => {
     const slotData = {
       ...formData,
@@ -54,10 +54,10 @@ export function CreateSlot() {
       serviceId: selectedService,
       isBooked: "available",
     };
-    console.log(slotData);
+    // console.log(slotData);
     try {
       const res = await createSlot(slotData).unwrap();
-      console.log(res, "res");
+      // console.log(res, "res");
       if (res.success) {
         toast.success(res.message);
       }

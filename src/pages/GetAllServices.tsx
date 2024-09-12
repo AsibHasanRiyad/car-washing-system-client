@@ -7,7 +7,7 @@ import ServiceCard2 from "@/components/shared/ServiceCard2";
 
 const GetAllServices = () => {
   const { data, isLoading, isFetching } = useGetAllServicesQuery(undefined);
-  console.log(data?.data);
+  // console.log(data?.data);
   if (isLoading || isFetching) {
     return <Loader />;
   }

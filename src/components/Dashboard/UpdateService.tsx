@@ -44,12 +44,12 @@ export function UpdateService({
     try {
       const _id = service._id;
       const payload = { ...data, _id };
-      console.log(payload);
+      // console.log(payload);
 
       const res = await updateService(payload).unwrap();
 
-      console.log(data);
-      console.log(res);
+      // console.log(data);
+      // console.log(res);
       if (res.success) {
         toast.success(res.message);
         refetch();

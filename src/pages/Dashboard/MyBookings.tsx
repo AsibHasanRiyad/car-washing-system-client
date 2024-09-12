@@ -14,7 +14,7 @@ import { dateFormatter } from "@/utils/dateFormatter";
 
 export function MyBookingsDashboard() {
   const { data, isFetching, isLoading } = useGetMyBookingsQuery(undefined);
-  console.log(data?.data);
+  // console.log(data?.data);
   if (isFetching || isLoading) {
     return <Loader />;
   }

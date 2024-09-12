@@ -2,28 +2,28 @@ import Title from "@/components/shared/Title";
 import { useGetSingleServiceQuery } from "@/redux/features/serviceApi";
 import { useGetSingleSlotQuery } from "@/redux/features/slotApi";
 import { dateFormatter } from "@/utils/dateFormatter";
-
 import { useParams } from "react-router-dom";
-
 import { IoPersonCircle } from "react-icons/io5";
 import { MdOutlineMailOutline } from "react-icons/md";
-
-import { MdPhoneIphone } from "react-icons/md";
-import { IoLocation } from "react-icons/io5";
-import { Button } from "@/components/ui/button";
 import { useAppSelector } from "@/redux/hook";
 import { userCurrentUserDetails } from "@/redux/features/authSlice";
 import Loader from "@/components/shared/Loader";
+import { BookingSlotModal } from "@/components/shared/BookSlotModal";
+import { Locate, Phone } from "lucide-react";
 
 const Bookings = () => {
   const { id, slotId } = useParams();
   const { data, isFetching, isLoading } = useGetSingleServiceQuery(id);
-  const { data: slotData } = useGetSingleSlotQuery(slotId);
+  const {
+    data: slotData,
+    isFetching: slotFetching,
+    isLoading: slotLoading,
+  } = useGetSingleSlotQuery(slotId);
   const currentUser = useAppSelector(userCurrentUserDetails);
-  if (isFetching || isLoading) {
+  if (isFetching || isLoading || slotLoading || slotFetching) {
     return <Loader />;
   }
-  console.log(currentUser);
+  // console.log(currentUser);
   return (
     <div className="p-10">
       <Title title1="Booking" title2="Details" description="" />
@@ -119,7 +119,7 @@ const Bookings = () => {
                   className="w-full px-2 py-3 text-sm text-white bg-transparent border-b border-gray-300 outline-none focus:border-primary"
                   placeholder="Enter address"
                 />
-                <MdPhoneIphone className="relative -left-6 text-[#A6A8AA] text-2xl" />
+                <Locate className="relative -left-6 text-[#A6A8AA] text-2xl" />
               </div>
             </div>
             <div className="mt-8">
@@ -132,10 +132,10 @@ const Bookings = () => {
                   className="w-full px-2 py-3 text-sm text-white bg-transparent border-b border-gray-300 outline-none focus:border-primary"
                   placeholder="Enter Phone"
                 />
-                <IoLocation className="relative -left-6 text-[#A6A8AA] text-2xl" />
+                <Phone className="relative -left-6 text-[#A6A8AA] text-2xl" />
               </div>
             </div>
-            <Button className="mt-5 ">Pay Now</Button>
+            <BookingSlotModal slotData={slotData?.data} />
           </form>
         </div>
       </div>

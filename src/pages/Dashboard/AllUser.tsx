@@ -24,7 +24,7 @@ type TUser = {
 export function AllUser() {
   const { data, isFetching, isLoading, refetch } =
     useGetAllUsersQuery(undefined);
-  console.log(data?.data);
+  // console.log(data?.data);
   if (isFetching || isLoading) {
     return <Loader />;
   }
