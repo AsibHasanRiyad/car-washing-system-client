@@ -109,11 +109,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/service-details/:id",
-        element: <SingleServices />,
+        element: (
+          <ProtectedRoute allowedRoles={["user", "admin"]}>
+            <SingleServices />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/bookings/:id/:slotId",
-        element: <Bookings />,
+        element: (
+          <ProtectedRoute allowedRoles={["user"]}>
+            <Bookings />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/all-bookings",
@@ -137,7 +145,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/all-reviews",
-        element: <AllReviews />,
+        element: (
+          <ProtectedRoute allowedRoles={["user"]}>
+            <AllReviews />
+          </ProtectedRoute>
+        ),
       },
 
       {

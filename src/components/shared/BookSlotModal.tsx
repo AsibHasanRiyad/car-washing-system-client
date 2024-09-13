@@ -48,6 +48,7 @@ export function BookingSlotModal({ slotData }: { slotData: TSlotData }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const [isOpen, setIsOpen] = useState(false);
   const [createBooking, { isLoading }] = useCreateBookingMutation();
   // console.log(slotData, "slotData");
   const [selectedService, setSelectedService] = useState<string | undefined>();
@@ -67,9 +68,10 @@ export function BookingSlotModal({ slotData }: { slotData: TSlotData }) {
     // console.log(payload);
     try {
       const res = await createBooking(payload).unwrap();
-      // console.log(res, "res");
+      console.log(res, "res");
       if (res.success) {
-        toast.success(res.message);
+        setIsOpen(false);
+        window.location.href = res.data.payment_url;
       }
     } catch (err) {
       console.log(err);
@@ -79,7 +81,7 @@ export function BookingSlotModal({ slotData }: { slotData: TSlotData }) {
 
   return (
     <div>
-      <Dialog>
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogTrigger className="w-full" asChild>
           <Button
             variant="expandIcon"

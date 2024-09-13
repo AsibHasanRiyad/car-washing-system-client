@@ -27,7 +27,7 @@ const Bookings = () => {
   return (
     <div className="p-10">
       <Title title1="Booking" title2="Details" description="" />
-      <div className="flex gap-5 my-10 ">
+      <div className="flex flex-col gap-5 my-10 lg:flex-row ">
         <div className="flex-1 ">
           <div className="flow-root py-3 rounded-lg shadow-sm">
             <dl className="-my-3 text-sm divide-y divide-neutral-800">

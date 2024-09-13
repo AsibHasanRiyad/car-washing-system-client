@@ -8,6 +8,8 @@ import { dateFormatter } from "@/utils/dateFormatter";
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react"; // Import useState
 import { Button } from "@/components/ui/button";
+import { useAppSelector } from "@/redux/hook";
+import { useCurrentUser } from "@/redux/features/authSlice";
 
 type TService = {
   name: string;
@@ -30,6 +32,7 @@ const SingleServices = () => {
   const { id } = useParams();
   const { data, isFetching, isLoading } = useGetSingleServiceQuery(id);
   const { data: AllSlots } = useGetAllAvailableSlotsQuery(undefined);
+  const role = useAppSelector(useCurrentUser);
 
   const [selectedSlotId, setSelectedSlotId] = useState<string | null>(null); // State to store selected slot ID
 
@@ -49,7 +52,7 @@ const SingleServices = () => {
   return (
     <div className="p-10">
       <Title title1="Service" title2="Details" description="" />
-      <div className="flex gap-5 my-10 ">
+      <div className="flex flex-col gap-5 my-10 lg:flex-row ">
         <div className="flex-1 ">
           <div className="flow-root py-3 rounded-lg shadow-sm">
             <dl className="-my-3 text-sm divide-y divide-neutral-800">
@@ -109,7 +112,7 @@ const SingleServices = () => {
             ))}
           </div>
 
-          {selectedSlotId && (
+          {selectedSlotId && (role.role as string) === "user" && (
             <div className="flex items-end justify-end h-full mt-8">
               <Link to={`/bookings/${id}/${selectedSlotId}`}>
                 <Button>Book This Slot</Button>

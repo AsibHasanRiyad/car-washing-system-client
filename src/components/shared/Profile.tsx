@@ -1,4 +1,11 @@
-import { CreditCard, LogOut, User, CircleUserRound, Mail } from "lucide-react";
+import {
+  CreditCard,
+  LogOut,
+  User,
+  CircleUserRound,
+  Mail,
+  LayoutDashboard,
+} from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -12,10 +19,15 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
-import { logout, TUser, useCurrentUserName } from "@/redux/features/authSlice";
-import { useNavigate } from "react-router-dom";
-
+import {
+  logout,
+  TUser,
+  useCurrentToken,
+  useCurrentUserName,
+} from "@/redux/features/authSlice";
+import { Link, useNavigate } from "react-router-dom";
 export function ProfileDropdown({ currentUser }: { currentUser: TUser }) {
+  const token = useAppSelector(useCurrentToken);
   // console.log(currentUser);
   const navigate = useNavigate();
   const userName = useAppSelector(useCurrentUserName);
@@ -47,8 +59,19 @@ export function ProfileDropdown({ currentUser }: { currentUser: TUser }) {
           </DropdownMenuItem>
           <DropdownMenuItem>
             <CreditCard className="w-4 h-4 mr-2" />
-            <span className="uppercase ">{currentUser?.role}</span>
+            <span className="capitalize ">{currentUser?.role}</span>
             <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+          </DropdownMenuItem>
+          <DropdownMenuItem className="cursor-pointer ">
+            {token && (
+              <Link
+                className="flex items-center justify-between text-primary"
+                to={"/dashboard"}
+              >
+                <LayoutDashboard className="w-4 h-4 mr-2" />
+                <span className="capitalize ">Dashboard</span>
+              </Link>
+            )}
           </DropdownMenuItem>
         </DropdownMenuGroup>
 

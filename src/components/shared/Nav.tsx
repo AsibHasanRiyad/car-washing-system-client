@@ -152,21 +152,22 @@ export function MenubarDemo() {
       {/* Mobile Menubar */}
       <Menubar className="flex items-center space-y-14  justify-between px-10 text-white bg-[#171717] border-none rounded-none py-7  lg:hidden">
         {/* left part */}
-        {isDashboardRoute && token && (
-          <div className="flex items-center text-2xl font-medium ">
+
+        <div className="flex items-center text-2xl font-medium ">
+          {isDashboardRoute && token && (
             <button
               onClick={() => dispatch(toggleDashboardStatus())}
               className="p-2 m-4 text-sm text-gray-100 -ml-7 hover:bg-black/60 hover:rounded-full "
             >
               <Menu className="w-6 h-6" />
             </button>
+          )}
 
-            <Link className="-ml-2 " to={"/"}>
-              {" "}
-              <span className="text-primary">Clean</span>CarCo
-            </Link>
-          </div>
-        )}
+          <Link className="-ml-2 " to={"/"}>
+            {" "}
+            <span className="text-primary">Clean</span>CarCo
+          </Link>
+        </div>
 
         {/* menu button */}
         <div className="flex items-center gap-10 ">
