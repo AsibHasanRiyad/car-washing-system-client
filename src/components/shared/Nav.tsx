@@ -108,7 +108,7 @@ export function MenubarDemo() {
                 </Link>
               </MenubarMenu>
             )}
-
+            {/* 
             {userRole === "user" && (
               <MenubarMenu>
                 <Link to={"/available-slot"}>
@@ -117,7 +117,7 @@ export function MenubarDemo() {
                   </MenubarTrigger>
                 </Link>
               </MenubarMenu>
-            )}
+            )} */}
 
             <MenubarMenu>
               <Link to={"/about-us"}>
@@ -218,7 +218,7 @@ export function MenubarDemo() {
             </MenubarMenu>
           )}
 
-          {userRole === "user" && (
+          {/* {userRole === "user" && (
             <MenubarMenu>
               <Link to={"/available-slot"}>
                 <MenubarTrigger className="mb-2 text-xl font-semibold ">
@@ -226,7 +226,7 @@ export function MenubarDemo() {
                 </MenubarTrigger>
               </Link>
             </MenubarMenu>
-          )}
+          )} */}
 
           {/* About Us */}
           <MenubarMenu>

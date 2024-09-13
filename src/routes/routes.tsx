@@ -4,7 +4,6 @@ import ProtectedRoute from "@/components/layout/ProtectedRoute";
 import AboutUs from "@/pages/AboutUs";
 import AllBookings from "@/pages/AllBookings";
 import AllReviews from "@/pages/AllReviews";
-import AllSlot from "@/pages/AllSlot";
 import Bookings from "@/pages/Bookings";
 import { CreateService } from "@/pages/CreateService";
 import { CreateSlot } from "@/pages/CreateSlot";
@@ -95,14 +94,14 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      {
-        path: "/available-slot",
-        element: (
-          <ProtectedRoute allowedRoles={["admin", "user"]}>
-            <AllSlot />
-          </ProtectedRoute>
-        ),
-      },
+      // {
+      //   path: "/available-slot",
+      //   element: (
+      //     <ProtectedRoute allowedRoles={["admin", "user"]}>
+      //       <AllSlot />
+      //     </ProtectedRoute>
+      //   ),
+      // },
       {
         path: "/all-services",
         element: <GetAllServices />,
