@@ -6,7 +6,7 @@ import { useGetSingleServiceQuery } from "@/redux/features/serviceApi";
 import { useGetAllAvailableSlotsQuery } from "@/redux/features/slotApi";
 import { dateFormatter } from "@/utils/dateFormatter";
 import { Link, useParams } from "react-router-dom";
-import { useState } from "react"; // Import useState
+import { useEffect, useState } from "react"; // Import useState
 import { Button } from "@/components/ui/button";
 import { useAppSelector } from "@/redux/hook";
 import { useCurrentUser } from "@/redux/features/authSlice";
@@ -29,6 +29,13 @@ type TSlot = {
 };
 
 const SingleServices = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
+
   const { id } = useParams();
   const { data, isFetching, isLoading } = useGetSingleServiceQuery(id);
   const { data: AllSlots } = useGetAllAvailableSlotsQuery(undefined);

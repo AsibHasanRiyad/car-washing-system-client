@@ -1,3 +1,4 @@
+import ScrollToTopButton from "@/utils/ScrollToTop";
 import Footer from "../shared/Footer";
 import { MenubarDemo } from "../shared/Nav";
 // import Navbar from "../shared/Navbar";
@@ -14,6 +15,7 @@ const MainLayout = () => {
         <Outlet />
       </Container>
       <Footer />
+      <ScrollToTopButton />
     </div>
   );
 };

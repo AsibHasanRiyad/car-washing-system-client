@@ -17,11 +17,17 @@ import {
   CollapsibleTrigger,
 } from "../ui/collapsible";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useCurrentUser } from "@/redux/features/authSlice";
 
 const AdminDashboard = () => {
   const isNavbarVisible = useAppSelector(currentDashboardStatus);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   const [isOpen, setIsOpen] = React.useState(false);
   const userRole = useAppSelector(useCurrentUser);
   console.log(userRole);

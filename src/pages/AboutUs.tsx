@@ -3,7 +3,14 @@ import { Link } from "react-router-dom";
 import wash1 from "../assets/image/wash1.jpg";
 import wash2 from "../assets/image/wash2.jpg";
 import wash3 from "../assets/image/wash3.jpg";
+import { useEffect } from "react";
 const AboutUs = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <>
       <section className="overflow-hidden pt-20 px-5 md:px-10 lg:px-20  pb-12 lg:pt-[120px] lg:pb-[90px] bg-secondary ">

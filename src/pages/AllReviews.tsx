@@ -3,13 +3,21 @@ import { TRating } from "@/components/Ratings";
 import Loader from "@/components/shared/Loader";
 import Title from "@/components/shared/Title";
 import { useGetAllRatingsQuery } from "@/redux/features/ratingApi";
+import { useEffect } from "react";
 
 const AllReviews = () => {
   const { data, isFetching, isLoading } = useGetAllRatingsQuery(undefined);
   // console.log(data);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   if (isFetching || isLoading) {
     return <Loader />;
   }
+
   return (
     <div className="px-4 py-10 md:px-16">
       <Title
