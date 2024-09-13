@@ -12,25 +12,37 @@ const NavCountDown = () => {
   const nowDateOnly = nowISO.split("T")[0];
   let lastBooking;
   const upcomingBookings = data?.data?.filter((booking: TBookings) => {
-    const bookingDateISO = new Date(booking.slot.date).toISOString();
+    console.log(booking);
+    if (!booking?.slot?.date) {
+      return false; // Ignore if date is undefined or null
+    }
+    const bookingDateISO = new Date(booking?.slot?.date).toISOString();
     const bookingDateOnly = bookingDateISO.split("T")[0];
     return bookingDateOnly >= nowDateOnly;
   });
+
   if (isFetching || isLoading) {
     return (
       <div className="w-8 h-8 animate-[spin_1s_linear_infinite] rounded-full border-4 border-r-transparent border-l-transparent border-primary"></div>
     );
   }
+
   if (data?.data?.length === 0) {
     return null;
   }
-  if (!upcomingBookings) {
+
+  if (!upcomingBookings || upcomingBookings.length === 0) {
     return (
       <div className="w-8 h-8 animate-[spin_1s_linear_infinite] rounded-full border-4 border-r-transparent border-l-transparent border-primary"></div>
     );
   } else {
-    lastBooking = upcomingBookings?.[upcomingBookings.length - 1];
+    lastBooking = upcomingBookings[upcomingBookings.length - 1];
   }
+
+  if (!lastBooking?.slot?.date || !lastBooking?.slot?.startTime) {
+    return null; // Handle the case when slot date or startTime is missing
+  }
+
   const renderer = ({ days, hours, minutes, seconds }: TRenderProps) => {
     // Render the countdown
     return (
@@ -54,6 +66,7 @@ const NavCountDown = () => {
       </div>
     );
   };
+
   return (
     <div>
       <Countdown
