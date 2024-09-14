@@ -73,9 +73,12 @@ export function BookingSlotModal({ slotData }: { slotData: TSlotData }) {
         setIsOpen(false);
         window.location.href = res.data.payment_url;
       }
+      if (res.data.success === false) {
+        toast.error(res.data.message);
+      }
     } catch (err) {
-      console.log(err);
-      toast.error("Something went wrong");
+      console.log(err, "errrorrr");
+      toast.error(err.data.message);
     }
   };
 

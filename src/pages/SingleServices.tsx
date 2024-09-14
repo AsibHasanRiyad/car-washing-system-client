@@ -108,7 +108,9 @@ const SingleServices = () => {
                     : "bg-transparent border-text"
                 } 
                 hover:border-primary hover:bg-primary transition-all duration-300 transform disabled:bg-neutral-600 disabled:border-neutral-600 disabled:cursor-not-allowed`}
-                disabled={slot.isBooked === "booked"}
+                disabled={
+                  slot.isBooked === "booked" || slot.isBooked === "canceled"
+                }
               >
                 <h1>Date: {dateFormatter(slot.date)}</h1>
                 <div className="flex gap-4">
@@ -119,7 +121,7 @@ const SingleServices = () => {
             ))}
           </div>
 
-          {selectedSlotId && (role.role as string) === "user" && (
+          {selectedSlotId && (role?.role as string) === "user" && (
             <div className="flex items-end justify-end h-full mt-8">
               <Link to={`/bookings/${id}/${selectedSlotId}`}>
                 <Button>Book This Slot</Button>
