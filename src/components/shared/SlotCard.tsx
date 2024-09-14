@@ -62,7 +62,7 @@ export function SlotCard({
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<formData>();
   const [createBooking] = useCreateBookingMutation();
 
   const [selectedService, setSelectedService] = useState<string | undefined>();
@@ -98,7 +98,7 @@ export function SlotCard({
         refetch();
       }
     } catch (err) {
-      toast.error(err?.data?.message || "Something went wrong");
+      toast.error((err as any)?.data?.message || "Something went wrong");
     }
   };
 

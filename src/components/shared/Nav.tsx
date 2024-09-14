@@ -56,7 +56,7 @@ export function MenubarDemo() {
   // Change background based on scroll position
   const menubarBackground =
     scrollPosition > 50
-      ? " transition-all transform duration-500 bg-[#6B37ED] shadow-sm shadow-violet-200 rounded-md"
+      ? " transition-all transform duration-500 rounded-none bg-[#6B37ED] shadow-sm shadow-violet-200 "
       : "bg-[#171717] rounded-none";
 
   return (

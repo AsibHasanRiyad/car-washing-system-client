@@ -47,7 +47,7 @@ export function BookingSlotModal({ slotData }: { slotData: TSlotData }) {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<formData>();
   const [isOpen, setIsOpen] = useState(false);
   const [createBooking, { isLoading }] = useCreateBookingMutation();
   // console.log(slotData, "slotData");
@@ -78,7 +78,7 @@ export function BookingSlotModal({ slotData }: { slotData: TSlotData }) {
       }
     } catch (err) {
       console.log(err, "errrorrr");
-      toast.error(err.data.message);
+      toast.error((err as any).data.message);
     }
   };
 

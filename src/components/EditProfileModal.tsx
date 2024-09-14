@@ -68,7 +68,7 @@ export function EditUserProfile() {
       }
     } catch (err) {
       console.log(err, "error");
-      toast.error(err?.data?.message || "Something went wrong");
+      toast.error((err as any)?.data?.message || "Something went wrong");
     }
   };
 

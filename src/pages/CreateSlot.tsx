@@ -33,8 +33,7 @@ export function CreateSlot() {
   const [date, setDate] = React.useState<Date | undefined>();
   const [startTime, setStartTime] = React.useState<Date | undefined>();
   const [endTime, setEndTime] = React.useState<Date | undefined>();
-  const [createSlot, { error, isLoading: slotLoading }] =
-    useCreateSlotMutation();
+  const [createSlot, { isLoading: slotLoading }] = useCreateSlotMutation();
 
   const { handleSubmit } = useForm<TSlot>();
 
@@ -62,7 +61,7 @@ export function CreateSlot() {
         toast.success(res.message);
       }
     } catch (err) {
-      toast.error(err?.data?.message || "Something went wrong");
+      toast.error((err as any)?.data?.message || "Something went wrong");
     }
   };
 

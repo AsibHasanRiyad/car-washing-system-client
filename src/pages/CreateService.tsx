@@ -34,7 +34,7 @@ export function CreateService() {
   const [createService, { error, isLoading }] = useCreateServiceMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  if (error?.data?.message === "jwt expired") {
+  if ((error as any)?.data?.message === "jwt expired") {
     dispatch(logout());
     navigate("/signin");
   }
@@ -47,7 +47,7 @@ export function CreateService() {
         toast.success(res.message);
       }
     } catch (err) {
-      toast.error(err?.data?.message || "Something went wrong");
+      toast.error((err as any)?.data?.message || "Something went wrong");
     }
   };
 

@@ -46,7 +46,7 @@ const SingIn = () => {
       );
       navigate("/");
     } else {
-      toast.error(res?.error?.data?.message || "Something went wrong");
+      toast.error((res as any)?.error?.data?.message || "Something went wrong");
     }
   };
 

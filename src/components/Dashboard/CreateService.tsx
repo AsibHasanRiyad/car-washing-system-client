@@ -37,7 +37,7 @@ export function CreateService({ refetch }: { refetch: () => void }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  if (error?.data?.message === "jwt expired") {
+  if ((error as any)?.data?.message === "jwt expired") {
     dispatch(logout());
     navigate("/signin");
   }
@@ -51,7 +51,7 @@ export function CreateService({ refetch }: { refetch: () => void }) {
         refetch();
       }
     } catch (err) {
-      toast.error(err?.data?.message || "Something went wrong");
+      toast.error((err as any)?.data?.message || "Something went wrong");
     }
   };
 

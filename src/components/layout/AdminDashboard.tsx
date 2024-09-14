@@ -16,7 +16,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "../ui/collapsible";
-
+import "./styles/index.css";
 import React, { useEffect } from "react";
 import { useCurrentUser } from "@/redux/features/authSlice";
 
@@ -36,7 +36,7 @@ const AdminDashboard = () => {
     <div className="flex min-h-screen ">
       <aside
         id="default-sidebar"
-        className={` transition-all duration-300 fixed min-h-screen lg:relative z-50 overflow-y-auto ${
+        className={` transition-all duration-300 fixed min-h-screen lg:relative z-20 overflow-y-auto ${
           isNavbarVisible ? "w-64  " : " w-0 lg:w-16"
         } bg-primary  h-auto   `}
         aria-label="Sidebar"
@@ -203,7 +203,7 @@ const AdminDashboard = () => {
       </aside>
 
       {/* Main Content */}
-      <div className="flex-1 p-4 overflow-hidden">
+      <div className="flex-1 max-h-screen p-4 overflow-hidden ">
         <Outlet />
       </div>
     </div>

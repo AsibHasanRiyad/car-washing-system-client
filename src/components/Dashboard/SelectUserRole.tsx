@@ -57,7 +57,7 @@ export function SelectUserRole({
         refetch();
       }
     } catch (error) {
-      toast.error(error.data.message as string);
+      toast.error((error as any).data.message as string);
       // console.log(error);
     }
   };
