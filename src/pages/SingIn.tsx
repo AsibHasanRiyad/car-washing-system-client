@@ -40,6 +40,7 @@ const SingIn = () => {
             address: res.data.data.user.address,
             phone: res.data.data.user.phone,
             role: res.data.data.user.role,
+            id: res.data.data.user._id,
           },
         })
       );

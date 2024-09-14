@@ -11,6 +11,7 @@ export type TUserData = {
   email: string;
   address: string;
   phone: string;
+  id: string;
   role: "admin" | "user";
 };
 type TAuthState = {
@@ -57,3 +58,4 @@ export const useCurrentUserId = (state: RootState) => state.auth.userId;
 export const useCurrentUserName = (state: RootState) => state.auth.userName;
 export const userCurrentUserDetails = (state: RootState) =>
   state.auth.userDetails;
+export const getAllUserData = (state: RootState) => state.auth;

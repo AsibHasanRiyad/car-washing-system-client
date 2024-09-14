@@ -1,4 +1,5 @@
 import AdminStats from "@/components/AdminStats";
+import { EditUserProfile } from "@/components/EditProfileModal";
 import Title from "@/components/shared/Title";
 
 import { userCurrentUserDetails } from "@/redux/features/authSlice";
@@ -34,10 +35,14 @@ const DashboardHome = () => {
             </div>
           </div>
           {/* profile details */}
-          <div className="w-full lg:w-9/12">
+          <div className="relative w-full lg:w-9/12">
             <div className="h-full border cursor-pointer bg-third border-neutral-800 rounded-xl">
               <div className="text-text">
+                <div className="absolute -right-4 -top-4">
+                  <EditUserProfile />
+                </div>
                 {/* main  */}
+
                 <div className="grid py-8 lg:py-16 md:grid-cols-2">
                   <div className="grid grid-cols-2">
                     <div className="flex items-center gap-2 px-4 py-2 font-semibold text-primary">

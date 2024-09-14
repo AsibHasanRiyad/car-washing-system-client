@@ -41,6 +41,18 @@ const authApi = baseApi.injectEndpoints({
         };
       },
     }),
+    updateUserProfile: builder.mutation({
+      query: (data) => {
+        const { _id, ...userData } = data;
+        return {
+          url: `/auth/user-profile/${_id}`,
+          method: "PATCH",
+          body: {
+            ...userData,
+          },
+        };
+      },
+    }),
   }),
 });
 
@@ -49,4 +61,5 @@ export const {
   useSignUpMutation,
   useGetAllUsersQuery,
   useUpdateUserRoleMutation,
+  useUpdateUserProfileMutation,
 } = authApi;
