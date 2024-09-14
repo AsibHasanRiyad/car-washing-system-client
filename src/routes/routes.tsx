@@ -108,11 +108,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/service-details/:id",
-        element: (
-          <ProtectedRoute allowedRoles={["user", "admin"]}>
-            <SingleServices />
-          </ProtectedRoute>
-        ),
+        element: <SingleServices />,
       },
       {
         path: "/bookings/:id/:slotId",

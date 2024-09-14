@@ -128,6 +128,13 @@ const SingleServices = () => {
               </Link>
             </div>
           )}
+          {selectedSlotId && !role && (
+            <div className="flex items-end justify-end h-full mt-8">
+              <Link to={"/signin"}>
+                <Button>Book This Slot</Button>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>
