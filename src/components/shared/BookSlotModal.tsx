@@ -93,7 +93,7 @@ export function BookingSlotModal({ slotData }: { slotData: TSlotData }) {
           </Button>
         </DialogTrigger>
 
-        <DialogContent className="sm:max-w-[625px] text-text bg-third">
+        <DialogContent className=" max-w-[380px] rounded-lg md:max-w-[625px] text-text bg-third">
           <DialogHeader>
             <DialogTitle className="text-center ">Book this slot</DialogTitle>
             <DialogDescription className="text-center">

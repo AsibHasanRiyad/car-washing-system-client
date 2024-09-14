@@ -5,7 +5,7 @@ import Header from "./shared/Header";
 
 const CtaComponents = () => {
   return (
-    <section className="py-8 mt-10 text-text bg-secondary md:py-16">
+    <section className="px-4 py-8 mt-10 text-text bg-secondary md:py-16">
       <div className="container px-4 mx-auto 2xl:px-0">
         <div className="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
           <div>

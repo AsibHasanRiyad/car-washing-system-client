@@ -4,10 +4,17 @@ import { TService } from "./CreateService";
 import Title from "@/components/shared/Title";
 
 import ServiceCard2 from "@/components/shared/ServiceCard2";
+import { useEffect } from "react";
 
 const GetAllServices = () => {
   const { data, isLoading, isFetching } = useGetAllServicesQuery(undefined);
   // console.log(data?.data);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   if (isLoading || isFetching) {
     return <Loader />;
   }

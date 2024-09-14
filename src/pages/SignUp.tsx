@@ -41,9 +41,9 @@ const SignUp = () => {
   };
 
   return (
-    <div className="bg-white md:h-screen">
-      <div className="grid items-center h-full md:grid-cols-2">
-        <div className="relative h-full max-md:order-1">
+    <div className="bg-secondary lg:min-h-screen">
+      <div className="grid items-center h-full lg:grid-cols-2">
+        <div className="relative h-full max-lg:order-1">
           <video
             autoPlay
             loop
@@ -53,7 +53,7 @@ const SignUp = () => {
             <source src={video} type="video/mp4" />
           </video>
           <div className="relative z-10 flex flex-col items-center justify-center h-full p-8 text-center text-white bg-black bg-opacity-50">
-            <h1 className="relative z-10 text-5xl font-semibold text-white md:text-6xl">
+            <h1 className="relative z-10 text-5xl font-semibold text-white md:text-6xl ">
               <span className="text-primary">Clean</span>CarCo, Your Car
               Deserves the Best Shine
             </h1>
@@ -68,7 +68,7 @@ const SignUp = () => {
         </div>
 
         {/* Second Div: Same as Before */}
-        <div className="flex items-center bg-[#0C172C] h-full w-full">
+        <div className="flex items-center pl-8 pr-4  md:pl-0 md:pr-0  bg-[#0C172C] my-8 h-full w-full">
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="w-full max-w-lg mx-auto"

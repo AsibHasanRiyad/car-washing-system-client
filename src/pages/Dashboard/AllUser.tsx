@@ -31,7 +31,7 @@ export function AllUser() {
   return (
     <div className="mt-5 ">
       <Title title1="User" title2="Management" description="" />
-      <Table className="text-lg text-white ">
+      <Table className="text-white ">
         <TableHeader>
           <TableRow>
             <TableHead> Name</TableHead>
@@ -44,7 +44,7 @@ export function AllUser() {
         <TableBody>
           {data?.data?.map((user: TUser) => (
             <TableRow
-              className="cursor-pointer hover:bg-transparent"
+              className="cursor-pointer whitespace-nowrap hover:bg-transparent"
               key={user._id}
             >
               <TableCell className="font-medium text-primary">

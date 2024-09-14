@@ -17,13 +17,12 @@ export type TRating = {
 const Ratings = () => {
   const { data } = useGetAllRatingsQuery(undefined);
 
-  // Assuming `user` is stored in Redux, and if `null` or `undefined`, user is not logged in.
   const user = useSelector(useCurrentUser);
   const isAuthenticated = !!user;
   // console.log(user);
 
   return (
-    <section className="relative py-10 bg-secondary ">
+    <section className="relative px-4 py-10 lg:px-0 bg-secondary ">
       {/* Dark overlay if no user is logged in */}
       {!isAuthenticated && (
         <div className="absolute inset-0 z-10 flex items-center justify-center bg-black bg-opacity-75">

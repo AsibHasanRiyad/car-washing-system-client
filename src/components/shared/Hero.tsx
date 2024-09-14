@@ -20,9 +20,9 @@ const Hero = () => {
       </video>
 
       {/* Full Content overlay */}
-      <div className="relative flex flex-col justify-between min-h-[90vh] bg-neutral-900 bg-opacity-60">
+      <div className="relative flex flex-col justify-between min-h-[90vh]  px-4 lg:px-0 bg-neutral-900 bg-opacity-60">
         <div className="max-w-5xl px-4 pt-24 mx-auto xl:px-0 lg:pt-40">
-          <h1 className="relative z-10 text-5xl font-semibold leading-relaxed text-white md:leading-relaxed md:text-5xl">
+          <h1 className="relative z-10 text-5xl font-semibold leading-snug text-white md:leading-relaxed md:text-5xl">
             <span className="pl-2 text-white rounded-md bg-primary">Clean</span>
             CarCo <br className="block lg:hidden" /> Your Car Deserves the Best
             Shine

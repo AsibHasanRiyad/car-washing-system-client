@@ -65,9 +65,9 @@ export function SelectUserRole({
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="mt-2.5 capitalize  w-28">{role}</Button>
+        <Button className="mt-2.5 capitalize my-4  w-28">{role}</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className=" max-w-[380px] rounded-lg md:max-w-[625px] bg-secondary text-text">
         <DialogHeader>
           <DialogTitle>Edit User Role</DialogTitle>
           <DialogDescription>

@@ -16,13 +16,7 @@ import "../../pages/Dashboard/dashboard.css";
 import { DeleteService } from "./DeleteServiceModal";
 import { UpdateService } from "./UpdateService";
 
-const ServiceTable = ({
-  service,
-  refetch,
-}: {
-  service: TService;
-  refetch: () => void;
-}) => {
+const ServiceTable = ({ service }: { service: TService }) => {
   const { shortDescription, isTruncated } = truncateDescription(
     service?.description || ""
   );
@@ -60,11 +54,11 @@ const ServiceTable = ({
         </TableCell>
         <TableCell className=" whitespace-nowrap">$ {service.price}</TableCell>
         <TableCell>
-          <UpdateService refetch={refetch} service={service as TService} />
+          <UpdateService service={service as TService} />
         </TableCell>
         <TableCell>
           {" "}
-          <DeleteService id={service._id as string} refetch={refetch} />
+          <DeleteService id={service._id as string} />
         </TableCell>
       </TableRow>
     </>

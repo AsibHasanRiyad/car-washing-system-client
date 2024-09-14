@@ -10,6 +10,7 @@ const serviceApi = baseApi.injectEndpoints({
           body: serviceInfo,
         };
       },
+      invalidatesTags: ["services"],
     }),
     getAllServices: builder.query({
       query: () => {
@@ -18,6 +19,7 @@ const serviceApi = baseApi.injectEndpoints({
           method: "GET",
         };
       },
+      providesTags: ["services"],
     }),
     getSingleService: builder.query({
       query: (payload) => {
@@ -35,6 +37,7 @@ const serviceApi = baseApi.injectEndpoints({
           method: "DELETE",
         };
       },
+      invalidatesTags: ["services"],
     }),
     updateService: builder.mutation({
       query: (payload) => {
@@ -46,6 +49,7 @@ const serviceApi = baseApi.injectEndpoints({
           body: data,
         };
       },
+      invalidatesTags: ["services"],
     }),
   }),
 });

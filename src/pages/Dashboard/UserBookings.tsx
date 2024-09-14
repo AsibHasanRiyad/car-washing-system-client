@@ -24,7 +24,7 @@ export function UserBookings() {
   return (
     <div className="mt-5 ">
       <Title title1="User" title2="Bookings" description="" />
-      <Table className="text-white 2xl:text-lg ">
+      <Table className="text-white ">
         <TableHeader>
           <TableRow>
             <TableHead>Service Name</TableHead>
@@ -41,7 +41,7 @@ export function UserBookings() {
         <TableBody>
           {data?.data?.map((booking: TBookings) => (
             <TableRow
-              className="cursor-pointer hover:bg-transparent"
+              className="cursor-pointer whitespace-nowrap hover:bg-transparent"
               key={booking._id}
             >
               <TableCell className="font-medium text-primary">

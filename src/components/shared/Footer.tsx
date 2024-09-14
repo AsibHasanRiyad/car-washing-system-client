@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
+import { Facebook, Github, Instagram, Linkedin, Twitter } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -119,20 +121,33 @@ const Footer = () => {
         </div>
         <div className="flex flex-col">
           <div className="flex flex-row justify-between mt-16 mb-6">
-            <a className="hidden uppercase cursor-pointer text-neutral-400 md:block hover:text-white">
-              About
-            </a>
-            <a className="hidden uppercase cursor-pointer text-neutral-400 md:block hover:text-white">
+            <Link
+              to={"/"}
+              className="hidden uppercase cursor-pointer text-neutral-400 md:block hover:text-white"
+            >
+              Home
+            </Link>
+            <Link
+              to={"/all-services"}
+              className="hidden uppercase cursor-pointer text-neutral-400 md:block hover:text-white"
+            >
               Services
-            </a>
-            <a className="hidden uppercase cursor-pointer text-neutral-400 md:block hover:text-white">
-              Why us
-            </a>
-            <a className="hidden uppercase cursor-pointer text-neutral-400 md:block hover:text-white">
-              Contact
-            </a>
+            </Link>
+            <Link
+              to={"/about"}
+              className="hidden uppercase cursor-pointer text-neutral-400 md:block hover:text-white"
+            >
+              About
+            </Link>
+            <div className="flex gap-5">
+              <Facebook />
+              <Linkedin />
+              <Instagram />
+              <Github />
+              <Twitter />
+            </div>
           </div>
-          <p className="text-neutral-400">
+          <p className="mt-8 text-center text-neutral-400">
             CleanCarCo® 2024. All Rights Reserved.
           </p>
         </div>

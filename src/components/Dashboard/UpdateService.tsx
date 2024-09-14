@@ -19,13 +19,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { TService } from "./CreateService";
 
-export function UpdateService({
-  refetch,
-  service,
-}: {
-  refetch: () => void;
-  service: TService;
-}) {
+export function UpdateService({ service }: { service: TService }) {
   const {
     register,
     handleSubmit,
@@ -52,7 +46,6 @@ export function UpdateService({
       // console.log(res);
       if (res.success) {
         toast.success(res.message);
-        refetch();
       }
     } catch (err) {
       toast.error(err?.data?.message || "Something went wrong");
@@ -68,7 +61,7 @@ export function UpdateService({
           Edit
         </div>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[625px] bg-secondary   border border-white border-opacity-30">
+      <DialogContent className=" max-w-[380px] rounded-lg md:max-w-[625px] bg-secondary   border border-white border-opacity-30">
         <DialogHeader>
           <DialogTitle className="text-2xl font-medium text-primary">
             Update Service

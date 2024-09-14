@@ -50,9 +50,9 @@ const SingIn = () => {
   };
 
   return (
-    <div className="bg-white md:h-screen">
-      <div className="grid items-center h-full md:grid-cols-2">
-        <div className="relative h-full max-md:order-1">
+    <div className=" bg-[#0D172C]  lg:h-screen">
+      <div className="grid items-center h-full lg:grid-cols-2">
+        <div className="relative h-full mt-8 lg:mt-0 max-lg:order-1">
           <video
             autoPlay
             loop
@@ -61,7 +61,7 @@ const SingIn = () => {
           >
             <source src={video} type="video/mp4" />
           </video>
-          <div className="relative z-10 flex flex-col items-center justify-center h-full p-8 text-center text-white bg-black bg-opacity-50">
+          <div className="relative z-10 flex flex-col items-center justify-center h-full p-8 text-center text-white bg-opacity-50">
             <h1 className="relative z-10 text-5xl font-semibold text-white md:text-6xl">
               <span className="text-primary">Clean</span>CarCo, Your Car
               Deserves the Best Shine
@@ -76,7 +76,7 @@ const SingIn = () => {
           </div>
         </div>
 
-        <div className="flex items-center bg-[#0C172C] h-full w-full">
+        <div className="flex items-center pl-8 pr-4  md:pl-0 md:pr-0 bg-[#0C172C] mt-8 lg:mt-0 h-full w-full">
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="w-full max-w-lg mx-auto"
@@ -92,7 +92,7 @@ const SingIn = () => {
                   {...register("email")}
                   type="text"
                   required
-                  className="w-full px-2 py-3 text-sm text-white bg-transparent border-b border-gray-300 outline-none focus:border-yellow-400"
+                  className="w-full px-2 py-3 text-sm text-white bg-transparent border-b border-gray-300 outline-none focus:border-primary"
                   placeholder="Enter email"
                 />
                 <MdOutlineMailOutline className="relative -left-6 text-[#A6A8AA] text-2xl" />
@@ -105,7 +105,7 @@ const SingIn = () => {
                   {...register("password")}
                   type={showPassword ? "text" : "password"}
                   required
-                  className="w-full px-2 py-3 text-sm text-white bg-transparent border-b border-gray-300 outline-none focus:border-yellow-400"
+                  className="w-full px-2 py-3 text-sm text-white bg-transparent border-b border-gray-300 outline-none focus:border-primary"
                   placeholder="Enter password"
                 />
                 {showPassword ? (

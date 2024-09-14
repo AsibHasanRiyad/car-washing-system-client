@@ -143,7 +143,14 @@ export function MenubarDemo() {
             </div>
           ) : (
             <Link to={"/signin"}>
-              <Button className="text-white ">SignIn</Button>
+              <Button
+                className={`text-white ${
+                  scrollPosition > 50 &&
+                  "bg-white text-primary hover:bg-black hover:text-white"
+                } `}
+              >
+                SignIn
+              </Button>
             </Link>
           )}
         </div>

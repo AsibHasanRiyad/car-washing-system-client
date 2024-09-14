@@ -162,7 +162,7 @@ export function SlotCard({
                 </Button>
               </DialogTrigger>
             )}
-            <DialogContent className="sm:max-w-[625px]">
+            <DialogContent className=" max-w-[625px]">
               <DialogHeader>
                 <DialogTitle>Book this slot</DialogTitle>
                 <DialogDescription>

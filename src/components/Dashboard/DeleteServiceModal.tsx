@@ -15,10 +15,9 @@ import { toast } from "sonner";
 
 export interface DeleteServiceProps {
   id: string;
-  refetch: () => void;
 }
 
-export function DeleteService({ id, refetch }: DeleteServiceProps) {
+export function DeleteService({ id }: DeleteServiceProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [open, setOpen] = useState(false);
   const [deleteService, { isLoading }] = useDeleteServiceMutation();
@@ -32,7 +31,6 @@ export function DeleteService({ id, refetch }: DeleteServiceProps) {
       if (res?.data?.success) {
         toast.success(res?.data?.message);
         setOpen(false);
-        refetch();
       }
     } catch (error) {
       console.error("Failed to delete service:", error);
@@ -52,7 +50,7 @@ export function DeleteService({ id, refetch }: DeleteServiceProps) {
           Delete
         </div>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className=" max-w-[380px] rounded-lg md:max-w-[625px] bg-secondary text-text">
         <DialogHeader>
           <DialogTitle>Delete Service</DialogTitle>
           <DialogDescription>
