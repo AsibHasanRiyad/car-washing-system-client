@@ -1,5 +1,3 @@
-Certainly! Here's the updated `README.md` without the "Usage," "Contributing," "License," and "Contact" sections:
-
 ````markdown
 <div align="center">
   <h1>CleanCarCo</h1>
