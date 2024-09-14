@@ -123,5 +123,5 @@ The CleanCarCo frontend application allows users to explore car wash services, b
 
 ```
 
-
+This version excludes the "Usage," "Contributing," "License," and "Contact" sections while retaining all relevant details for setting up and understanding the project.
 ```
