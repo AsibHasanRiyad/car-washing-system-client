@@ -7,8 +7,15 @@ import Branch from "@/components/ui/Branch";
 
 import PricePlan from "@/components/ui/PricePlan";
 import WhyUs from "@/components/ui/WhyUs";
+import { useEffect } from "react";
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <div>
       <Hero />

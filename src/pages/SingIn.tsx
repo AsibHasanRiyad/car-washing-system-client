@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import video from "../assets/video/signIn.mp4";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { MdOutlineMailOutline } from "react-icons/md";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useLoginMutation } from "@/redux/features/authApi";
 import { toast } from "sonner";
@@ -49,6 +49,12 @@ const SingIn = () => {
       toast.error((res as any)?.error?.data?.message || "Something went wrong");
     }
   };
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
   return (
     <div className=" bg-[#0D172C]  lg:h-screen">

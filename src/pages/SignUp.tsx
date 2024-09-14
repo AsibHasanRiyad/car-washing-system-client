@@ -7,7 +7,7 @@ import { MdPhoneIphone } from "react-icons/md";
 import { IoLocation } from "react-icons/io5";
 import { IoMdEye } from "react-icons/io";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSignUpMutation } from "@/redux/features/authApi";
 import { toast } from "sonner";
 
@@ -39,6 +39,12 @@ const SignUp = () => {
       toast.error((err as any)?.data?.message || "Something went wrong");
     }
   };
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
   return (
     <div className="bg-secondary lg:min-h-screen">
