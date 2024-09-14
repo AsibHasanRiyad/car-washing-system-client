@@ -14,11 +14,15 @@ const NavCountDown = () => {
   const upcomingBookings = data?.data?.filter((booking: TBookings) => {
     console.log(booking);
     if (!booking?.slot?.date) {
-      return false; // Ignore if date is undefined or null
+      return false;
     }
     const bookingDateISO = new Date(booking?.slot?.date).toISOString();
     const bookingDateOnly = bookingDateISO.split("T")[0];
-    return bookingDateOnly >= nowDateOnly;
+    return (
+      bookingDateOnly >= nowDateOnly &&
+      booking.slot.isBooked !== "canceled" &&
+      booking.slot.isBooked !== "available"
+    );
   });
 
   if (isFetching || isLoading) {
@@ -32,19 +36,16 @@ const NavCountDown = () => {
   }
 
   if (!upcomingBookings || upcomingBookings.length === 0) {
-    return (
-      <div className="w-8 h-8 animate-[spin_1s_linear_infinite] rounded-full border-4 border-r-transparent border-l-transparent border-primary"></div>
-    );
+    return null;
   } else {
     lastBooking = upcomingBookings[upcomingBookings.length - 1];
   }
 
   if (!lastBooking?.slot?.date || !lastBooking?.slot?.startTime) {
-    return null; // Handle the case when slot date or startTime is missing
+    return null;
   }
 
   const renderer = ({ days, hours, minutes, seconds }: TRenderProps) => {
-    // Render the countdown
     return (
       <div className="grid grid-flow-col text-center auto-cols-max">
         <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">

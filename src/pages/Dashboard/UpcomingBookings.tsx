@@ -18,7 +18,12 @@ const UpcomingBookings = () => {
   const upcomingBookings = data?.data?.filter((booking: TBookings) => {
     const bookingDateISO = new Date(booking.slot.date).toISOString();
     const bookingDateOnly = bookingDateISO.split("T")[0];
-    return bookingDateOnly >= nowDateOnly;
+
+    return (
+      bookingDateOnly >= nowDateOnly &&
+      booking.slot.isBooked !== "canceled" &&
+      booking.slot.isBooked !== "available"
+    );
   });
 
   return (
