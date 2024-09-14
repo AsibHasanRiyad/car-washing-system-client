@@ -1,3 +1,6 @@
+It looks like the text got cut off. Here’s the complete `README.md` with all the steps included:
+
+````markdown
 <div align="center">
   <h1>CleanCarCo</h1>
 </div>
@@ -102,3 +105,64 @@ The CleanCarCo frontend application allows users to explore car wash services, b
    ```bash
    git clone https://github.com/AsibHasanRiyad/car-washing-system-client.git
    ```
+````
+
+2. **Navigate to the Project Directory:**
+
+   ```bash
+   cd car-washing-system-client
+   ```
+
+3. **Install Dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+4. **Run the Application Locally:**
+
+   ```bash
+   npm start
+   ```
+
+5. **Access the Application:**
+   - Open your browser and go to `http://localhost:3000`.
+
+## Usage
+
+- **Explore Services:** Navigate to the services page to view and select car cleaning options.
+- **Book Appointments:** Choose available slots and book a service.
+- **Manage Profile:** Register, log in, and manage your user profile.
+
+## Contributing
+
+To contribute to this project:
+
+1. **Fork the Repository**
+2. **Create a New Branch:**
+   ```bash
+   git checkout -b feature/your-feature
+   ```
+3. **Make Your Changes**
+4. **Commit Your Changes:**
+   ```bash
+   git commit -am 'Add new feature'
+   ```
+5. **Push to the Branch:**
+   ```bash
+   git push origin feature/your-feature
+   ```
+6. **Create a Pull Request**
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For any inquiries, please reach out to [your-email@example.com](mailto:your-email@example.com).
+
+```
+
+This `README.md` includes all the required steps for installation and usage, along with sections for contributing, licensing, and contact information.
+```
