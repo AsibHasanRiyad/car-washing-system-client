@@ -81,13 +81,8 @@ The CleanCarCo frontend application allows users to explore car wash services, b
 
 - **Frontend:** React, Tailwind CSS
 - **State Management:** Redux
-- **APIs:** Custom REST APIs
 
 ## Installation Guideline
-
-### Prerequisites
-
-- **Node.js:** Ensure Node.js is installed. Download it from [Node.js official site](https://nodejs.org/).
 
 ### Installation Steps
 
@@ -113,6 +108,5 @@ The CleanCarCo frontend application allows users to explore car wash services, b
    ```
 
 ```
-
 
 ```
