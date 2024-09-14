@@ -1,4 +1,4 @@
-It looks like the text got cut off. Here’s the complete `README.md` with all the steps included:
+Certainly! Here is the updated `README.md` without the "Bonus Requirements" and "Deliverables" sections:
 
 ````markdown
 <div align="center">
@@ -80,13 +80,6 @@ The CleanCarCo frontend application allows users to explore car wash services, b
 2. **Service Slot Countdown**
    - **Features:** Countdown timer for upcoming bookings displayed in the navbar and booking card.
 
-### Bonus Requirements
-
-- **Service Comparison Feature:** Allows comparison of two or more services side by side.
-- **Scroll to Top Button:** Appears on scroll for quick return to the top of the page.
-- **UI/UX Improvements:** Enhanced user interface and experience with best practices.
-- **GitHub Contributions:** At least 15 commits with meaningful progress.
-
 ## Technology Stack
 
 - **Frontend:** React, Tailwind CSS
@@ -164,5 +157,5 @@ For any inquiries, please reach out to [your-email@example.com](mailto:your-emai
 
 ```
 
-This `README.md` includes all the required steps for installation and usage, along with sections for contributing, licensing, and contact information.
+This `README.md` now excludes the bonus requirements and deliverables sections, focusing solely on the project's core features, installation, usage, and contribution guidelines.
 ```
