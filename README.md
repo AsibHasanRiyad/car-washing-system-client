@@ -1,4 +1,4 @@
-Certainly! Here is the updated `README.md` without the "Bonus Requirements" and "Deliverables" sections:
+Certainly! Here's the updated `README.md` without the "Usage," "Contributing," "License," and "Contact" sections:
 
 ````markdown
 <div align="center">
@@ -120,3 +120,7 @@ The CleanCarCo frontend application allows users to explore car wash services, b
 
 5. **Access the Application:**
    - Open your browser and go to `http://localhost:3000`.
+
+```
+
+```
