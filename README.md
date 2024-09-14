@@ -1,6 +1,3 @@
-Got it. Here’s the corrected `README.md` file without the unnecessary notes and formatted properly to ensure it displays correctly:
-
-````markdown
 <div align="center">
   <h1>CleanCarCo</h1>
 </div>
@@ -95,10 +92,10 @@ The CleanCarCo frontend application allows users to explore car wash services, b
 ### Installation Steps
 
 1. **Clone the Repository:**
+
    ```bash
    git clone https://github.com/AsibHasanRiyad/car-washing-system-client.git
    ```
-````
 
 2. **Navigate to the Project Directory:**
 
@@ -107,21 +104,18 @@ The CleanCarCo frontend application allows users to explore car wash services, b
    ```
 
 3. **Install Dependencies:**
-
    ```bash
    npm install
    ```
-
 4. **Run the Application Locally:**
-
    ```bash
    npm start
    ```
 
-5. **Access the Application:**
-   - Open your browser and go to `http://localhost:3000`.
+```
 
 ```
 
-This version should be properly formatted for Markdown rendering and will display the content correctly in GitHub or any Markdown viewer.
+```
+
 ```
