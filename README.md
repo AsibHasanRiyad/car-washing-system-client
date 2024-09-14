@@ -1,3 +1,5 @@
+Got it. Here’s the corrected `README.md` file without the unnecessary notes and formatted properly to ensure it displays correctly:
+
 ````markdown
 <div align="center">
   <h1>CleanCarCo</h1>
@@ -121,5 +123,5 @@ The CleanCarCo frontend application allows users to explore car wash services, b
 
 ```
 
-This version excludes the "Usage," "Contributing," "License," and "Contact" sections while retaining all relevant details for setting up and understanding the project.
+This version should be properly formatted for Markdown rendering and will display the content correctly in GitHub or any Markdown viewer.
 ```
