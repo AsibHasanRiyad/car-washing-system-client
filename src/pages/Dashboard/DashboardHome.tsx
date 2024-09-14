@@ -69,7 +69,7 @@ const DashboardHome = () => {
                     <div className="flex items-center gap-2 px-4 py-2 font-semibold text-primary">
                       <Mail /> Email :
                     </div>
-                    <div className="px-4 py-2 ">
+                    <div className="flex items-center w-40 px-4 py-2 overflow-scroll lg:w-full lg:overflow-hidden ">
                       <p>{data?.email}</p>
                     </div>
                   </div>
