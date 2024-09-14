@@ -203,7 +203,7 @@ const AdminDashboard = () => {
       </aside>
 
       {/* Main Content */}
-      <div className="flex-1 max-h-screen p-4 overflow-hidden ">
+      <div className="flex-1 min-h-screen p-4 overflow-hidden ">
         <Outlet />
       </div>
     </div>
