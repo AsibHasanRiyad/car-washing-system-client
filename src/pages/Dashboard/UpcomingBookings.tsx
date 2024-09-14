@@ -26,16 +26,15 @@ const UpcomingBookings = () => {
       <Title title1="Upcoming" title2="Bookings" description="" />
 
       <div className="grid h-full grid-cols-1 gap-6 px-6 py-10 lg:grid-cols-2">
-        {upcomingBookings?.length > 0 ? (
-          upcomingBookings.map((booking: TBookings) => (
-            <UpcomingBookingCard booking={booking} key={booking._id} />
-          ))
-        ) : (
-          <p className="flex items-center justify-center min-h-screen text-xl text-primary">
-            No upcoming bookings found.
-          </p>
-        )}
+        {upcomingBookings.map((booking: TBookings) => (
+          <UpcomingBookingCard booking={booking} key={booking._id} />
+        ))}
       </div>
+      {upcomingBookings.length === 0 && (
+        <p className="flex items-center justify-center h-[55vh] text-3xl text-primary ">
+          No bookings available
+        </p>
+      )}
     </div>
   );
 };
