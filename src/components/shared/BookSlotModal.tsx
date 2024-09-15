@@ -1,6 +1,4 @@
 import { useForm } from "react-hook-form";
-
-import { FaArrowRightLong } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 
 import {
@@ -86,12 +84,7 @@ export function BookingSlotModal({ slotData }: { slotData: TSlotData }) {
     <div>
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogTrigger className="w-full" asChild>
-          <Button
-            variant="expandIcon"
-            Icon={FaArrowRightLong}
-            iconPlacement="right"
-            className="px-16 py-5 text-white rounded-lg bg-primary mt-7 "
-          >
+          <Button className="px-16 py-5 text-white rounded-lg bg-primary mt-7 ">
             Pay Now
           </Button>
         </DialogTrigger>
