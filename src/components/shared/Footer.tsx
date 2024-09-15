@@ -4,7 +4,7 @@ import { Facebook, Github, Instagram, Linkedin, Twitter } from "lucide-react";
 
 const Footer = () => {
   return (
-    <div className="relative p-10 pt-10 overflow-hidden w-fit bg-secondary">
+    <div className="relative pt-10 overflow-hidden sm:p-10 w-fit bg-secondary">
       {/* SVG Background */}
       <svg
         className="absolute -bottom-20 start-1/2 w-[1900px] transform -translate-x-1/2"
