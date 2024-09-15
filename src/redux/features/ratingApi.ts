@@ -21,7 +21,20 @@ const ratingApi = baseApi.injectEndpoints({
       },
       providesTags: ["allRatings"],
     }),
+    getAverageRatings: builder.query({
+      query: () => {
+        return {
+          url: "/ratings/average-ratings",
+          method: "GET",
+        };
+      },
+      providesTags: ["allRatings"],
+    }),
   }),
 });
 
-export const { useCreateRatingMutation, useGetAllRatingsQuery } = ratingApi;
+export const {
+  useCreateRatingMutation,
+  useGetAllRatingsQuery,
+  useGetAverageRatingsQuery,
+} = ratingApi;

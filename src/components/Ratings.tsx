@@ -1,4 +1,7 @@
-import { useGetAllRatingsQuery } from "@/redux/features/ratingApi";
+import {
+  useGetAllRatingsQuery,
+  useGetAverageRatingsQuery,
+} from "@/redux/features/ratingApi";
 import { RatingForm } from "./RatingForm";
 import Title from "./shared/Title";
 import RatingCard from "./RatingCard";
@@ -16,6 +19,8 @@ export type TRating = {
 
 const Ratings = () => {
   const { data } = useGetAllRatingsQuery(undefined);
+  const { data: averageRatings } = useGetAverageRatingsQuery(undefined);
+  console.log(averageRatings);
 
   const user = useSelector(useCurrentUser);
   const isAuthenticated = !!user;
@@ -49,6 +54,11 @@ const Ratings = () => {
               title="What Others Say About Us: Genuine Experiences and Feedback"
               size="3xl"
             />
+            <div>
+              <h1 className="text-primary ">
+                Average Rating: <span>{averageRatings?.data?.toFixed(2)}</span>{" "}
+              </h1>
+            </div>
             <div className="flex flex-col gap-5">
               {data?.data?.slice(0, 2).map((rating: TRating) => {
                 return <RatingCard key={rating._id} rating={rating} />;
