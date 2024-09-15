@@ -7,7 +7,7 @@ import Title from "./shared/Title";
 import RatingCard from "./RatingCard";
 import Header from "./shared/Header";
 import { Button } from "./ui/button";
-import { useSelector } from "react-redux"; // Assuming you're using Redux for authentication
+import { useSelector } from "react-redux";
 import { useCurrentUser } from "@/redux/features/authSlice";
 import { Link } from "react-router-dom";
 
@@ -24,7 +24,10 @@ const Ratings = () => {
 
   const user = useSelector(useCurrentUser);
   const isAuthenticated = !!user;
-  // console.log(user);
+
+  // Safely access the ratings and slice the last two elements
+  const latestRatings =
+    data?.data?.length > 1 ? data.data.slice(-2) : data?.data || [];
 
   return (
     <section className="relative px-4 py-10 lg:px-0 bg-secondary ">
@@ -32,7 +35,6 @@ const Ratings = () => {
       {!isAuthenticated && (
         <div className="absolute inset-0 z-10 flex items-center justify-center bg-black bg-opacity-75">
           <Link to={"/signin"}>
-            {" "}
             <Button className="text-white">Login</Button>
           </Link>
         </div>
@@ -60,13 +62,12 @@ const Ratings = () => {
               </h1>
             </div>
             <div className="flex flex-col gap-5">
-              {data?.data?.slice(0, 2).map((rating: TRating) => {
-                return <RatingCard key={rating._id} rating={rating} />;
-              })}
+              {latestRatings.map((rating: TRating) => (
+                <RatingCard key={rating._id} rating={rating} />
+              ))}
             </div>
             <div className="flex items-center justify-center lg:justify-start">
               <Link to={"/all-reviews"}>
-                {" "}
                 <Button className="text-white w-fit">See all reviews</Button>
               </Link>
             </div>
