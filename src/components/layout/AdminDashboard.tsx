@@ -30,7 +30,7 @@ const AdminDashboard = () => {
   }, []);
   const [isOpen, setIsOpen] = React.useState(false);
   const userRole = useAppSelector(useCurrentUser);
-  console.log(userRole);
+  // console.log(userRole);
 
   return (
     <div className="flex min-h-screen ">

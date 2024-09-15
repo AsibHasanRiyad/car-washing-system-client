@@ -68,7 +68,7 @@ export function BookingSlotModal({ slotData }: { slotData: TSlotData }) {
     // console.log(payload);
     try {
       const res = await createBooking(payload).unwrap();
-      console.log(res, "res");
+      // console.log(res, "res");
       if (res.success) {
         setIsOpen(false);
         window.location.href = res.data.payment_url;
@@ -77,7 +77,7 @@ export function BookingSlotModal({ slotData }: { slotData: TSlotData }) {
         toast.error(res.data.message);
       }
     } catch (err) {
-      console.log(err, "errrorrr");
+      // console.log(err, "errrorrr");
       toast.error((err as any).data.message);
     }
   };

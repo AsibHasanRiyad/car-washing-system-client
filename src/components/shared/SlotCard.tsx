@@ -89,10 +89,10 @@ export function SlotCard({
       manufacturingYear: data.manufacturingYear,
       registrationPlate: data.registrationPlate,
     };
-    console.log(payload);
+    // console.log(payload);
     try {
       const res = await createBooking(payload).unwrap();
-      console.log(res, "res");
+      // console.log(res, "res");
       if (res.success) {
         toast.success(res.message);
         refetch();

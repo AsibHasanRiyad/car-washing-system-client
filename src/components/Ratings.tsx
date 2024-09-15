@@ -20,7 +20,7 @@ export type TRating = {
 const Ratings = () => {
   const { data } = useGetAllRatingsQuery(undefined);
   const { data: averageRatings } = useGetAverageRatingsQuery(undefined);
-  console.log(averageRatings);
+  // console.log(averageRatings);
 
   const user = useSelector(useCurrentUser);
   const isAuthenticated = !!user;

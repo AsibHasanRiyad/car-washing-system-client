@@ -31,7 +31,7 @@ const ProtectedRoute = ({ children, allowedRoles }: ProtectedRouteProps) => {
       return false;
     }
   };
-  console.log(isTokenValid(token), "token");
+  // console.log(isTokenValid(token), "token");
   useEffect(() => {
     if (!token || !isTokenValid(token)) {
       dispatch(logout());

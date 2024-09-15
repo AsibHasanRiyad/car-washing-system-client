@@ -44,7 +44,7 @@ export function EditUserProfile() {
     data._id = userDetails?.id;
     try {
       const res = await updateUserProfile(data).unwrap();
-      console.log(res, "response");
+      // console.log(res, "response");
       if (res.success) {
         // update user details on local storage
         dispatch(

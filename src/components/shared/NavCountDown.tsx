@@ -12,7 +12,7 @@ const NavCountDown = () => {
   const nowDateOnly = nowISO.split("T")[0];
   let lastBooking;
   const upcomingBookings = data?.data?.filter((booking: TBookings) => {
-    console.log(booking);
+    // console.log(booking);
     if (!booking?.slot?.date) {
       return false;
     }
