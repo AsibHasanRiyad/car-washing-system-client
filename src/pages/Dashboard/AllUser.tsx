@@ -11,6 +11,8 @@ import {
 import Title from "@/components/shared/Title";
 import { useGetAllUsersQuery } from "@/redux/features/authApi";
 import { SelectUserRole } from "@/components/Dashboard/SelectUserRole";
+import { PaginationCard } from "@/components/shared/Pagination";
+import { useState } from "react";
 
 type TUser = {
   name: string;
@@ -22,9 +24,12 @@ type TUser = {
 };
 
 export function AllUser() {
-  const { data, isFetching, isLoading, refetch } =
-    useGetAllUsersQuery(undefined);
-  // console.log(data?.data);
+  const [page, setPage] = useState(1);
+  const { data, isFetching, isLoading, refetch } = useGetAllUsersQuery([
+    { name: "limit", value: 8 },
+    { name: "page", value: page },
+  ]);
+  console.log(data?.data);
   if (isFetching || isLoading) {
     return <Loader />;
   }
@@ -33,7 +38,7 @@ export function AllUser() {
       <Title title1="User" title2="Management" description="" />
       <Table className="text-white ">
         <TableHeader>
-          <TableRow>
+          <TableRow className=" hover:bg-transparent">
             <TableHead> Name</TableHead>
             <TableHead> Email</TableHead>
             <TableHead> Phone</TableHead>
@@ -63,6 +68,13 @@ export function AllUser() {
           ))}
         </TableBody>
       </Table>
+      <div className="mt-10 ">
+        <PaginationCard
+          currentPage={page}
+          totalPages={data?.meta?.totalPage || 1}
+          onPageChange={setPage}
+        />
+      </div>
     </div>
   );
 }

@@ -15,7 +15,7 @@ const UpcomingBookings = () => {
   const nowISO = new Date().toISOString();
   const nowDateOnly = nowISO.split("T")[0];
 
-  const upcomingBookings = data?.data?.filter((booking: TBookings) => {
+  const upcomingBookings = data?.data?.result?.filter((booking: TBookings) => {
     const bookingDateISO = new Date(booking.slot.date).toISOString();
     const bookingDateOnly = bookingDateISO.split("T")[0];
 

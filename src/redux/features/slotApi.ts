@@ -1,3 +1,4 @@
+import { TQueryParams } from "@/pages/GetAllServices";
 import { baseApi } from "../api/baseApi";
 
 const slotApi = baseApi.injectEndpoints({
@@ -12,10 +13,17 @@ const slotApi = baseApi.injectEndpoints({
       },
     }),
     getAllAvailableSlots: builder.query({
-      query: () => {
+      query: (args) => {
+        const params = new URLSearchParams();
+        if (args) {
+          args.forEach((item: TQueryParams) => {
+            params.append(item.name, item.value as string);
+          });
+        }
         return {
-          url: "/slots/availability",
+          url: "/slots",
           method: "GET",
+          params: params,
         };
       },
     }),

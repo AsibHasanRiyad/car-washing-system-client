@@ -7,11 +7,11 @@ import { TRenderProps } from "../Dashboard/UpcomingBookingCard";
 
 const NavCountDown = () => {
   const { data, isFetching, isLoading } = useGetMyBookingsQuery(undefined);
-
+  console.log(data);
   const nowISO = new Date().toISOString();
   const nowDateOnly = nowISO.split("T")[0];
   let lastBooking;
-  const upcomingBookings = data?.data?.filter((booking: TBookings) => {
+  const upcomingBookings = data?.data?.result?.filter((booking: TBookings) => {
     // console.log(booking);
     if (!booking?.slot?.date) {
       return false;
@@ -31,7 +31,7 @@ const NavCountDown = () => {
     );
   }
 
-  if (data?.data?.length === 0) {
+  if (data?.data?.result?.length === 0) {
     return null;
   }
 

@@ -144,7 +144,7 @@ export function MenubarDemo() {
           ) : (
             <Link to={"/signin"}>
               <Button
-                className={`text-white ${
+                className={`text-white bg-primary hover:bg-primary ${
                   scrollPosition > 50 &&
                   "bg-white text-primary hover:bg-black hover:text-white"
                 } `}

@@ -29,7 +29,7 @@ const GetAllServices = () => {
     { name: "maxPrice", value: maxPrice },
     { name: "searchTerm", value: searchTerm },
   ]);
-
+  console.log(data, "services");
   const handlePriceRangeChange = (min: number, max: number) => {
     setMinPrice(min);
     setMaxPrice(max);
@@ -41,6 +41,15 @@ const GetAllServices = () => {
 
   const handleSearch = () => {
     setPage(1);
+  };
+
+  const resetParams = async () => {
+    console.log("reset");
+    setSortBy("price");
+    setMaxPrice(1000);
+    setMinPrice(0);
+    setSearchTerm("");
+    handleSearch();
   };
 
   useEffect(() => {
@@ -61,7 +70,7 @@ const GetAllServices = () => {
       </div>
       <div className="flex flex-col gap-10 px-4 py-10 xl:flex-row md:px-10 2xl:px-20">
         {/* search and other logic */}
-        <div className="pr-0 xl:pr-10 space-y-8 xl:border-r 2xl:min-w-[350px] border-r-neutral-800">
+        <div className="pr-0 xl:pr-10 space-y-4 xl:border-r 2xl:min-w-[350px] border-r-neutral-800">
           <div className="flex items-center w-full gap-2 ">
             <Input
               type="text"
@@ -79,11 +88,17 @@ const GetAllServices = () => {
               <p className="text-xl ">Sort By:</p>
               <SortBy handleSelectSort={handleSelectSort} />
             </div>
-            <div className="flex flex-col items-start space-y-8 font-medium">
+            <div className="flex flex-col items-start pb-4 space-y-8 font-medium">
               <h1 className="text-xl text-primary ">Price Range:</h1>
               <PriceRange onPriceRangeChange={handlePriceRangeChange} />
             </div>
           </div>
+          <Button
+            onClick={() => resetParams()}
+            className="w-full bg-primary hover:bg-primary"
+          >
+            Reset All
+          </Button>
         </div>
 
         {/* content */}

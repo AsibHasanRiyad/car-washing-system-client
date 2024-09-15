@@ -11,16 +11,22 @@ import { useGetMyBookingsQuery } from "@/redux/features/bookingApi";
 import { TBookings } from "../AllBookings";
 import Title from "@/components/shared/Title";
 import { dateFormatter } from "@/utils/dateFormatter";
+import { PaginationCard } from "@/components/shared/Pagination";
+import { useState } from "react";
 
 export function MyBookingsDashboard() {
-  const { data, isFetching, isLoading } = useGetMyBookingsQuery(undefined);
+  const [page, setPage] = useState(1);
+  const { data, isFetching, isLoading } = useGetMyBookingsQuery([
+    { name: "limit", value: 10 },
+    { name: "page", value: page },
+  ]);
 
   if (isFetching || isLoading) {
     return <Loader />;
   }
 
   // Filter out bookings where slot.isBooked is 'canceled'
-  const filteredBookings = data?.data?.filter(
+  const filteredBookings = data?.data?.result?.filter(
     (booking: TBookings) => booking.slot.isBooked !== "available"
   );
 
@@ -64,6 +70,13 @@ export function MyBookingsDashboard() {
           ))}
         </TableBody>
       </Table>
+      <div className="mt-10 ">
+        <PaginationCard
+          currentPage={page}
+          totalPages={data?.data?.meta?.totalPage}
+          onPageChange={setPage}
+        />
+      </div>
     </div>
   );
 }

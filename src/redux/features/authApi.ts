@@ -1,3 +1,4 @@
+import { TQueryParams } from "@/pages/GetAllServices";
 import { baseApi } from "../api/baseApi";
 
 const authApi = baseApi.injectEndpoints({
@@ -21,10 +22,17 @@ const authApi = baseApi.injectEndpoints({
       },
     }),
     getAllUsers: builder.query({
-      query: () => {
+      query: (args) => {
+        const params = new URLSearchParams();
+        if (args) {
+          args.forEach((item: TQueryParams) => {
+            params.append(item.name, item.value as string);
+          });
+        }
         return {
           url: "/auth/users",
           method: "GET",
+          params: params,
         };
       },
     }),

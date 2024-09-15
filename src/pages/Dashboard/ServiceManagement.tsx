@@ -12,11 +12,16 @@ import ServiceTable from "@/components/Dashboard/ServiceTable";
 import Title from "@/components/shared/Title";
 
 import { CreateService } from "@/components/Dashboard/CreateService";
+import { PaginationCard } from "@/components/shared/Pagination";
+import { useState } from "react";
 
 const ServiceManagement = () => {
-  const { data, isLoading, isFetching, refetch } =
-    useGetAllServicesQuery(undefined);
-
+  const [page, setPage] = useState(1);
+  const { data, isLoading, isFetching, refetch } = useGetAllServicesQuery([
+    { name: "limit", value: 6 },
+    { name: "page", value: page },
+  ]);
+  console.log(data);
   if (isLoading || isFetching) {
     return <Loader />;
   }
@@ -32,7 +37,7 @@ const ServiceManagement = () => {
         <TableHeader>
           <TableRow className=" hover:bg-transparent">
             <TableHead>Service Name</TableHead>
-            <TableHead>Details</TableHead>
+            <TableHead className="hidden lg:block">Details</TableHead>
             <TableHead>Duration</TableHead>
             <TableHead>Price</TableHead>
             <TableHead>Edit</TableHead>
@@ -45,6 +50,13 @@ const ServiceManagement = () => {
           ))}
         </TableBody>
       </Table>
+      <div className="mt-10 ">
+        <PaginationCard
+          currentPage={page}
+          totalPages={data?.meta?.totalPage}
+          onPageChange={setPage}
+        />
+      </div>
     </div>
   );
 };

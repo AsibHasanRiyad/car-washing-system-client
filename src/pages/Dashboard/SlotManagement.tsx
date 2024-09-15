@@ -13,10 +13,18 @@ import { useGetAllAvailableSlotsQuery } from "@/redux/features/slotApi";
 import SlotTable from "@/components/Dashboard/SlotTable";
 import { CreateSlot } from "@/components/Dashboard/CreateSlot";
 import { TSlotData } from "../AllSlot";
+import { useState } from "react";
+import { PaginationCard } from "@/components/shared/Pagination";
 
 const SlotManagement = () => {
-  const { data, isLoading, isFetching, refetch } =
-    useGetAllAvailableSlotsQuery(undefined);
+  const [page, setPage] = useState(1);
+  const { data, isLoading, isFetching, refetch } = useGetAllAvailableSlotsQuery(
+    [
+      { name: "limit", value: 8 },
+      { name: "page", value: page },
+    ]
+  );
+  console.log(data, "slot management");
 
   if (isLoading || isFetching) {
     return <Loader />;
@@ -47,6 +55,13 @@ const SlotManagement = () => {
           ))}
         </TableBody>
       </Table>
+      <div className="mt-10 ">
+        <PaginationCard
+          currentPage={page}
+          totalPages={data?.meta?.totalPage || 1}
+          onPageChange={setPage}
+        />
+      </div>
     </div>
   );
 };

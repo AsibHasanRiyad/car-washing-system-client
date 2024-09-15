@@ -11,10 +11,16 @@ import { useGetAllBookingsQuery } from "@/redux/features/bookingApi";
 import { TBookings } from "../AllBookings";
 import Title from "@/components/shared/Title";
 import dayjs from "dayjs";
+import { PaginationCard } from "@/components/shared/Pagination";
+import { useState } from "react";
 
 export function UserBookings() {
-  const { data, isFetching, isLoading } = useGetAllBookingsQuery(undefined);
-  // console.log(data?.data);
+  const [page, setPage] = useState(1);
+  const { data, isFetching, isLoading } = useGetAllBookingsQuery([
+    { name: "limit", value: 10 },
+    { name: "page", value: page },
+  ]);
+  // console.log(data?.data?.meta?.totalPage, "bookings");
   if (isFetching || isLoading) {
     return <Loader />;
   }
@@ -39,7 +45,7 @@ export function UserBookings() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data?.data?.map((booking: TBookings) => (
+          {data?.data?.result?.map((booking: TBookings) => (
             <TableRow
               className="cursor-pointer whitespace-nowrap hover:bg-transparent"
               key={booking._id}
@@ -65,6 +71,13 @@ export function UserBookings() {
           ))}
         </TableBody>
       </Table>
+      <div className="mt-10 ">
+        <PaginationCard
+          currentPage={page}
+          totalPages={data?.data?.meta?.totalPage}
+          onPageChange={setPage}
+        />
+      </div>
     </div>
   );
 }

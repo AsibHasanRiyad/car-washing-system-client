@@ -29,7 +29,7 @@ const ServiceTable = ({ service }: { service: TService }) => {
       <TableRow className=" hover:bg-transparent" key={service._id}>
         <TableCell className="font-medium w-52">{service.name}</TableCell>
         {/* <TableCell className="w-2/5 ">{service.description}</TableCell> */}
-        <TableCell className="w-full lg:w-2/5">
+        <TableCell className="hidden w-full lg:block">
           {shortDescription}{" "}
           {isTruncated && (
             <HoverCard>
