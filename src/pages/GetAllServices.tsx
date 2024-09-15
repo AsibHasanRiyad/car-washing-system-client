@@ -4,11 +4,21 @@ import { TService } from "./CreateService";
 import Title from "@/components/shared/Title";
 
 import ServiceCard2 from "@/components/shared/ServiceCard2";
-import { useEffect } from "react";
-
+import { useEffect, useState } from "react";
+import { PaginationCard } from "@/components/shared/Pagination";
+export type TQueryParams = {
+  name: string;
+  value: boolean | React.Key;
+};
 const GetAllServices = () => {
-  const { data, isLoading, isFetching } = useGetAllServicesQuery(undefined);
-  // console.log(data?.data);
+  const [params, setParams] = useState<TQueryParams[]>([]);
+  const [page, setPage] = useState(1);
+  const { data, isLoading, isFetching } = useGetAllServicesQuery([
+    { name: "limit", value: 5 },
+    { name: "page", value: page },
+    { name: "sort", value: "price" },
+    ...params,
+  ]);
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -38,6 +48,13 @@ const GetAllServices = () => {
           No Data Available
         </div>
       )}
+      <div>
+        <PaginationCard
+          currentPage={page}
+          totalPages={data?.meta?.totalPage || 1}
+          onPageChange={setPage}
+        />
+      </div>
     </div>
   );
 };

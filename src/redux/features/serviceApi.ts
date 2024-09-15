@@ -1,3 +1,4 @@
+import { TQueryParams } from "@/pages/GetAllServices";
 import { baseApi } from "../api/baseApi";
 
 const serviceApi = baseApi.injectEndpoints({
@@ -13,10 +14,17 @@ const serviceApi = baseApi.injectEndpoints({
       invalidatesTags: ["services"],
     }),
     getAllServices: builder.query({
-      query: () => {
+      query: (args) => {
+        const params = new URLSearchParams();
+        if (args) {
+          args.forEach((item: TQueryParams) => {
+            params.append(item.name, item.value as string);
+          });
+        }
         return {
-          url: "/services",
+          url: `/services`,
           method: "GET",
+          params: params,
         };
       },
       providesTags: ["services"],
