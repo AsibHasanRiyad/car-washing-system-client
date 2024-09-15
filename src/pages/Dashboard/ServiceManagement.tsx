@@ -21,7 +21,7 @@ const ServiceManagement = () => {
     { name: "limit", value: 6 },
     { name: "page", value: page },
   ]);
-  console.log(data);
+  // console.log(data);
   if (isLoading || isFetching) {
     return <Loader />;
   }

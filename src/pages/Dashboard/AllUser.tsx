@@ -29,7 +29,7 @@ export function AllUser() {
     { name: "limit", value: 8 },
     { name: "page", value: page },
   ]);
-  console.log(data?.data);
+  // console.log(data?.data);
   if (isFetching || isLoading) {
     return <Loader />;
   }

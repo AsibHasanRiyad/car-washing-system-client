@@ -27,7 +27,7 @@ export type TBookings = {
 
 const AllBookings = () => {
   const { data, isFetching, isLoading } = useGetAllBookingsQuery(undefined);
-  console.log(data);
+  // console.log(data);
   if (isFetching || isLoading) {
     return <Loader />;
   }

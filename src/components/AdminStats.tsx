@@ -17,7 +17,8 @@ const AdminStats = () => {
   const totalUser = allUser?.data?.length || null;
   const totalSlots = allSlots?.data?.length || null;
   const totalServices = allServices?.data?.length || null;
-  const totalBookings = allBookings?.data?.length || null;
+  const totalBookings = allBookings?.data?.result?.length || null;
+  // console.log(allBookings, "total bookings");
   return (
     <section className="h-full py-6 mt-10 border cursor-pointer text-text bg-third border-neutral-800 rounded-xl">
       <div className="container grid grid-cols-1 gap-6 mx-auto sm:grid-cols-2 xl:grid-cols-4">

@@ -24,7 +24,7 @@ const SlotManagement = () => {
       { name: "page", value: page },
     ]
   );
-  console.log(data, "slot management");
+  // console.log(data, "slot management");
 
   if (isLoading || isFetching) {
     return <Loader />;
