@@ -22,7 +22,7 @@ const SlotManagement = () => {
     return <Loader />;
   }
   return (
-    <div className="overflow-scroll max-w-[100vw]  hide-scrollbar">
+    <div className="overflow-scroll max-w-[100vw] lg:px-10  hide-scrollbar">
       <div className="mt-5 ">
         <Title title1="Slot" title2="Management" description="" />
       </div>

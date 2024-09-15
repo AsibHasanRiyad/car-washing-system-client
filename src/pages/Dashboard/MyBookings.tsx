@@ -25,8 +25,8 @@ export function MyBookingsDashboard() {
   );
 
   return (
-    <div className="mt-5">
-      <Title title1="User" title2="Bookings" description="" />
+    <div className="mt-5 lg:px-10">
+      <Title title1="My" title2="Bookings" description="" />
       <Table className="text-white 2xl:text-lg">
         <TableHeader>
           <TableRow>

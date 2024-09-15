@@ -22,7 +22,7 @@ export function UserBookings() {
     return dayjs(isoDate).format("DD-MM-YYYY");
   };
   return (
-    <div className="mt-5 ">
+    <div className="mt-5 lg:px-10 ">
       <Title title1="User" title2="Bookings" description="" />
       <Table className="text-white ">
         <TableHeader>

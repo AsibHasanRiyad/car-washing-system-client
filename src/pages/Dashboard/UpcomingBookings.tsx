@@ -27,7 +27,7 @@ const UpcomingBookings = () => {
   });
 
   return (
-    <div>
+    <div className=" lg:px-10">
       <Title title1="Upcoming" title2="Bookings" description="" />
 
       <div className="grid h-full grid-cols-1 gap-6 px-6 py-10 lg:grid-cols-2">

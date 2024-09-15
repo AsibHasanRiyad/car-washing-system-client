@@ -29,7 +29,7 @@ export function AllUser() {
     return <Loader />;
   }
   return (
-    <div className="mt-5 ">
+    <div className="mt-5 lg:px-10 ">
       <Title title1="User" title2="Management" description="" />
       <Table className="text-white ">
         <TableHeader>
