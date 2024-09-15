@@ -8,6 +8,7 @@ import PriceRange from "@/components/shared/PriceRange";
 import { SortBy } from "@/components/shared/SortBy";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import Loader from "@/components/shared/Loader";
 
 export type TQueryParams = {
   name: string;
@@ -21,7 +22,7 @@ const GetAllServices = () => {
   const [maxPrice, setMaxPrice] = useState<number>(1000);
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-  const { data } = useGetAllServicesQuery([
+  const { data, isLoading } = useGetAllServicesQuery([
     { name: "limit", value: 6 },
     { name: "page", value: page },
     { name: "sort", value: sortBy || "price" },
@@ -58,6 +59,10 @@ const GetAllServices = () => {
       behavior: "smooth",
     });
   }, []);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div className="w-screen p-2 pb-24 overflow-hidden sm:p-10 bg-secondary">
