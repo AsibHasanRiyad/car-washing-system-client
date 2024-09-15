@@ -26,12 +26,7 @@ const FeaturedServices = () => {
       </div>
       <div className="flex items-center justify-center">
         <Link to={"/all-services"}>
-          <Button
-            variant="expandIcon"
-            Icon={ArrowRightIcon}
-            iconPlacement="right"
-            className="text-white "
-          >
+          <Button className="text-white bg-primary hover:bg-primary ">
             See more
           </Button>
         </Link>
